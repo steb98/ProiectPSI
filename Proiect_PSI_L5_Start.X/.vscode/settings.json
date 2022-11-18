@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "adc.h": "c",
+        "global.h": "c",
+        "pic18f6585.h": "c"
+    }
+}

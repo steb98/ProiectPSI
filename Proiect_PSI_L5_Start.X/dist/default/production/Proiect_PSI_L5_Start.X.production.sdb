@@ -1,0 +1,645 @@
+[p GLOBOPT AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F6585 ]
+[d frameptr 4065 ]
+"13 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\lights.c
+[e E10327 s_OutputPort `ui
+IOC_SFD 256
+IOC_FD 257
+IOC_FS 258
+IOC_SFS 259
+IOC_SSD 260
+IOC_LSF 261
+IOC_LS 262
+IOC_SSS 263
+IOC_IE 512
+IOC_IFS 513
+]
+"187
+[e E10339 s_InputPort `ui
+IOC_ADC0 768
+IOC_ADC1 769
+IOC_FRANA 0
+IOC_FARURI 1
+IOC_AVARII 2
+IOC_SEM_D 3
+IOC_SEM_S 4
+]
+"6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\ioc.c
+[e E10327 s_OutputPort `ui
+IOC_SFD 256
+IOC_FD 257
+IOC_FS 258
+IOC_SFS 259
+IOC_SSD 260
+IOC_LSF 261
+IOC_LS 262
+IOC_SSS 263
+IOC_IE 512
+IOC_IFS 513
+]
+"9
+[e E10321 s_Port `ui
+IOC_PORTC 0
+IOC_PORTD 256
+IOC_PORTE 512
+IOC_PORTA 768
+]
+"20
+[e E10339 s_InputPort `ui
+IOC_ADC0 768
+IOC_ADC1 769
+IOC_FRANA 0
+IOC_FARURI 1
+IOC_AVARII 2
+IOC_SEM_D 3
+IOC_SEM_S 4
+]
+"24 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\demo.c
+[e E10327 s_OutputPort `ui
+IOC_SFD 256
+IOC_FD 257
+IOC_FS 258
+IOC_SFS 259
+IOC_SSD 260
+IOC_LSF 261
+IOC_LS 262
+IOC_SSS 263
+IOC_IE 512
+IOC_IFS 513
+]
+"60
+[e E10339 s_InputPort `ui
+IOC_ADC0 768
+IOC_ADC1 769
+IOC_FRANA 0
+IOC_FARURI 1
+IOC_AVARII 2
+IOC_SEM_D 3
+IOC_SEM_S 4
+]
+"9 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\adc.c
+[v _ADC_vInit ADC_vInit `(v  1 e 1 0 ]
+"40
+[v _ADC_vConversionCompleted ADC_vConversionCompleted `(v  1 e 1 0 ]
+"48
+[v _ADC_u16ReadAdcValue ADC_u16ReadAdcValue `(ui  1 e 2 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul64.c
+[v ___omul __omul `(ul  1 e 4 0 ]
+"20 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\demo.c
+[v _LIGHTS_DemoState1 LIGHTS_DemoState1 `(v  1 e 1 0 ]
+"39
+[v _LIGHTS_DemoState2 LIGHTS_DemoState2 `(v  1 e 1 0 ]
+"58
+[v _LIGHTS_DemoEventPoll LIGHTS_DemoEventPoll `(v  1 e 1 0 ]
+"6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\int.c
+[v _INT_vInit INT_vInit `(v  1 e 1 0 ]
+"22
+[v _INT_vInterruptHandler INT_vInterruptHandler `II(v  1 e 1 0 ]
+"5 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\ioc.c
+[v _IOC_vSetOutputPort IOC_vSetOutputPort `(v  1 e 1 0 ]
+"19
+[v _IOC_T16GetInputPort IOC_T16GetInputPort `(ui  1 e 2 0 ]
+"11 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\lights.c
+[v _LIGHTS_toggleAllHazardLights LIGHTS_toggleAllHazardLights `(v  1 e 1 0 ]
+"20
+[v _LIGHTS_toggleSideHazardLights LIGHTS_toggleSideHazardLights `(v  1 e 1 0 ]
+"35
+[v _LIGHTS_setAllHazardLights LIGHTS_setAllHazardLights `(v  1 e 1 0 ]
+"43
+[v _LIGHTS_setSideHazardLights LIGHTS_setSideHazardLights `(v  1 e 1 0 ]
+"59
+[v _LIGHTS_BlinkPasiveState LIGHTS_BlinkPasiveState `(v  1 e 1 0 ]
+"110
+[v _LIGHTS_BlinkSwitchOnState LIGHTS_BlinkSwitchOnState `(v  1 e 1 0 ]
+"162
+[v _LIGHTS_BlinkSwitchOffState LIGHTS_BlinkSwitchOffState `(v  1 e 1 0 ]
+"185
+[v _LIGHTS_BlinkEventPoll LIGHTS_BlinkEventPoll `(v  1 e 1 0 ]
+"192
+[v _LIGHTS_BlinkersInit LIGHTS_BlinkersInit `(v  1 e 1 0 ]
+"201
+[v _LIGHTS_BlinkersRun LIGHTS_BlinkersRun `(v  1 e 1 0 ]
+"11 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"3 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\pcs.c
+[v _PCS_vInit PCS_vInit `(v  1 e 1 0 ]
+"20
+[v _PCS_vSetOutputPortD PCS_vSetOutputPortD `(v  1 e 1 0 ]
+"35
+[v _PCS_vSetOutputPortE PCS_vSetOutputPortE `(v  1 e 1 0 ]
+"50
+[v _PCS_T16GetInputPortC PCS_T16GetInputPortC `(ui  1 e 2 0 ]
+"13 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\sched.c
+[v _SCHED_vInitSystem SCHED_vInitSystem `(v  1 e 1 0 ]
+"21
+[v _SCHED_vTickFunctionCall SCHED_vTickFunctionCall `(v  1 e 1 0 ]
+"29
+[v _SCHED_vStartScheduler SCHED_vStartScheduler `(v  1 e 1 0 ]
+"5 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\tasks.c
+[v _TASK_vTaskAppInit TASK_vTaskAppInit `(v  1 e 1 0 ]
+"11
+[v _TASK_vTask1ms TASK_vTask1ms `(v  1 e 1 0 ]
+"17
+[v _TASK_vTask10ms TASK_vTask10ms `(v  1 e 1 0 ]
+"21
+[v _TASK_vTask100ms TASK_vTask100ms `(v  1 e 1 0 ]
+"25
+[v _TASK_vTask1s TASK_vTask1s `(v  1 e 1 0 ]
+"3 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\tim.c
+[v _TIM_vInit TIM_vInit `(v  1 e 1 0 ]
+"7 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\adc.c
+[v _au16AdcReadValue au16AdcReadValue `[2]ui  1 e 4 0 ]
+"25342 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f6585.h
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+"25518
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"25639
+[v _PORTE PORTE `VEuc  1 e 1 @3972 ]
+[s S587 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+]
+"26833
+[s S595 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+]
+[u S603 . 1 `S587 1 . 1 0 `S595 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES603  1 e 1 @3986 ]
+[s S623 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"27255
+[s S632 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S641 . 1 `S623 1 . 1 0 `S632 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES641  1 e 1 @3988 ]
+"27445
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S664 . 1 `uc 1 TRISE0 1 0 :1:0 
+`uc 1 TRISE1 1 0 :1:1 
+`uc 1 TRISE2 1 0 :1:2 
+`uc 1 TRISE3 1 0 :1:3 
+`uc 1 TRISE4 1 0 :1:4 
+`uc 1 TRISE5 1 0 :1:5 
+`uc 1 TRISE6 1 0 :1:6 
+`uc 1 TRISE7 1 0 :1:7 
+]
+"27699
+[s S673 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+`uc 1 RE3 1 0 :1:3 
+`uc 1 RE4 1 0 :1:4 
+`uc 1 RE5 1 0 :1:5 
+`uc 1 RE6 1 0 :1:6 
+`uc 1 RE7 1 0 :1:7 
+]
+[u S682 . 1 `S664 1 . 1 0 `S673 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES682  1 e 1 @3990 ]
+[s S274 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 PSPIE 1 0 :1:7 
+]
+"28283
+[s S283 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+]
+[u S287 . 1 `S274 1 . 1 0 `S283 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES287  1 e 1 @3997 ]
+[s S244 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+"28360
+[s S253 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[u S257 . 1 `S244 1 . 1 0 `S253 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES257  1 e 1 @3998 ]
+[s S439 . 1 `uc 1 TMR1IP 1 0 :1:0 
+`uc 1 TMR2IP 1 0 :1:1 
+`uc 1 CCP1IP 1 0 :1:2 
+`uc 1 SSPIP 1 0 :1:3 
+`uc 1 TXIP 1 0 :1:4 
+`uc 1 RCIP 1 0 :1:5 
+`uc 1 ADIP 1 0 :1:6 
+`uc 1 PSPIP 1 0 :1:7 
+]
+"28437
+[s S448 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IP 1 0 :1:4 
+`uc 1 RC1IP 1 0 :1:5 
+]
+[u S452 . 1 `S439 1 . 1 0 `S448 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES452  1 e 1 @3999 ]
+[s S216 . 1 `uc 1 ADCS 1 0 :3:0 
+`uc 1 ACQT 1 0 :3:3 
+`uc 1 . 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"30285
+[s S221 . 1 `uc 1 ADCS0 1 0 :1:0 
+`uc 1 ADCS1 1 0 :1:1 
+`uc 1 ADCS2 1 0 :1:2 
+`uc 1 ACQT0 1 0 :1:3 
+`uc 1 ACQT1 1 0 :1:4 
+`uc 1 ACQT2 1 0 :1:5 
+]
+[u S228 . 1 `S216 1 . 1 0 `S221 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES228  1 e 1 @4032 ]
+[s S181 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 VCFG 1 0 :2:4 
+]
+"30360
+[s S184 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+]
+[s S191 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+`uc 1 VCFG01 1 0 :1:4 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S196 . 1 `S181 1 . 1 0 `S184 1 . 1 0 `S191 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES196  1 e 1 @4033 ]
+[s S113 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"30464
+[s S116 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S120 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S127 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S130 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S133 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S136 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S139 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S142 . 1 `S113 1 . 1 0 `S116 1 . 1 0 `S120 1 . 1 0 `S127 1 . 1 0 `S130 1 . 1 0 `S133 1 . 1 0 `S136 1 . 1 0 `S139 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES142  1 e 1 @4034 ]
+"30546
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"30553
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+"30954
+[v _T2CON T2CON `VEuc  1 e 1 @4042 ]
+[s S536 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 TOUTPS 1 0 :4:3 
+]
+"30975
+[s S540 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+[u S548 . 1 `S536 1 . 1 0 `S540 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES548  1 e 1 @4042 ]
+"31025
+[v _PR2 PR2 `VEuc  1 e 1 @4043 ]
+"31135
+[v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
+[s S304 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"32159
+[s S313 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S322 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S326 . 1 `S304 1 . 1 0 `S313 1 . 1 0 `S322 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES326  1 e 1 @4082 ]
+[s S944 s_stateMachine 8 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `ui 1 toggle 2 6 ]
+"3 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\demo.c
+[v _demoSM demoSM `S944  1 e 8 0 ]
+[s S26 s_blinkStateMachine 9 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 avarie 1 6 `uc 1 leftSwitch 1 7 `uc 1 rightSwitch 1 8 ]
+"3 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\lights.c
+[v _blinkerSM blinkerSM `S26  1 e 9 0 ]
+"8 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\sched.c
+[v _sched_gTick10ms sched_gTick10ms `uc  1 e 1 0 ]
+"9
+[v _sched_gTick100ms sched_gTick100ms `uc  1 e 1 0 ]
+"10
+[v _sched_gTick1s sched_gTick1s `ui  1 e 2 0 ]
+"11
+[v _sched_bTicked sched_bTicked `ui  1 e 2 0 ]
+"11 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"15
+} 0
+"29 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\sched.c
+[v _SCHED_vStartScheduler SCHED_vStartScheduler `(v  1 e 1 0 ]
+{
+"62
+} 0
+"5 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\tasks.c
+[v _TASK_vTaskAppInit TASK_vTaskAppInit `(v  1 e 1 0 ]
+{
+"9
+} 0
+"192 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\lights.c
+[v _LIGHTS_BlinkersInit LIGHTS_BlinkersInit `(v  1 e 1 0 ]
+{
+"200
+} 0
+"25 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\tasks.c
+[v _TASK_vTask1s TASK_vTask1s `(v  1 e 1 0 ]
+{
+"27
+} 0
+"11
+[v _TASK_vTask1ms TASK_vTask1ms `(v  1 e 1 0 ]
+{
+"15
+} 0
+"201 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\lights.c
+[v _LIGHTS_BlinkersRun LIGHTS_BlinkersRun `(v  1 e 1 0 ]
+{
+"211
+} 0
+"59
+[v _LIGHTS_BlinkPasiveState LIGHTS_BlinkPasiveState `(v  1 e 1 0 ]
+{
+"61
+[v LIGHTS_BlinkPasiveState@counter counter `ui  1 s 2 counter ]
+"62
+[v LIGHTS_BlinkPasiveState@firstEntry firstEntry `uc  1 s 1 firstEntry ]
+"63
+[v LIGHTS_BlinkPasiveState@toggleLights toggleLights `uc  1 s 1 toggleLights ]
+"108
+} 0
+"162
+[v _LIGHTS_BlinkSwitchOffState LIGHTS_BlinkSwitchOffState `(v  1 e 1 0 ]
+{
+"183
+} 0
+"110
+[v _LIGHTS_BlinkSwitchOnState LIGHTS_BlinkSwitchOnState `(v  1 e 1 0 ]
+{
+"112
+[v LIGHTS_BlinkSwitchOnState@side side `uc  1 s 1 side ]
+"113
+[v LIGHTS_BlinkSwitchOnState@counter counter `ui  1 s 2 counter ]
+"114
+[v LIGHTS_BlinkSwitchOnState@firstEntry firstEntry `uc  1 s 1 firstEntry ]
+"115
+[v LIGHTS_BlinkSwitchOnState@toggleLights toggleLights `uc  1 s 1 toggleLights ]
+"160
+} 0
+"20
+[v _LIGHTS_toggleSideHazardLights LIGHTS_toggleSideHazardLights `(v  1 e 1 0 ]
+{
+[v LIGHTS_toggleSideHazardLights@toggle toggle `*.39uc  1 p 2 20 ]
+[v LIGHTS_toggleSideHazardLights@side side `uc  1 p 1 22 ]
+"33
+} 0
+"43
+[v _LIGHTS_setSideHazardLights LIGHTS_setSideHazardLights `(v  1 e 1 0 ]
+{
+[v LIGHTS_setSideHazardLights@value value `uc  1 a 1 wreg ]
+[v LIGHTS_setSideHazardLights@value value `uc  1 a 1 wreg ]
+[v LIGHTS_setSideHazardLights@side side `uc  1 p 1 20 ]
+"45
+[v LIGHTS_setSideHazardLights@value value `uc  1 a 1 21 ]
+"55
+} 0
+"11
+[v _LIGHTS_toggleAllHazardLights LIGHTS_toggleAllHazardLights `(v  1 e 1 0 ]
+{
+[v LIGHTS_toggleAllHazardLights@toggle toggle `*.39uc  1 p 2 20 ]
+"18
+} 0
+"35
+[v _LIGHTS_setAllHazardLights LIGHTS_setAllHazardLights `(v  1 e 1 0 ]
+{
+[v LIGHTS_setAllHazardLights@value value `uc  1 a 1 wreg ]
+[v LIGHTS_setAllHazardLights@value value `uc  1 a 1 wreg ]
+"37
+[v LIGHTS_setAllHazardLights@value value `uc  1 a 1 20 ]
+"41
+} 0
+"5 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\ioc.c
+[v _IOC_vSetOutputPort IOC_vSetOutputPort `(v  1 e 1 0 ]
+{
+"7
+[v IOC_vSetOutputPort@u16ChannelMask u16ChannelMask `ui  1 a 2 18 ]
+"5
+[v IOC_vSetOutputPort@u16ChannelSelect u16ChannelSelect `CE10327  1 p 2 15 ]
+[v IOC_vSetOutputPort@u8Value u8Value `Cuc  1 p 1 17 ]
+"17
+} 0
+"35 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\pcs.c
+[v _PCS_vSetOutputPortE PCS_vSetOutputPortE `(v  1 e 1 0 ]
+{
+[v PCS_vSetOutputPortE@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
+"38
+[v PCS_vSetOutputPortE@u8BitNumberValue u8BitNumberValue `uc  1 a 1 14 ]
+"37
+[v PCS_vSetOutputPortE@u8BitValue u8BitValue `uc  1 a 1 12 ]
+"35
+[v PCS_vSetOutputPortE@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
+[v PCS_vSetOutputPortE@u8Value u8Value `Cuc  1 p 1 7 ]
+"37
+[v PCS_vSetOutputPortE@u8BitNumber u8BitNumber `Cuc  1 a 1 13 ]
+"48
+} 0
+"20
+[v _PCS_vSetOutputPortD PCS_vSetOutputPortD `(v  1 e 1 0 ]
+{
+[v PCS_vSetOutputPortD@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
+"23
+[v PCS_vSetOutputPortD@u8BitNumberValue u8BitNumberValue `uc  1 a 1 14 ]
+"22
+[v PCS_vSetOutputPortD@u8BitValue u8BitValue `uc  1 a 1 12 ]
+"20
+[v PCS_vSetOutputPortD@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
+[v PCS_vSetOutputPortD@u8Value u8Value `Cuc  1 p 1 7 ]
+"22
+[v PCS_vSetOutputPortD@u8BitNumber u8BitNumber `Cuc  1 a 1 13 ]
+"33
+} 0
+"185 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\lights.c
+[v _LIGHTS_BlinkEventPoll LIGHTS_BlinkEventPoll `(v  1 e 1 0 ]
+{
+"190
+} 0
+"19 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\ioc.c
+[v _IOC_T16GetInputPort IOC_T16GetInputPort `(ui  1 e 2 0 ]
+{
+"22
+[v IOC_T16GetInputPort@u16ChannelMask u16ChannelMask `ui  1 a 2 21 ]
+"21
+[v IOC_T16GetInputPort@pinValue pinValue `ui  1 a 2 19 ]
+"19
+[v IOC_T16GetInputPort@u16ChannelSelect u16ChannelSelect `CE10339  1 p 2 17 ]
+"34
+} 0
+"50 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\pcs.c
+[v _PCS_T16GetInputPortC PCS_T16GetInputPortC `(ui  1 e 2 0 ]
+{
+[v PCS_T16GetInputPortC@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
+"52
+[v PCS_T16GetInputPortC@u8BitNumberValue u8BitNumberValue `uc  1 a 1 16 ]
+"50
+[v PCS_T16GetInputPortC@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
+"52
+[v PCS_T16GetInputPortC@u8BitNumber u8BitNumber `Cuc  1 a 1 15 ]
+"54
+} 0
+"48 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\adc.c
+[v _ADC_u16ReadAdcValue ADC_u16ReadAdcValue `(ui  1 e 2 0 ]
+{
+[v ADC_u16ReadAdcValue@U8Channel U8Channel `Cuc  1 a 1 wreg ]
+"50
+[v ADC_u16ReadAdcValue@U8ChannelValue U8ChannelValue `uc  1 a 1 11 ]
+"48
+[v ADC_u16ReadAdcValue@U8Channel U8Channel `Cuc  1 a 1 wreg ]
+"50
+[v ADC_u16ReadAdcValue@U8Channel U8Channel `Cuc  1 a 1 12 ]
+"52
+} 0
+"17 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\tasks.c
+[v _TASK_vTask10ms TASK_vTask10ms `(v  1 e 1 0 ]
+{
+"19
+} 0
+"21
+[v _TASK_vTask100ms TASK_vTask100ms `(v  1 e 1 0 ]
+{
+"23
+} 0
+"13 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\sched.c
+[v _SCHED_vInitSystem SCHED_vInitSystem `(v  1 e 1 0 ]
+{
+"19
+} 0
+"3 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\tim.c
+[v _TIM_vInit TIM_vInit `(v  1 e 1 0 ]
+{
+"21
+} 0
+"3 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\pcs.c
+[v _PCS_vInit PCS_vInit `(v  1 e 1 0 ]
+{
+"18
+} 0
+"6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\int.c
+[v _INT_vInit INT_vInit `(v  1 e 1 0 ]
+{
+"20
+} 0
+"9 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\adc.c
+[v _ADC_vInit ADC_vInit `(v  1 e 1 0 ]
+{
+"31
+} 0
+"22 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\int.c
+[v _INT_vInterruptHandler INT_vInterruptHandler `II(v  1 e 1 0 ]
+{
+"34
+} 0
+"21 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\sched.c
+[v _SCHED_vTickFunctionCall SCHED_vTickFunctionCall `(v  1 e 1 0 ]
+{
+"27
+} 0
+"40 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\Proiect_PSI_L5_Start.X\adc.c
+[v _ADC_vConversionCompleted ADC_vConversionCompleted `(v  1 e 1 0 ]
+{
+"46
+} 0
