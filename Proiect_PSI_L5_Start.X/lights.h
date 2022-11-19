@@ -2,17 +2,19 @@
 #define LIGHTS_H_
 #include "ioc.h"
 
-typedef struct s_blinkStateMachine
+typedef struct s_HeadLightStateMachine
 {
     void (*_currentState)(void);
     void (*_pollEvents)(void);
     T_BOOL firstEntry;
-    T_U8 avarie;
-    T_U8 leftSwitch;
-    T_U8 rightSwitch;
-} s_BlinkerSM;
+    T_U8 faruri;
+    T_U16 lightLevel;
+} s_HeadLightSM;
 
-void LIGHTS_BlinkersInit();
-void LIGHTS_BlinkersRun();
+void LIGHTS_BrakeInit();
+void LIGHTS_BrakeRun();
+
+void LIGHTS_HeadLampInit();
+void LIGHTS_HeadLampRun();
 
 #endif

@@ -5,8 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f2" displayName="APP" projectFiles="true">
-        <itemPath>lights.h</itemPath>
         <itemPath>demo.h</itemPath>
+        <itemPath>sgl.h</itemPath>
+        <itemPath>lights.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="MCD" projectFiles="true">
         <itemPath>adc.h</itemPath>
@@ -27,8 +28,9 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f2" displayName="APP" projectFiles="true">
-        <itemPath>lights.c</itemPath>
         <itemPath>demo.c</itemPath>
+        <itemPath>sgl.c</itemPath>
+        <itemPath>lights.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="MCD" projectFiles="true">
         <itemPath>adc.c</itemPath>

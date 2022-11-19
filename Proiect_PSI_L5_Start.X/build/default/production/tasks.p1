@@ -1,8 +1,16 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"15 sgl.h
+[v _SGL_BlinkersInit `(v ~T0 @X0 0 ef ]
+"14 lights.h
+[v _LIGHTS_BrakeInit `(v ~T0 @X0 0 ef ]
+"17
+[v _LIGHTS_HeadLampInit `(v ~T0 @X0 0 ef ]
+"16 sgl.h
+[v _SGL_BlinkersRun `(v ~T0 @X0 0 ef ]
 "15 lights.h
-[v _LIGHTS_BlinkersInit `(v ~T0 @X0 0 ef ]
-"16
-[v _LIGHTS_BlinkersRun `(v ~T0 @X0 0 ef ]
+[v _LIGHTS_BrakeRun `(v ~T0 @X0 0 ef ]
+"18
+[v _LIGHTS_HeadLampRun `(v ~T0 @X0 0 ef ]
 [; ;tasks.h: 5: void TASK_vTaskAppInit();
 [; ;tasks.h: 6: void TASK_vTask1ms();
 [; ;tasks.h: 7: void TASK_vTask10ms();
@@ -11612,80 +11620,104 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;demo.h: 11: } s_SM;
 [; ;demo.h: 13: void LIGHTS_DemoInit();
 [; ;demo.h: 14: void LIGHTS_DemoRun();
-[; ;lights.h: 5: typedef struct s_blinkStateMachine
+[; ;sgl.h: 5: typedef struct s_blinkStateMachine
+[; ;sgl.h: 6: {
+[; ;sgl.h: 7: void (*_currentState)(void);
+[; ;sgl.h: 8: void (*_pollEvents)(void);
+[; ;sgl.h: 9: T_BOOL firstEntry;
+[; ;sgl.h: 10: T_U8 avarie;
+[; ;sgl.h: 11: T_U8 leftSwitch;
+[; ;sgl.h: 12: T_U8 rightSwitch;
+[; ;sgl.h: 13: } s_BlinkerSM;
+[; ;sgl.h: 15: void SGL_BlinkersInit();
+[; ;sgl.h: 16: void SGL_BlinkersRun();
+[; ;lights.h: 5: typedef struct s_HeadLightStateMachine
 [; ;lights.h: 6: {
 [; ;lights.h: 7: void (*_currentState)(void);
 [; ;lights.h: 8: void (*_pollEvents)(void);
 [; ;lights.h: 9: T_BOOL firstEntry;
-[; ;lights.h: 10: T_U8 avarie;
-[; ;lights.h: 11: T_U8 leftSwitch;
-[; ;lights.h: 12: T_U8 rightSwitch;
-[; ;lights.h: 13: } s_BlinkerSM;
-[; ;lights.h: 15: void LIGHTS_BlinkersInit();
-[; ;lights.h: 16: void LIGHTS_BlinkersRun();
-"5 tasks.c
+[; ;lights.h: 10: T_U8 faruri;
+[; ;lights.h: 11: T_U16 lightLevel;
+[; ;lights.h: 12: } s_HeadLightSM;
+[; ;lights.h: 14: void LIGHTS_BrakeInit();
+[; ;lights.h: 15: void LIGHTS_BrakeRun();
+[; ;lights.h: 17: void LIGHTS_HeadLampInit();
+[; ;lights.h: 18: void LIGHTS_HeadLampRun();
+"6 tasks.c
 [v _TASK_vTaskAppInit `(v ~T0 @X0 1 ef ]
-"6
+"7
 {
-[; ;tasks.c: 5: void TASK_vTaskAppInit()
-[; ;tasks.c: 6: {
+[; ;tasks.c: 6: void TASK_vTaskAppInit()
+[; ;tasks.c: 7: {
 [e :U _TASK_vTaskAppInit ]
 [f ]
-[; ;tasks.c: 7: LIGHTS_BlinkersInit();
-"7
-[e ( _LIGHTS_BlinkersInit ..  ]
-[; ;tasks.c: 9: }
+[; ;tasks.c: 8: SGL_BlinkersInit();
+"8
+[e ( _SGL_BlinkersInit ..  ]
+[; ;tasks.c: 9: LIGHTS_BrakeInit();
 "9
-[e :UE 1062 ]
-}
-"11
-[v _TASK_vTask1ms `(v ~T0 @X0 1 ef ]
-"12
-{
-[; ;tasks.c: 11: void TASK_vTask1ms()
-[; ;tasks.c: 12: {
-[e :U _TASK_vTask1ms ]
-[f ]
-[; ;tasks.c: 13: LIGHTS_BlinkersRun();
+[e ( _LIGHTS_BrakeInit ..  ]
+[; ;tasks.c: 10: LIGHTS_HeadLampInit();
+"10
+[e ( _LIGHTS_HeadLampInit ..  ]
+[; ;tasks.c: 13: }
 "13
-[e ( _LIGHTS_BlinkersRun ..  ]
-[; ;tasks.c: 15: }
-"15
 [e :UE 1063 ]
 }
-"17
-[v _TASK_vTask10ms `(v ~T0 @X0 1 ef ]
-"18
+"15
+[v _TASK_vTask1ms `(v ~T0 @X0 1 ef ]
+"16
 {
-[; ;tasks.c: 17: void TASK_vTask10ms()
-[; ;tasks.c: 18: {
-[e :U _TASK_vTask10ms ]
+[; ;tasks.c: 15: void TASK_vTask1ms()
+[; ;tasks.c: 16: {
+[e :U _TASK_vTask1ms ]
 [f ]
-[; ;tasks.c: 19: }
-"19
+[; ;tasks.c: 17: SGL_BlinkersRun();
+"17
+[e ( _SGL_BlinkersRun ..  ]
+[; ;tasks.c: 18: LIGHTS_BrakeRun();
+"18
+[e ( _LIGHTS_BrakeRun ..  ]
+[; ;tasks.c: 20: }
+"20
 [e :UE 1064 ]
 }
-"21
-[v _TASK_vTask100ms `(v ~T0 @X0 1 ef ]
 "22
-{
-[; ;tasks.c: 21: void TASK_vTask100ms()
-[; ;tasks.c: 22: {
-[e :U _TASK_vTask100ms ]
-[f ]
-[; ;tasks.c: 23: }
+[v _TASK_vTask10ms `(v ~T0 @X0 1 ef ]
 "23
+{
+[; ;tasks.c: 22: void TASK_vTask10ms()
+[; ;tasks.c: 23: {
+[e :U _TASK_vTask10ms ]
+[f ]
+[; ;tasks.c: 24: LIGHTS_HeadLampRun();
+"24
+[e ( _LIGHTS_HeadLampRun ..  ]
+[; ;tasks.c: 25: }
+"25
 [e :UE 1065 ]
 }
-"25
-[v _TASK_vTask1s `(v ~T0 @X0 1 ef ]
-"26
+"27
+[v _TASK_vTask100ms `(v ~T0 @X0 1 ef ]
+"28
 {
-[; ;tasks.c: 25: void TASK_vTask1s()
-[; ;tasks.c: 26: {
+[; ;tasks.c: 27: void TASK_vTask100ms()
+[; ;tasks.c: 28: {
+[e :U _TASK_vTask100ms ]
+[f ]
+[; ;tasks.c: 29: }
+"29
+[e :UE 1066 ]
+}
+"31
+[v _TASK_vTask1s `(v ~T0 @X0 1 ef ]
+"32
+{
+[; ;tasks.c: 31: void TASK_vTask1s()
+[; ;tasks.c: 32: {
 [e :U _TASK_vTask1s ]
 [f ]
-[; ;tasks.c: 27: }
-"27
-[e :UE 1066 ]
+[; ;tasks.c: 33: }
+"33
+[e :UE 1067 ]
 }

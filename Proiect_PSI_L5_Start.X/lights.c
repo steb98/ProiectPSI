@@ -1,211 +1,129 @@
 #include "lights.h"
 
-s_BlinkerSM blinkerSM;
+#define ADC_SCALLING_FACTOR 204
 
-void LIGHTS_BlinkPasiveState();
-void LIGHTS_BlinkSwitchOnState();
-void LIGHTS_BlinkSwitchOffState();
-void LIGHTS_BlinkEventPoll();
-
-
-void LIGHTS_toggleAllHazardLights(T_U8* toggle)
+void LIGHTS_BrakeInit()
 {
-    IOC_vSetOutputPort(IOC_SFD, *toggle);
-    IOC_vSetOutputPort(IOC_SFS, *toggle);
-    IOC_vSetOutputPort(IOC_SSD, *toggle);
-    IOC_vSetOutputPort(IOC_SSS, *toggle);
-    *toggle = *toggle ^ 1;
+    IOC_vSetOutputPort(IOC_LSF, 0);
 }
 
-void LIGHTS_toggleSideHazardLights(T_U8* toggle, T_U8 side)
+void LIGHTS_BrakeRun()
 {
-    if(0 == side)
+    static T_U8 counter = 0;
+    
+    if(4 == counter)
     {
-        IOC_vSetOutputPort(IOC_SFS, *toggle);
-        IOC_vSetOutputPort(IOC_SSS, *toggle);
+        IOC_vSetOutputPort(IOC_LSF, IOC_T16GetInputPort(IOC_FRANA));
+        counter = 0;
     }
-    else
-    {
-        IOC_vSetOutputPort(IOC_SFD, *toggle);
-        IOC_vSetOutputPort(IOC_SSD, *toggle);
-    }
-    *toggle = *toggle ^ 1;
-}
-
-void LIGHTS_setAllHazardLights(T_U8 value)
-{
-    IOC_vSetOutputPort(IOC_SFD, value);
-    IOC_vSetOutputPort(IOC_SFS, value);
-    IOC_vSetOutputPort(IOC_SSD, value);
-    IOC_vSetOutputPort(IOC_SSS, value); 
-}
-
-void LIGHTS_setSideHazardLights(T_U8 value, T_U8 side)
-{
-    if(0 == side)
-    {
-        IOC_vSetOutputPort(IOC_SFS, value);
-        IOC_vSetOutputPort(IOC_SSS, value);
-    }
-    else
-    {
-        IOC_vSetOutputPort(IOC_SFD, value);
-        IOC_vSetOutputPort(IOC_SSD, value);
-    }
+    ++counter;
 }
 
 
+s_HeadLightSM headLightSM;
 
-void LIGHTS_BlinkPasiveState()
+void SGL_HeadLightEventPoll();
+void SGL_HeadLightPasiveState();
+void SGL_HeadLightActiveState();
+T_U8 SGL_isNight();
+
+T_U8 SGL_isNight()
 {
-    static T_U16 counter = 0;
-    static T_U8 firstEntry = 1;
-    static T_U8 toggleLights = 0;
+    static T_U8 prevState = 0; // 0 meaning day
+    T_U16 currentLightLevel = headLightSM.lightLevel;
+    
+    if(prevState == 0 && currentLightLevel < (2.2*ADC_SCALLING_FACTOR))
+    {
+        prevState = 1;
+        return 1;
+    }
+    
+    if(prevState == 1 && currentLightLevel > (2.4*ADC_SCALLING_FACTOR))
+    {
+        prevState = 0;
+        return 1;
+    }
+    
+    return prevState;
+}
 
+void SGL_HeadLightPasiveState()
+{
     // State entry
-    if(blinkerSM.firstEntry == 1)
+    if(headLightSM.firstEntry == 1)
     {
-        LIGHTS_setAllHazardLights(0);
-        blinkerSM.firstEntry = 0;
+        IOC_vSetOutputPort(IOC_IFS, 0);
+        IOC_vSetOutputPort(IOC_LS, 0);
+        headLightSM.firstEntry = 0;
     }
     
     // State run
-    if(1 == blinkerSM.avarie)
+    if(SGL_isNight())
     {
-        if(1 == firstEntry)
-        {
-            LIGHTS_setAllHazardLights(1);
-            firstEntry = 0;
-        }
-        if(500 == counter)
-        {
-            LIGHTS_toggleAllHazardLights(&toggleLights);
-            counter = 0;
-        }
-        else
-        {
-            counter++;
-        }
+        IOC_vSetOutputPort(IOC_IFS, 1);
     }
     else
     {
-        LIGHTS_setAllHazardLights(0);
-        counter = 0;
-        firstEntry = 1;
-        toggleLights = 0;
+        IOC_vSetOutputPort(IOC_IFS, 0);
     }
     
-    // Transition check
-    if( ((1 == blinkerSM.leftSwitch) || (1 == blinkerSM.rightSwitch)) && 0 == blinkerSM.avarie )
+    // State transit
+    if(1 == headLightSM.faruri)
     {
-        blinkerSM._currentState = LIGHTS_BlinkSwitchOnState;
-        blinkerSM.firstEntry = 1;
-        counter = 0;
-        toggleLights = 0;
-        LIGHTS_setAllHazardLights(0);
+        headLightSM.firstEntry = 1;
+        headLightSM._currentState = SGL_HeadLightActiveState;
+        IOC_vSetOutputPort(IOC_IFS, 0);
     }
-    
 }
 
-void LIGHTS_BlinkSwitchOnState()
-{
-    static T_U8 side = 0;
-    static T_U16 counter = 0;
-    static T_U8 firstEntry = 1;
-    static T_U8 toggleLights = 0;
-    
-    // State entry
-    if(blinkerSM.firstEntry == 1)
-    {
-        // right side is off, that means left is on in this state
-        side = blinkerSM.rightSwitch;
-        blinkerSM.firstEntry = 0;
-    }
-    
-    // State run
-    if(1 == firstEntry)
-    {
-        LIGHTS_setSideHazardLights(1, side);
-        firstEntry = 0;
-    }
-    if(500 == counter)
-    {
-        LIGHTS_toggleSideHazardLights(&toggleLights, side);
-        counter = 0;
-    }
-    else
-    {
-        counter++;
-    }
-    
-    // Transition check
-    if( 1 == blinkerSM.avarie )
-    {
-        blinkerSM._currentState = LIGHTS_BlinkPasiveState;
-        blinkerSM.firstEntry = 1;
-        counter = 0;
-        toggleLights = 0;
-        firstEntry = 1;
-        LIGHTS_setAllHazardLights(0);
-    }else if( (0 == blinkerSM.avarie) && (0 == blinkerSM.leftSwitch) && (0 == blinkerSM.rightSwitch) )
-    {
-        blinkerSM._currentState = LIGHTS_BlinkSwitchOffState;
-        blinkerSM.firstEntry = 1;
-        counter = 0;
-        toggleLights = 0;
-        firstEntry = 1;
-        LIGHTS_setAllHazardLights(0);
-    }
-
-}
-
-void LIGHTS_BlinkSwitchOffState()
+void SGL_HeadLightActiveState()
 {
     // State entry
-    if(blinkerSM.firstEntry == 1)
+    if(headLightSM.firstEntry == 1)
     {
-        blinkerSM.firstEntry = 0;
-        LIGHTS_setAllHazardLights(0);
+        IOC_vSetOutputPort(IOC_LS, 1);
+        IOC_vSetOutputPort(IOC_FS, 1);
+        IOC_vSetOutputPort(IOC_FD, 1);
+        headLightSM.firstEntry = 0;
     }
     
     // State run
     
-    // Transition check
-    if( 1 == blinkerSM.avarie )
+    //State transit
+    if(0 == headLightSM.faruri)
     {
-        blinkerSM._currentState = LIGHTS_BlinkPasiveState;
-        blinkerSM.firstEntry = 1;
-    } else if( (1 == blinkerSM.leftSwitch) || (1 == blinkerSM.rightSwitch) )
-    {
-        blinkerSM._currentState = LIGHTS_BlinkSwitchOnState;
-        blinkerSM.firstEntry = 1;
+        headLightSM._currentState = SGL_HeadLightPasiveState;
+        headLightSM.firstEntry = 1;
+        IOC_vSetOutputPort(IOC_LS, 0);
+        IOC_vSetOutputPort(IOC_FS, 0);
+        IOC_vSetOutputPort(IOC_FD, 0);
     }
+    
 }
 
-void LIGHTS_BlinkEventPoll()
+void SGL_HeadLightEventPoll()
 {
-    blinkerSM.avarie = IOC_T16GetInputPort(IOC_AVARII);
-    blinkerSM.leftSwitch = IOC_T16GetInputPort(IOC_SEM_S);
-    blinkerSM.rightSwitch = IOC_T16GetInputPort(IOC_SEM_D);
+    headLightSM.faruri = IOC_T16GetInputPort(IOC_FARURI);
+    headLightSM.lightLevel = IOC_T16GetInputPort(IOC_ADC0);
 }
 
-void LIGHTS_BlinkersInit()
+void LIGHTS_HeadLampInit()
 {
-    blinkerSM._currentState = LIGHTS_BlinkPasiveState;
-    blinkerSM._pollEvents = LIGHTS_BlinkEventPoll;
-    blinkerSM.avarie = 0;
-    blinkerSM.firstEntry = 1;
-    blinkerSM.leftSwitch = 0;
-    blinkerSM.rightSwitch = 0;
+    headLightSM._currentState = SGL_HeadLightPasiveState;
+    headLightSM._pollEvents = SGL_HeadLightEventPoll;
+    headLightSM.firstEntry = 1;
+    headLightSM.faruri = 0;
+    headLightSM.lightLevel = 0;
 }
-void LIGHTS_BlinkersRun()
+
+void LIGHTS_HeadLampRun()
 {
-    if(0 != blinkerSM._currentState)
+    if(0 != headLightSM._currentState)
     {
-        (*blinkerSM._currentState)();
+        (*headLightSM._currentState)();
     }
-    if(0 != blinkerSM._pollEvents)
+    if(0 != headLightSM._pollEvents)
     {
-        (*blinkerSM._pollEvents)();
+        (*headLightSM._pollEvents)();
     }
 }

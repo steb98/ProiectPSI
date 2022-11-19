@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=lights.c adc.c int.c pcs.c tim.c main.c sched.c ioc.c tasks.c demo.c
+SOURCEFILES_QUOTED_IF_SPACED=demo.c adc.c int.c pcs.c tim.c main.c sched.c ioc.c tasks.c sgl.c lights.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lights.p1 ${OBJECTDIR}/adc.p1 ${OBJECTDIR}/int.p1 ${OBJECTDIR}/pcs.p1 ${OBJECTDIR}/tim.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/sched.p1 ${OBJECTDIR}/ioc.p1 ${OBJECTDIR}/tasks.p1 ${OBJECTDIR}/demo.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/lights.p1.d ${OBJECTDIR}/adc.p1.d ${OBJECTDIR}/int.p1.d ${OBJECTDIR}/pcs.p1.d ${OBJECTDIR}/tim.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/sched.p1.d ${OBJECTDIR}/ioc.p1.d ${OBJECTDIR}/tasks.p1.d ${OBJECTDIR}/demo.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/demo.p1 ${OBJECTDIR}/adc.p1 ${OBJECTDIR}/int.p1 ${OBJECTDIR}/pcs.p1 ${OBJECTDIR}/tim.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/sched.p1 ${OBJECTDIR}/ioc.p1 ${OBJECTDIR}/tasks.p1 ${OBJECTDIR}/sgl.p1 ${OBJECTDIR}/lights.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/demo.p1.d ${OBJECTDIR}/adc.p1.d ${OBJECTDIR}/int.p1.d ${OBJECTDIR}/pcs.p1.d ${OBJECTDIR}/tim.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/sched.p1.d ${OBJECTDIR}/ioc.p1.d ${OBJECTDIR}/tasks.p1.d ${OBJECTDIR}/sgl.p1.d ${OBJECTDIR}/lights.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/lights.p1 ${OBJECTDIR}/adc.p1 ${OBJECTDIR}/int.p1 ${OBJECTDIR}/pcs.p1 ${OBJECTDIR}/tim.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/sched.p1 ${OBJECTDIR}/ioc.p1 ${OBJECTDIR}/tasks.p1 ${OBJECTDIR}/demo.p1
+OBJECTFILES=${OBJECTDIR}/demo.p1 ${OBJECTDIR}/adc.p1 ${OBJECTDIR}/int.p1 ${OBJECTDIR}/pcs.p1 ${OBJECTDIR}/tim.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/sched.p1 ${OBJECTDIR}/ioc.p1 ${OBJECTDIR}/tasks.p1 ${OBJECTDIR}/sgl.p1 ${OBJECTDIR}/lights.p1
 
 # Source Files
-SOURCEFILES=lights.c adc.c int.c pcs.c tim.c main.c sched.c ioc.c tasks.c demo.c
+SOURCEFILES=demo.c adc.c int.c pcs.c tim.c main.c sched.c ioc.c tasks.c sgl.c lights.c
 
 
 
@@ -88,13 +88,13 @@ MP_PROCESSOR_OPTION=18F6585
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/lights.p1: lights.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/demo.p1: demo.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/lights.p1.d 
-	@${RM} ${OBJECTDIR}/lights.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none    -fshort-double -fshort-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/lights.p1 lights.c 
-	@-${MV} ${OBJECTDIR}/lights.d ${OBJECTDIR}/lights.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/lights.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/demo.p1.d 
+	@${RM} ${OBJECTDIR}/demo.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none    -fshort-double -fshort-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/demo.p1 demo.c 
+	@-${MV} ${OBJECTDIR}/demo.d ${OBJECTDIR}/demo.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/demo.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/adc.p1: adc.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -160,22 +160,30 @@ ${OBJECTDIR}/tasks.p1: tasks.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/tasks.d ${OBJECTDIR}/tasks.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/tasks.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/demo.p1: demo.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/sgl.p1: sgl.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/demo.p1.d 
-	@${RM} ${OBJECTDIR}/demo.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none    -fshort-double -fshort-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/demo.p1 demo.c 
-	@-${MV} ${OBJECTDIR}/demo.d ${OBJECTDIR}/demo.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/demo.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/sgl.p1.d 
+	@${RM} ${OBJECTDIR}/sgl.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none    -fshort-double -fshort-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/sgl.p1 sgl.c 
+	@-${MV} ${OBJECTDIR}/sgl.d ${OBJECTDIR}/sgl.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/sgl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-else
 ${OBJECTDIR}/lights.p1: lights.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/lights.p1.d 
 	@${RM} ${OBJECTDIR}/lights.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fshort-double -fshort-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/lights.p1 lights.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none    -fshort-double -fshort-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/lights.p1 lights.c 
 	@-${MV} ${OBJECTDIR}/lights.d ${OBJECTDIR}/lights.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/lights.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+else
+${OBJECTDIR}/demo.p1: demo.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/demo.p1.d 
+	@${RM} ${OBJECTDIR}/demo.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fshort-double -fshort-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/demo.p1 demo.c 
+	@-${MV} ${OBJECTDIR}/demo.d ${OBJECTDIR}/demo.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/demo.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/adc.p1: adc.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -241,13 +249,21 @@ ${OBJECTDIR}/tasks.p1: tasks.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/tasks.d ${OBJECTDIR}/tasks.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/tasks.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/demo.p1: demo.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/sgl.p1: sgl.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/demo.p1.d 
-	@${RM} ${OBJECTDIR}/demo.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fshort-double -fshort-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/demo.p1 demo.c 
-	@-${MV} ${OBJECTDIR}/demo.d ${OBJECTDIR}/demo.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/demo.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/sgl.p1.d 
+	@${RM} ${OBJECTDIR}/sgl.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fshort-double -fshort-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/sgl.p1 sgl.c 
+	@-${MV} ${OBJECTDIR}/sgl.d ${OBJECTDIR}/sgl.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/sgl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/lights.p1: lights.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/lights.p1.d 
+	@${RM} ${OBJECTDIR}/lights.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fshort-double -fshort-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/lights.p1 lights.c 
+	@-${MV} ${OBJECTDIR}/lights.d ${OBJECTDIR}/lights.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/lights.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
