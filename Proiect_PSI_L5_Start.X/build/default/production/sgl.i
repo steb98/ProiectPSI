@@ -18409,9 +18409,12 @@ typedef struct s_blinkStateMachine
 void (*_currentState)(void);
 void (*_pollEvents)(void);
 T_BOOL firstEntry;
-T_U8 avarie;
-T_U8 leftSwitch;
-T_U8 rightSwitch;
+T_U8 pollAvarie;
+T_U8 pollLeftSwitch;
+T_U8 pollRightSwitch;
+T_U8 holdSwitch;
+T_U8 globalToggle;
+T_U16 globalCounter;
 } s_BlinkerSM;
 
 void SGL_BlinkersInit();
@@ -18453,12 +18456,13 @@ IOC_vSetOutputPort(IOC_SSD, *toggle);
 *toggle = *toggle ^ 1;
 }
 
-void SGL_setAllHazardLights(T_U8 value)
+void SGL_setAllHazardLights(T_U8* toggle)
 {
-IOC_vSetOutputPort(IOC_SFD, value);
-IOC_vSetOutputPort(IOC_SFS, value);
-IOC_vSetOutputPort(IOC_SSD, value);
-IOC_vSetOutputPort(IOC_SSS, value);
+IOC_vSetOutputPort(IOC_SFD, *toggle);
+IOC_vSetOutputPort(IOC_SFS, *toggle);
+IOC_vSetOutputPort(IOC_SSD, *toggle);
+IOC_vSetOutputPort(IOC_SSS, *toggle);
+*toggle = *toggle ^ 1;
 }
 
 void SGL_setSideHazardLights(T_U8 value, T_U8 side)
@@ -18477,53 +18481,48 @@ IOC_vSetOutputPort(IOC_SSD, value);
 
 
 
-
 void SGL_BlinkPasiveState()
 {
-static T_U16 counter = 0;
 static T_U8 firstEntry = 1;
-static T_U8 toggleLights = 0;
 
 
 if(blinkerSM.firstEntry == 1)
 {
-SGL_setAllHazardLights(0);
 blinkerSM.firstEntry = 0;
 }
 
 
-if(1 == blinkerSM.avarie)
+if(1 == blinkerSM.pollAvarie)
 {
 if(1 == firstEntry)
 {
-SGL_setAllHazardLights(1);
+SGL_setAllHazardLights(blinkerSM.globalToggle);
 firstEntry = 0;
 }
-if(500 == counter)
+if(500 == blinkerSM.globalCounter)
 {
-SGL_toggleAllHazardLights(&toggleLights);
-counter = 0;
+SGL_toggleAllHazardLights(&blinkerSM.globalToggle);
+blinkerSM.globalCounter = 0;
 }
 else
 {
-counter++;
+blinkerSM.globalCounter++;
 }
 }
 else
 {
-SGL_setAllHazardLights(0);
-counter = 0;
+if((firstEntry == 0) && blinkerSM.globalToggle == 0)
+{
+SGL_setAllHazardLights(&blinkerSM.globalToggle);
+}
 firstEntry = 1;
-toggleLights = 0;
 }
 
 
-if( ((1 == blinkerSM.leftSwitch) || (1 == blinkerSM.rightSwitch)) && 0 == blinkerSM.avarie )
+if( ((1 == blinkerSM.pollLeftSwitch) || (1 == blinkerSM.pollRightSwitch)) && 0 == blinkerSM.pollAvarie )
 {
 blinkerSM._currentState = SGL_BlinkSwitchOnState;
 blinkerSM.firstEntry = 1;
-counter = 0;
-toggleLights = 0;
 SGL_setAllHazardLights(0);
 }
 
@@ -18532,93 +18531,119 @@ SGL_setAllHazardLights(0);
 void SGL_BlinkSwitchOnState()
 {
 static T_U8 side = 0;
-static T_U16 counter = 0;
 static T_U8 firstEntry = 1;
-static T_U8 toggleLights = 0;
 
 
 if(blinkerSM.firstEntry == 1)
 {
 
-side = blinkerSM.rightSwitch;
+side = blinkerSM.pollRightSwitch;
+blinkerSM.holdSwitch = side;
 blinkerSM.firstEntry = 0;
 }
 
 
 if(1 == firstEntry)
 {
-SGL_setSideHazardLights(1, side);
+SGL_setSideHazardLights(blinkerSM.globalToggle, side);
 firstEntry = 0;
 }
-if(500 == counter)
+if(500 == blinkerSM.globalCounter)
 {
-SGL_toggleSideHazardLights(&toggleLights, side);
-counter = 0;
+SGL_toggleSideHazardLights(&blinkerSM.globalToggle, side);
+blinkerSM.globalCounter = 0;
 }
 else
 {
-counter++;
+blinkerSM.globalCounter++;
 }
 
 
-if( 1 == blinkerSM.avarie )
+if( 1 == blinkerSM.pollAvarie )
 {
 blinkerSM._currentState = SGL_BlinkPasiveState;
 blinkerSM.firstEntry = 1;
-counter = 0;
-toggleLights = 0;
 firstEntry = 1;
 SGL_setAllHazardLights(0);
-}else if( (0 == blinkerSM.avarie) && (0 == blinkerSM.leftSwitch) && (0 == blinkerSM.rightSwitch) )
+}else if( (0 == blinkerSM.pollAvarie) && (0 == blinkerSM.pollLeftSwitch) && (0 == blinkerSM.pollRightSwitch) )
 {
 blinkerSM._currentState = SGL_BlinkSwitchOffState;
 blinkerSM.firstEntry = 1;
-counter = 0;
-toggleLights = 0;
 firstEntry = 1;
-SGL_setAllHazardLights(0);
+
 }
 
 }
 
 void SGL_BlinkSwitchOffState()
 {
+static T_U8 counterRuns = 0;
+static T_U8 extraToggle = 0;
+
 
 if(blinkerSM.firstEntry == 1)
 {
 blinkerSM.firstEntry = 0;
-SGL_setAllHazardLights(0);
+if(blinkerSM.globalToggle == 0)
+{
+extraToggle = 1;
+}
 }
 
 
 
+if(counterRuns <= (9+extraToggle))
+{
+if(blinkerSM.globalCounter == 500)
+{
+SGL_toggleSideHazardLights(&blinkerSM.globalToggle, blinkerSM.holdSwitch);
+blinkerSM.globalCounter = 0;
+counterRuns++;
+}
+else
+{
+blinkerSM.globalCounter++;
+}
+}
+else
+{
+blinkerSM.globalCounter = 0;
+}
 
-if( 1 == blinkerSM.avarie )
+
+if( 1 == blinkerSM.pollAvarie )
 {
 blinkerSM._currentState = SGL_BlinkPasiveState;
 blinkerSM.firstEntry = 1;
-} else if( (1 == blinkerSM.leftSwitch) || (1 == blinkerSM.rightSwitch) )
+counterRuns = 0;
+extraToggle = 0;
+} else if( (1 == blinkerSM.pollLeftSwitch) || (1 == blinkerSM.pollRightSwitch) )
 {
 blinkerSM._currentState = SGL_BlinkSwitchOnState;
 blinkerSM.firstEntry = 1;
+counterRuns = 0;
+extraToggle = 0;
 }
 }
 
 void SGL_BlinkEventPoll()
 {
-blinkerSM.avarie = IOC_T16GetInputPort(IOC_AVARII);
-blinkerSM.leftSwitch = IOC_T16GetInputPort(IOC_SEM_S);
-blinkerSM.rightSwitch = IOC_T16GetInputPort(IOC_SEM_D);
+blinkerSM.pollAvarie = IOC_T16GetInputPort(IOC_AVARII);
+blinkerSM.pollLeftSwitch = IOC_T16GetInputPort(IOC_SEM_S);
+blinkerSM.pollRightSwitch = IOC_T16GetInputPort(IOC_SEM_D);
 }
 
 void SGL_BlinkersInit()
 {
 blinkerSM._currentState = SGL_BlinkPasiveState;
 blinkerSM._pollEvents = SGL_BlinkEventPoll;
-blinkerSM.avarie = 0;
+blinkerSM.pollAvarie = 0;
 blinkerSM.firstEntry = 1;
-blinkerSM.leftSwitch = 0;
-blinkerSM.rightSwitch = 0;
+blinkerSM.pollLeftSwitch = 0;
+blinkerSM.pollRightSwitch = 0;
+blinkerSM.holdSwitch = 0;
+blinkerSM.globalToggle = 1;
+blinkerSM.globalCounter = 0;
 }
 
 void SGL_BlinkersRun()

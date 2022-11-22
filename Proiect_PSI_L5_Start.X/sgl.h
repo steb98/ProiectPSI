@@ -7,9 +7,12 @@ typedef struct s_blinkStateMachine
     void (*_currentState)(void);
     void (*_pollEvents)(void);
     T_BOOL firstEntry;
-    T_U8 avarie;
-    T_U8 leftSwitch;
-    T_U8 rightSwitch;
+    T_U8 pollAvarie;
+    T_U8 pollLeftSwitch;
+    T_U8 pollRightSwitch;
+    T_U8 holdSwitch;
+    T_U8 globalToggle;
+    T_U16 globalCounter;
 } s_BlinkerSM;
 
 void SGL_BlinkersInit();
