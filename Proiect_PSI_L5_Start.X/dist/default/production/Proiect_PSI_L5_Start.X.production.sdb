@@ -69,7 +69,7 @@ IOC_SSS 263
 IOC_IE 512
 IOC_IFS 513
 ]
-"193
+"224
 [e E10339 s_InputPort `ui
 IOC_ADC0 768
 IOC_ADC1 769
@@ -192,13 +192,13 @@ IOC_SEM_S 4
 [v _SGL_BlinkPasiveState SGL_BlinkPasiveState `(v  1 e 1 0 ]
 "116
 [v _SGL_BlinkSwitchOnState SGL_BlinkSwitchOnState `(v  1 e 1 0 ]
-"168
+"172
 [v _SGL_BlinkSwitchOffState SGL_BlinkSwitchOffState `(v  1 e 1 0 ]
-"191
+"222
 [v _SGL_BlinkEventPoll SGL_BlinkEventPoll `(v  1 e 1 0 ]
-"198
+"229
 [v _SGL_BlinkersInit SGL_BlinkersInit `(v  1 e 1 0 ]
-"208
+"242
 [v _SGL_BlinkersRun SGL_BlinkersRun `(v  1 e 1 0 ]
 "6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\tasks.c
 [v _TASK_vTaskAppInit TASK_vTaskAppInit `(v  1 e 1 0 ]
@@ -449,9 +449,9 @@ IOC_SEM_S 4
 [s S26 s_stateMachine 8 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `ui 1 toggle 2 6 ]
 "3 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\demo.c
 [v _demoSM demoSM `S26  1 e 8 0 ]
-[s S1029 s_HeadLightStateMachine 9 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 faruri 1 6 `ui 1 lightLevel 2 7 ]
+[s S1039 s_HeadLightStateMachine 9 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 faruri 1 6 `ui 1 lightLevel 2 7 ]
 "23 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
-[v _headLightSM headLightSM `S1029  1 e 9 0 ]
+[v _headLightSM headLightSM `S1039  1 e 9 0 ]
 "8 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sched.c
 [v _sched_gTick10ms sched_gTick10ms `uc  1 e 1 0 ]
 "9
@@ -460,9 +460,9 @@ IOC_SEM_S 4
 [v _sched_gTick1s sched_gTick1s `ui  1 e 2 0 ]
 "11
 [v _sched_bTicked sched_bTicked `ui  1 e 2 0 ]
-[s S934 s_blinkStateMachine 9 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 avarie 1 6 `uc 1 leftSwitch 1 7 `uc 1 rightSwitch 1 8 ]
+[s S934 s_blinkStateMachine 12 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 avarie 1 6 `uc 1 leftSwitch 1 7 `uc 1 rightSwitch 1 8 `uc 1 lastSide 1 9 `uc 1 lastToggle 1 10 `uc 1 carryCounter 1 11 ]
 "5 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
-[v _blinkerSM blinkerSM `S934  1 e 9 0 ]
+[v _blinkerSM blinkerSM `S934  1 e 12 0 ]
 "11 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
@@ -478,10 +478,10 @@ IOC_SEM_S 4
 {
 "13
 } 0
-"198 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
+"229 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
 [v _SGL_BlinkersInit SGL_BlinkersInit `(v  1 e 1 0 ]
 {
-"206
+"240
 } 0
 "110 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
 [v _LIGHTS_HeadLampInit LIGHTS_HeadLampInit `(v  1 e 1 0 ]
@@ -503,10 +503,10 @@ IOC_SEM_S 4
 {
 "20
 } 0
-"208 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
+"242 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
 [v _SGL_BlinkersRun SGL_BlinkersRun `(v  1 e 1 0 ]
 {
-"218
+"252
 } 0
 "65
 [v _SGL_BlinkPasiveState SGL_BlinkPasiveState `(v  1 e 1 0 ]
@@ -519,10 +519,18 @@ IOC_SEM_S 4
 [v SGL_BlinkPasiveState@toggleLights toggleLights `uc  1 s 1 toggleLights ]
 "114
 } 0
-"168
+"172
 [v _SGL_BlinkSwitchOffState SGL_BlinkSwitchOffState `(v  1 e 1 0 ]
 {
-"189
+"174
+[v SGL_BlinkSwitchOffState@counter counter `ui  1 s 2 counter ]
+"175
+[v SGL_BlinkSwitchOffState@side side `ui  1 s 2 side ]
+"176
+[v SGL_BlinkSwitchOffState@toggleLights toggleLights `uc  1 s 1 toggleLights ]
+"177
+[v SGL_BlinkSwitchOffState@cycles cycles `uc  1 s 1 cycles ]
+"220
 } 0
 "116
 [v _SGL_BlinkSwitchOnState SGL_BlinkSwitchOnState `(v  1 e 1 0 ]
@@ -535,14 +543,7 @@ IOC_SEM_S 4
 [v SGL_BlinkSwitchOnState@firstEntry firstEntry `uc  1 s 1 firstEntry ]
 "121
 [v SGL_BlinkSwitchOnState@toggleLights toggleLights `uc  1 s 1 toggleLights ]
-"166
-} 0
-"25
-[v _SGL_toggleSideHazardLights SGL_toggleSideHazardLights `(v  1 e 1 0 ]
-{
-[v SGL_toggleSideHazardLights@toggle toggle `*.39uc  1 p 2 28 ]
-[v SGL_toggleSideHazardLights@side side `uc  1 p 1 30 ]
-"38
+"170
 } 0
 "48
 [v _SGL_setSideHazardLights SGL_setSideHazardLights `(v  1 e 1 0 ]
@@ -553,6 +554,13 @@ IOC_SEM_S 4
 "50
 [v SGL_setSideHazardLights@value value `uc  1 a 1 29 ]
 "60
+} 0
+"25
+[v _SGL_toggleSideHazardLights SGL_toggleSideHazardLights `(v  1 e 1 0 ]
+{
+[v SGL_toggleSideHazardLights@toggle toggle `*.39uc  1 p 2 28 ]
+[v SGL_toggleSideHazardLights@side side `uc  1 p 1 30 ]
+"38
 } 0
 "16
 [v _SGL_toggleAllHazardLights SGL_toggleAllHazardLights `(v  1 e 1 0 ]
@@ -569,10 +577,10 @@ IOC_SEM_S 4
 [v SGL_setAllHazardLights@value value `uc  1 a 1 28 ]
 "46
 } 0
-"191
+"222
 [v _SGL_BlinkEventPoll SGL_BlinkEventPoll `(v  1 e 1 0 ]
 {
-"196
+"227
 } 0
 "10 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
 [v _LIGHTS_BrakeRun LIGHTS_BrakeRun `(v  1 e 1 0 ]

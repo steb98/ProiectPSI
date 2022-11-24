@@ -125,7 +125,9 @@ void SGL_BlinkSwitchOnState()
     {
         // right side is off, that means left is on in this state
         side = blinkerSM.rightSwitch;
+        blinkerSM.lastSide = side;
         blinkerSM.firstEntry = 0;
+        counter = blinkerSM.carryCounter;
     }
     
     // State run
@@ -157,34 +159,63 @@ void SGL_BlinkSwitchOnState()
     {
         blinkerSM._currentState = SGL_BlinkSwitchOffState;
         blinkerSM.firstEntry = 1;
+        blinkerSM.lastToggle = toggleLights;
+        blinkerSM.carryCounter = counter;
         counter = 0;
         toggleLights = 0;
         firstEntry = 1;
-        SGL_setAllHazardLights(0);
+        //SGL_setAllHazardLights(0);
     }
 
 }
 
 void SGL_BlinkSwitchOffState()
 {
+    static T_U16 counter = 0;
+    static T_U16 side = 0;
+    static T_U8 toggleLights = 0;
+    static T_U8 cycles = 0;
+    
     // State entry
     if(blinkerSM.firstEntry == 1)
     {
         blinkerSM.firstEntry = 0;
-        SGL_setAllHazardLights(0);
+        //SGL_setAllHazardLights(0);
+        toggleLights = blinkerSM.lastToggle;
+        side = blinkerSM.lastSide;
+        counter = blinkerSM.carryCounter;
     }
     
     // State run
+    if(500 == counter && (5 != (cycles+blinkerSM.lastToggle)))
+    {
+        SGL_toggleSideHazardLights(&toggleLights, side);
+        cycles++;
+        counter = 0;
+    }
+    else
+    {
+        if((5 != (cycles+blinkerSM.lastToggle)))
+        {
+            counter++;   
+        }
+    }
     
     // Transition check
     if( 1 == blinkerSM.avarie )
     {
         blinkerSM._currentState = SGL_BlinkPasiveState;
         blinkerSM.firstEntry = 1;
+        blinkerSM.carryCounter = counter;
+        cycles = 0;
+        counter = 0;
     } else if( (1 == blinkerSM.leftSwitch) || (1 == blinkerSM.rightSwitch) )
     {
         blinkerSM._currentState = SGL_BlinkSwitchOnState;
         blinkerSM.firstEntry = 1;
+        blinkerSM.carryCounter = counter;
+        cycles = 0;
+        counter = 0;
     }
 }
 
@@ -203,6 +234,9 @@ void SGL_BlinkersInit()
     blinkerSM.firstEntry = 1;
     blinkerSM.leftSwitch = 0;
     blinkerSM.rightSwitch = 0;
+    blinkerSM.lastSide = 0;
+    blinkerSM.lastToggle = 0;
+    blinkerSM.carryCounter = 0;
 }
 
 void SGL_BlinkersRun()

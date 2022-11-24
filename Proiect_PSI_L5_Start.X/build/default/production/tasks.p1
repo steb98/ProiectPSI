@@ -1,11 +1,11 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"15 sgl.h
+"18 sgl.h
 [v _SGL_BlinkersInit `(v ~T0 @X0 0 ef ]
 "14 lights.h
 [v _LIGHTS_BrakeInit `(v ~T0 @X0 0 ef ]
 "17
 [v _LIGHTS_HeadLampInit `(v ~T0 @X0 0 ef ]
-"16 sgl.h
+"19 sgl.h
 [v _SGL_BlinkersRun `(v ~T0 @X0 0 ef ]
 "15 lights.h
 [v _LIGHTS_BrakeRun `(v ~T0 @X0 0 ef ]
@@ -11628,9 +11628,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sgl.h: 10: T_U8 avarie;
 [; ;sgl.h: 11: T_U8 leftSwitch;
 [; ;sgl.h: 12: T_U8 rightSwitch;
-[; ;sgl.h: 13: } s_BlinkerSM;
-[; ;sgl.h: 15: void SGL_BlinkersInit();
-[; ;sgl.h: 16: void SGL_BlinkersRun();
+[; ;sgl.h: 13: T_U8 lastSide;
+[; ;sgl.h: 14: T_U8 lastToggle;
+[; ;sgl.h: 15: T_U8 carryCounter;
+[; ;sgl.h: 16: } s_BlinkerSM;
+[; ;sgl.h: 18: void SGL_BlinkersInit();
+[; ;sgl.h: 19: void SGL_BlinkersRun();
 [; ;lights.h: 5: typedef struct s_HeadLightStateMachine
 [; ;lights.h: 6: {
 [; ;lights.h: 7: void (*_currentState)(void);
