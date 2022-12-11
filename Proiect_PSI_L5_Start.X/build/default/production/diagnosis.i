@@ -1,5 +1,5 @@
 
-# 1 "lights.c"
+# 1 "diagnosis.c"
 
 # 18 "C:\Program Files\Microchip\xc8\v2.40\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -18360,6 +18360,13 @@ typedef unsigned int T_BOOL;
 typedef int T_16;
 typedef char T_8;
 
+# 7 "diagnosis.h"
+extern T_U16 g_lightStateFrana;
+extern T_U16 g_lightStateLumini;
+extern T_U16 g_sglStareSemnal;
+
+void DIAGNOSIS_ActivateError();
+
 # 5 "ioc.h"
 typedef enum s_Port
 {
@@ -18403,161 +18410,28 @@ void IOC_vSetOutputPort(const IOC_eOutputChannelPort u16ChannelSelect, const T_U
 # 65
 T_U16 IOC_T16GetInputPort(const IOC_eInputChannelPort u16ChannelSelect);
 
-# 5 "lights.h"
-typedef struct s_HeadLightStateMachine
+# 4 "diagnosis.c"
+T_U16 g_lightStateFrana = 0;
+T_U16 g_lightStateLumini = 0;
+T_U16 g_sglStareSemnal = 0;
+
+void DIAGNOSIS_ActivateError()
 {
-void (*_currentState)(void);
-void (*_pollEvents)(void);
-T_BOOL firstEntry;
-T_U8 faruri;
-T_U16 lightLevel;
-} s_HeadLightSM;
+T_U16 sensorValue = IOC_T16GetInputPort(IOC_ADC1);
 
-void LIGHTS_BrakeInit();
-void LIGHTS_BrakeRun();
-
-void LIGHTS_HeadLampInit();
-void LIGHTS_HeadLampRun();
-
-# 7 "diagnosis.h"
-extern T_U16 g_lightStateFrana;
-extern T_U16 g_lightStateLumini;
-extern T_U16 g_sglStareSemnal;
-
-void DIAGNOSIS_ActivateError();
-
-# 6 "lights.c"
-void LIGHTS_BrakeInit()
+if(g_lightStateFrana || g_lightStateLumini || g_sglStareSemnal)
 {
-IOC_vSetOutputPort(IOC_LSF, 0);
-}
-
-
-void LIGHTS_BrakeRun()
+if(sensorValue > (4.5*204))
 {
-static T_U8 counter = 0;
-
-if(4 == counter)
-{
-g_lightStateFrana = IOC_T16GetInputPort(IOC_FRANA);
-
-IOC_vSetOutputPort(IOC_LSF, g_lightStateFrana);
-DIAGNOSIS_ActivateError();
-
-counter = 0;
-}
-
-++counter;
-}
-
-
-s_HeadLightSM headLightSM;
-
-void SGL_HeadLightEventPoll();
-void SGL_HeadLightPasiveState();
-void SGL_HeadLightActiveState();
-T_U8 SGL_isNight();
-
-T_U8 SGL_isNight()
-{
-static T_U8 prevState = 0;
-T_U16 currentLightLevel = headLightSM.lightLevel;
-
-if(prevState == 0 && currentLightLevel < (2.2*204))
-{
-prevState = 1;
-return 1;
-}
-
-if(prevState == 1 && currentLightLevel > (2.4*204))
-{
-prevState = 0;
-return 1;
-}
-
-return prevState;
-}
-
-void SGL_HeadLightPasiveState()
-{
-
-if(headLightSM.firstEntry == 1)
-{
-IOC_vSetOutputPort(IOC_IFS, 0);
-IOC_vSetOutputPort(IOC_LS, 0);
-headLightSM.firstEntry = 0;
-}
-
-
-if(SGL_isNight())
-{
-IOC_vSetOutputPort(IOC_IFS, 1);
+IOC_vSetOutputPort(IOC_IE, 1);
 }
 else
 {
-IOC_vSetOutputPort(IOC_IFS, 0);
-}
-
-
-if(1 == headLightSM.faruri)
-{
-headLightSM.firstEntry = 1;
-headLightSM._currentState = SGL_HeadLightActiveState;
-IOC_vSetOutputPort(IOC_IFS, 0);
+IOC_vSetOutputPort(IOC_IE, 0);
 }
 }
-
-void SGL_HeadLightActiveState()
+else
 {
-
-if(headLightSM.firstEntry == 1)
-{
-IOC_vSetOutputPort(IOC_LS, 1);
-IOC_vSetOutputPort(IOC_FS, 1);
-IOC_vSetOutputPort(IOC_FD, 1);
-g_lightStateLumini = 1;
-headLightSM.firstEntry = 0;
-}
-
-
-DIAGNOSIS_ActivateError();
-
-
-if(0 == headLightSM.faruri)
-{
-headLightSM._currentState = SGL_HeadLightPasiveState;
-headLightSM.firstEntry = 1;
-g_lightStateLumini = 0;
-IOC_vSetOutputPort(IOC_LS, 0);
-IOC_vSetOutputPort(IOC_FS, 0);
-IOC_vSetOutputPort(IOC_FD, 0);
-}
-
-}
-
-void SGL_HeadLightEventPoll()
-{
-headLightSM.faruri = IOC_T16GetInputPort(IOC_FARURI);
-headLightSM.lightLevel = IOC_T16GetInputPort(IOC_ADC0);
-}
-
-void LIGHTS_HeadLampInit()
-{
-headLightSM._currentState = SGL_HeadLightPasiveState;
-headLightSM._pollEvents = SGL_HeadLightEventPoll;
-headLightSM.firstEntry = 1;
-headLightSM.faruri = 0;
-headLightSM.lightLevel = 0;
-}
-
-void LIGHTS_HeadLampRun()
-{
-if(0 != headLightSM._currentState)
-{
-(*headLightSM._currentState)();
-}
-if(0 != headLightSM._pollEvents)
-{
-(*headLightSM._pollEvents)();
+IOC_vSetOutputPort(IOC_IE, 0);
 }
 }

@@ -1,21 +1,28 @@
 #include "lights.h"
+#include "diagnosis.h"
 
-#define ADC_SCALLING_FACTOR 204
+
 
 void LIGHTS_BrakeInit()
 {
     IOC_vSetOutputPort(IOC_LSF, 0);
 }
 
+
 void LIGHTS_BrakeRun()
 {
     static T_U8 counter = 0;
-    
+
     if(4 == counter)
     {
-        IOC_vSetOutputPort(IOC_LSF, IOC_T16GetInputPort(IOC_FRANA));
+        g_lightStateFrana = IOC_T16GetInputPort(IOC_FRANA);
+
+        IOC_vSetOutputPort(IOC_LSF, g_lightStateFrana);
+        DIAGNOSIS_ActivateError();
+
         counter = 0;
     }
+
     ++counter;
 }
 
@@ -84,16 +91,19 @@ void SGL_HeadLightActiveState()
         IOC_vSetOutputPort(IOC_LS, 1);
         IOC_vSetOutputPort(IOC_FS, 1);
         IOC_vSetOutputPort(IOC_FD, 1);
+        g_lightStateLumini = 1;
         headLightSM.firstEntry = 0;
     }
     
     // State run
+    DIAGNOSIS_ActivateError();
     
     //State transit
     if(0 == headLightSM.faruri)
     {
         headLightSM._currentState = SGL_HeadLightPasiveState;
         headLightSM.firstEntry = 1;
+        g_lightStateLumini = 0;
         IOC_vSetOutputPort(IOC_LS, 0);
         IOC_vSetOutputPort(IOC_FS, 0);
         IOC_vSetOutputPort(IOC_FD, 0);

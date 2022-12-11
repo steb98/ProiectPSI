@@ -1,4 +1,5 @@
 #include "sgl.h"
+#include "diagnosis.h"
 
 /**Private variables**/
 
@@ -81,11 +82,15 @@ void SGL_BlinkPasiveState()
         if(1 == firstEntry)
         {
             SGL_setAllHazardLights(1);
+            g_sglStareSemnal = 1;
+            DIAGNOSIS_ActivateError();
             firstEntry = 0;
         }
         if(500 == counter)
         {
+            g_sglStareSemnal = toggleLights;
             SGL_toggleAllHazardLights(&toggleLights);
+            DIAGNOSIS_ActivateError();
             counter = 0;
         }
         else
@@ -95,7 +100,9 @@ void SGL_BlinkPasiveState()
     }
     else
     {
+        g_sglStareSemnal = 0;
         SGL_setAllHazardLights(0);
+        DIAGNOSIS_ActivateError();
         counter = 0;
         firstEntry = 1;
         toggleLights = 0;
@@ -108,7 +115,9 @@ void SGL_BlinkPasiveState()
         blinkerSM.firstEntry = 1;
         counter = 0;
         toggleLights = 0;
+        g_sglStareSemnal = 0;
         SGL_setAllHazardLights(0);
+        DIAGNOSIS_ActivateError();
     }
     
 }
@@ -133,12 +142,17 @@ void SGL_BlinkSwitchOnState()
     // State run
     if(1 == firstEntry)
     {
+        g_sglStareSemnal = 1;
         SGL_setSideHazardLights(1, side);
+        DIAGNOSIS_ActivateError();
+
         firstEntry = 0;
     }
     if(500 == counter)
     {
+        g_sglStareSemnal = toggleLights;
         SGL_toggleSideHazardLights(&toggleLights, side);
+        DIAGNOSIS_ActivateError();
         counter = 0;
     }
     else
@@ -154,7 +168,9 @@ void SGL_BlinkSwitchOnState()
         counter = 0;
         toggleLights = 0;
         firstEntry = 1;
+        g_sglStareSemnal = 0;
         SGL_setAllHazardLights(0);
+        DIAGNOSIS_ActivateError();
     }else if( (0 == blinkerSM.avarie) && (0 == blinkerSM.leftSwitch) && (0 == blinkerSM.rightSwitch) )
     {
         blinkerSM._currentState = SGL_BlinkSwitchOffState;
@@ -164,7 +180,6 @@ void SGL_BlinkSwitchOnState()
         counter = 0;
         toggleLights = 0;
         firstEntry = 1;
-        //SGL_setAllHazardLights(0);
     }
 
 }
@@ -180,7 +195,6 @@ void SGL_BlinkSwitchOffState()
     if(blinkerSM.firstEntry == 1)
     {
         blinkerSM.firstEntry = 0;
-        //SGL_setAllHazardLights(0);
         toggleLights = blinkerSM.lastToggle;
         side = blinkerSM.lastSide;
         counter = blinkerSM.carryCounter;
@@ -189,7 +203,9 @@ void SGL_BlinkSwitchOffState()
     // State run
     if(500 == counter && (5 != (cycles+blinkerSM.lastToggle)))
     {
+        g_sglStareSemnal = toggleLights;
         SGL_toggleSideHazardLights(&toggleLights, side);
+        DIAGNOSIS_ActivateError();
         cycles++;
         counter = 0;
     }

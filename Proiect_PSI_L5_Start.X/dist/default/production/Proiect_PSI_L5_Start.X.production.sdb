@@ -26,6 +26,52 @@ IOC_AVARII 2
 IOC_SEM_D 3
 IOC_SEM_S 4
 ]
+"19 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
+[e E10327 s_OutputPort `ui
+IOC_SFD 256
+IOC_FD 257
+IOC_FS 258
+IOC_SFS 259
+IOC_SSD 260
+IOC_LSF 261
+IOC_LS 262
+IOC_SSS 263
+IOC_IE 512
+IOC_IFS 513
+]
+"240
+[e E10339 s_InputPort `ui
+IOC_ADC0 768
+IOC_ADC1 769
+IOC_FRANA 0
+IOC_FARURI 1
+IOC_AVARII 2
+IOC_SEM_D 3
+IOC_SEM_S 4
+]
+"8 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
+[e E10327 s_OutputPort `ui
+IOC_SFD 256
+IOC_FD 257
+IOC_FS 258
+IOC_SFS 259
+IOC_SSD 260
+IOC_LSF 261
+IOC_LS 262
+IOC_SSS 263
+IOC_IE 512
+IOC_IFS 513
+]
+"18
+[e E10339 s_InputPort `ui
+IOC_ADC0 768
+IOC_ADC1 769
+IOC_FRANA 0
+IOC_FARURI 1
+IOC_AVARII 2
+IOC_SEM_D 3
+IOC_SEM_S 4
+]
 "6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\ioc.c
 [e E10327 s_OutputPort `ui
 IOC_SFD 256
@@ -56,21 +102,8 @@ IOC_AVARII 2
 IOC_SEM_D 3
 IOC_SEM_S 4
 ]
-"18 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
-[e E10327 s_OutputPort `ui
-IOC_SFD 256
-IOC_FD 257
-IOC_FS 258
-IOC_SFS 259
-IOC_SSD 260
-IOC_LSF 261
-IOC_LS 262
-IOC_SSS 263
-IOC_IE 512
-IOC_IFS 513
-]
-"224
-[e E10339 s_InputPort `ui
+"10 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\diagnosis.c
+[e E10343 s_InputPort `ui
 IOC_ADC0 768
 IOC_ADC1 769
 IOC_FRANA 0
@@ -78,29 +111,19 @@ IOC_FARURI 1
 IOC_AVARII 2
 IOC_SEM_D 3
 IOC_SEM_S 4
-]
-"7 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
-[e E10327 s_OutputPort `ui
-IOC_SFD 256
-IOC_FD 257
-IOC_FS 258
-IOC_SFS 259
-IOC_SSD 260
-IOC_LSF 261
-IOC_LS 262
-IOC_SSS 263
-IOC_IE 512
-IOC_IFS 513
 ]
 "16
-[e E10339 s_InputPort `ui
-IOC_ADC0 768
-IOC_ADC1 769
-IOC_FRANA 0
-IOC_FARURI 1
-IOC_AVARII 2
-IOC_SEM_D 3
-IOC_SEM_S 4
+[e E10331 s_OutputPort `ui
+IOC_SFD 256
+IOC_FD 257
+IOC_FS 258
+IOC_SFS 259
+IOC_SSD 260
+IOC_LSF 261
+IOC_LS 262
+IOC_SSS 263
+IOC_IE 512
+IOC_IFS 513
 ]
 "9 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\adc.c
 [v _ADC_vInit ADC_vInit `(v  1 e 1 0 ]
@@ -140,6 +163,8 @@ IOC_SEM_S 4
 [v _LIGHTS_DemoState2 LIGHTS_DemoState2 `(v  1 e 1 0 ]
 "58
 [v _LIGHTS_DemoEventPoll LIGHTS_DemoEventPoll `(v  1 e 1 0 ]
+"8 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\diagnosis.c
+[v _DIAGNOSIS_ActivateError DIAGNOSIS_ActivateError `(v  1 e 1 0 ]
 "6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\int.c
 [v _INT_vInit INT_vInit `(v  1 e 1 0 ]
 "22
@@ -148,21 +173,21 @@ IOC_SEM_S 4
 [v _IOC_vSetOutputPort IOC_vSetOutputPort `(v  1 e 1 0 ]
 "19
 [v _IOC_T16GetInputPort IOC_T16GetInputPort `(ui  1 e 2 0 ]
-"5 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
+"6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
 [v _LIGHTS_BrakeInit LIGHTS_BrakeInit `(v  1 e 1 0 ]
-"10
+"12
 [v _LIGHTS_BrakeRun LIGHTS_BrakeRun `(v  1 e 1 0 ]
-"30
+"37
 [v _SGL_isNight SGL_isNight `(uc  1 e 1 0 ]
-"50
+"57
 [v _SGL_HeadLightPasiveState SGL_HeadLightPasiveState `(v  1 e 1 0 ]
-"79
+"86
 [v _SGL_HeadLightActiveState SGL_HeadLightActiveState `(v  1 e 1 0 ]
-"104
+"114
 [v _SGL_HeadLightEventPoll SGL_HeadLightEventPoll `(v  1 e 1 0 ]
-"110
+"120
 [v _LIGHTS_HeadLampInit LIGHTS_HeadLampInit `(v  1 e 1 0 ]
-"119
+"129
 [v _LIGHTS_HeadLampRun LIGHTS_HeadLampRun `(v  1 e 1 0 ]
 "11 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\main.c
 [v _main main `(v  1 e 1 0 ]
@@ -180,25 +205,25 @@ IOC_SEM_S 4
 [v _SCHED_vTickFunctionCall SCHED_vTickFunctionCall `(v  1 e 1 0 ]
 "29
 [v _SCHED_vStartScheduler SCHED_vStartScheduler `(v  1 e 1 0 ]
-"16 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
+"17 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
 [v _SGL_toggleAllHazardLights SGL_toggleAllHazardLights `(v  1 e 1 0 ]
-"25
+"26
 [v _SGL_toggleSideHazardLights SGL_toggleSideHazardLights `(v  1 e 1 0 ]
-"40
+"41
 [v _SGL_setAllHazardLights SGL_setAllHazardLights `(v  1 e 1 0 ]
-"48
+"49
 [v _SGL_setSideHazardLights SGL_setSideHazardLights `(v  1 e 1 0 ]
-"65
+"66
 [v _SGL_BlinkPasiveState SGL_BlinkPasiveState `(v  1 e 1 0 ]
-"116
+"125
 [v _SGL_BlinkSwitchOnState SGL_BlinkSwitchOnState `(v  1 e 1 0 ]
-"172
+"187
 [v _SGL_BlinkSwitchOffState SGL_BlinkSwitchOffState `(v  1 e 1 0 ]
-"222
+"238
 [v _SGL_BlinkEventPoll SGL_BlinkEventPoll `(v  1 e 1 0 ]
-"229
+"245
 [v _SGL_BlinkersInit SGL_BlinkersInit `(v  1 e 1 0 ]
-"242
+"258
 [v _SGL_BlinkersRun SGL_BlinkersRun `(v  1 e 1 0 ]
 "6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\tasks.c
 [v _TASK_vTaskAppInit TASK_vTaskAppInit `(v  1 e 1 0 ]
@@ -220,7 +245,7 @@ IOC_SEM_S 4
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
 "25639
 [v _PORTE PORTE `VEuc  1 e 1 @3972 ]
-[s S557 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S702 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -229,7 +254,7 @@ IOC_SEM_S 4
 `uc 1 TRISA6 1 0 :1:6 
 ]
 "26833
-[s S565 . 1 `uc 1 RA0 1 0 :1:0 
+[s S710 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -237,9 +262,9 @@ IOC_SEM_S 4
 `uc 1 RA5 1 0 :1:5 
 `uc 1 RA6 1 0 :1:6 
 ]
-[u S573 . 1 `S557 1 . 1 0 `S565 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES573  1 e 1 @3986 ]
-[s S593 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S718 . 1 `S702 1 . 1 0 `S710 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES718  1 e 1 @3986 ]
+[s S738 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -249,7 +274,7 @@ IOC_SEM_S 4
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "27255
-[s S602 . 1 `uc 1 RC0 1 0 :1:0 
+[s S747 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -258,11 +283,11 @@ IOC_SEM_S 4
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S611 . 1 `S593 1 . 1 0 `S602 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES611  1 e 1 @3988 ]
+[u S756 . 1 `S738 1 . 1 0 `S747 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES756  1 e 1 @3988 ]
 "27445
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S634 . 1 `uc 1 TRISE0 1 0 :1:0 
+[s S779 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 TRISE3 1 0 :1:3 
@@ -272,7 +297,7 @@ IOC_SEM_S 4
 `uc 1 TRISE7 1 0 :1:7 
 ]
 "27699
-[s S643 . 1 `uc 1 RE0 1 0 :1:0 
+[s S788 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 `uc 1 RE3 1 0 :1:3 
@@ -281,9 +306,9 @@ IOC_SEM_S 4
 `uc 1 RE6 1 0 :1:6 
 `uc 1 RE7 1 0 :1:7 
 ]
-[u S652 . 1 `S634 1 . 1 0 `S643 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES652  1 e 1 @3990 ]
-[s S244 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S797 . 1 `S779 1 . 1 0 `S788 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES797  1 e 1 @3990 ]
+[s S389 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -293,13 +318,13 @@ IOC_SEM_S 4
 `uc 1 PSPIE 1 0 :1:7 
 ]
 "28283
-[s S253 . 1 `uc 1 . 1 0 :4:0 
+[s S398 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IE 1 0 :1:4 
 `uc 1 RC1IE 1 0 :1:5 
 ]
-[u S257 . 1 `S244 1 . 1 0 `S253 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES257  1 e 1 @3997 ]
-[s S214 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S402 . 1 `S389 1 . 1 0 `S398 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES402  1 e 1 @3997 ]
+[s S359 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -309,13 +334,13 @@ IOC_SEM_S 4
 `uc 1 PSPIF 1 0 :1:7 
 ]
 "28360
-[s S223 . 1 `uc 1 . 1 0 :4:0 
+[s S368 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[u S227 . 1 `S214 1 . 1 0 `S223 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES227  1 e 1 @3998 ]
-[s S409 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[u S372 . 1 `S359 1 . 1 0 `S368 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES372  1 e 1 @3998 ]
+[s S554 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSPIP 1 0 :1:3 
@@ -325,89 +350,89 @@ IOC_SEM_S 4
 `uc 1 PSPIP 1 0 :1:7 
 ]
 "28437
-[s S418 . 1 `uc 1 . 1 0 :4:0 
+[s S563 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IP 1 0 :1:4 
 `uc 1 RC1IP 1 0 :1:5 
 ]
-[u S422 . 1 `S409 1 . 1 0 `S418 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES422  1 e 1 @3999 ]
-[s S186 . 1 `uc 1 ADCS 1 0 :3:0 
+[u S567 . 1 `S554 1 . 1 0 `S563 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES567  1 e 1 @3999 ]
+[s S331 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "30285
-[s S191 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S336 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[u S198 . 1 `S186 1 . 1 0 `S191 1 . 1 0 ]
-[v _ADCON2bits ADCON2bits `VES198  1 e 1 @4032 ]
-[s S151 . 1 `uc 1 PCFG 1 0 :4:0 
+[u S343 . 1 `S331 1 . 1 0 `S336 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES343  1 e 1 @4032 ]
+[s S296 . 1 `uc 1 PCFG 1 0 :4:0 
 `uc 1 VCFG 1 0 :2:4 
 ]
 "30360
-[s S154 . 1 `uc 1 PCFG0 1 0 :1:0 
+[s S299 . 1 `uc 1 PCFG0 1 0 :1:0 
 `uc 1 PCFG1 1 0 :1:1 
 `uc 1 PCFG2 1 0 :1:2 
 `uc 1 PCFG3 1 0 :1:3 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 ]
-[s S161 . 1 `uc 1 . 1 0 :3:0 
+[s S306 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 `uc 1 VCFG01 1 0 :1:4 
 `uc 1 VCFG11 1 0 :1:5 
 ]
-[u S166 . 1 `S151 1 . 1 0 `S154 1 . 1 0 `S161 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES166  1 e 1 @4033 ]
-[s S83 . 1 `uc 1 . 1 0 :1:0 
+[u S311 . 1 `S296 1 . 1 0 `S299 1 . 1 0 `S306 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES311  1 e 1 @4033 ]
+[s S228 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "30464
-[s S86 . 1 `uc 1 ADON 1 0 :1:0 
+[s S231 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
-[s S90 . 1 `uc 1 . 1 0 :1:0 
+[s S235 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
 `uc 1 CHS2 1 0 :1:4 
 `uc 1 CHS3 1 0 :1:5 
 ]
-[s S97 . 1 `uc 1 . 1 0 :1:0 
+[s S242 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S100 . 1 `uc 1 . 1 0 :1:0 
+[s S245 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S103 . 1 `uc 1 . 1 0 :1:0 
+[s S248 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S106 . 1 `uc 1 . 1 0 :1:0 
+[s S251 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S109 . 1 `uc 1 . 1 0 :1:0 
+[s S254 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S112 . 1 `S83 1 . 1 0 `S86 1 . 1 0 `S90 1 . 1 0 `S97 1 . 1 0 `S100 1 . 1 0 `S103 1 . 1 0 `S106 1 . 1 0 `S109 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES112  1 e 1 @4034 ]
+[u S257 . 1 `S228 1 . 1 0 `S231 1 . 1 0 `S235 1 . 1 0 `S242 1 . 1 0 `S245 1 . 1 0 `S248 1 . 1 0 `S251 1 . 1 0 `S254 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES257  1 e 1 @4034 ]
 "30546
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "30553
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
 "30954
 [v _T2CON T2CON `VEuc  1 e 1 @4042 ]
-[s S506 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S651 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "30975
-[s S510 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S655 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -415,13 +440,13 @@ IOC_SEM_S 4
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S518 . 1 `S506 1 . 1 0 `S510 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES518  1 e 1 @4042 ]
+[u S663 . 1 `S651 1 . 1 0 `S655 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES663  1 e 1 @4042 ]
 "31025
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "31135
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
-[s S274 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S419 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -431,7 +456,7 @@ IOC_SEM_S 4
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "32159
-[s S283 . 1 `uc 1 . 1 0 :1:0 
+[s S428 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -440,18 +465,24 @@ IOC_SEM_S 4
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S292 . 1 `uc 1 . 1 0 :6:0 
+[s S437 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S296 . 1 `S274 1 . 1 0 `S283 1 . 1 0 `S292 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES296  1 e 1 @4082 ]
+[u S441 . 1 `S419 1 . 1 0 `S428 1 . 1 0 `S437 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES441  1 e 1 @4082 ]
 [s S26 s_stateMachine 8 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `ui 1 toggle 2 6 ]
 "3 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\demo.c
 [v _demoSM demoSM `S26  1 e 8 0 ]
-[s S1039 s_HeadLightStateMachine 9 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 faruri 1 6 `ui 1 lightLevel 2 7 ]
-"23 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
-[v _headLightSM headLightSM `S1039  1 e 9 0 ]
+"4 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\diagnosis.c
+[v _g_lightStateFrana g_lightStateFrana `ui  1 e 2 0 ]
+"5
+[v _g_lightStateLumini g_lightStateLumini `ui  1 e 2 0 ]
+"6
+[v _g_sglStareSemnal g_sglStareSemnal `ui  1 e 2 0 ]
+[s S195 s_HeadLightStateMachine 9 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 faruri 1 6 `ui 1 lightLevel 2 7 ]
+"30 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
+[v _headLightSM headLightSM `S195  1 e 9 0 ]
 "8 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sched.c
 [v _sched_gTick10ms sched_gTick10ms `uc  1 e 1 0 ]
 "9
@@ -460,9 +491,9 @@ IOC_SEM_S 4
 [v _sched_gTick1s sched_gTick1s `ui  1 e 2 0 ]
 "11
 [v _sched_bTicked sched_bTicked `ui  1 e 2 0 ]
-[s S934 s_blinkStateMachine 12 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 avarie 1 6 `uc 1 leftSwitch 1 7 `uc 1 rightSwitch 1 8 `uc 1 lastSide 1 9 `uc 1 lastToggle 1 10 `uc 1 carryCounter 1 11 ]
-"5 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
-[v _blinkerSM blinkerSM `S934  1 e 12 0 ]
+[s S83 s_blinkStateMachine 12 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 avarie 1 6 `uc 1 leftSwitch 1 7 `uc 1 rightSwitch 1 8 `uc 1 lastSide 1 9 `uc 1 lastToggle 1 10 `uc 1 carryCounter 1 11 ]
+"6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
+[v _blinkerSM blinkerSM `S83  1 e 12 0 ]
 "11 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
@@ -478,20 +509,20 @@ IOC_SEM_S 4
 {
 "13
 } 0
-"229 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
+"245 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
 [v _SGL_BlinkersInit SGL_BlinkersInit `(v  1 e 1 0 ]
 {
-"240
+"256
 } 0
-"110 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
+"120 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
 [v _LIGHTS_HeadLampInit LIGHTS_HeadLampInit `(v  1 e 1 0 ]
 {
-"117
+"127
 } 0
-"5
+"6
 [v _LIGHTS_BrakeInit LIGHTS_BrakeInit `(v  1 e 1 0 ]
 {
-"8
+"9
 } 0
 "31 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\tasks.c
 [v _TASK_vTask1s TASK_vTask1s `(v  1 e 1 0 ]
@@ -503,120 +534,132 @@ IOC_SEM_S 4
 {
 "20
 } 0
-"242 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
+"258 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
 [v _SGL_BlinkersRun SGL_BlinkersRun `(v  1 e 1 0 ]
 {
-"252
+"268
 } 0
-"65
+"66
 [v _SGL_BlinkPasiveState SGL_BlinkPasiveState `(v  1 e 1 0 ]
 {
-"67
-[v SGL_BlinkPasiveState@counter counter `ui  1 s 2 counter ]
 "68
-[v SGL_BlinkPasiveState@firstEntry firstEntry `uc  1 s 1 firstEntry ]
+[v SGL_BlinkPasiveState@counter counter `ui  1 s 2 counter ]
 "69
+[v SGL_BlinkPasiveState@firstEntry firstEntry `uc  1 s 1 firstEntry ]
+"70
 [v SGL_BlinkPasiveState@toggleLights toggleLights `uc  1 s 1 toggleLights ]
-"114
+"123
 } 0
-"172
+"187
 [v _SGL_BlinkSwitchOffState SGL_BlinkSwitchOffState `(v  1 e 1 0 ]
 {
-"174
+"189
 [v SGL_BlinkSwitchOffState@counter counter `ui  1 s 2 counter ]
-"175
+"190
 [v SGL_BlinkSwitchOffState@side side `ui  1 s 2 side ]
-"176
+"191
 [v SGL_BlinkSwitchOffState@toggleLights toggleLights `uc  1 s 1 toggleLights ]
-"177
+"192
 [v SGL_BlinkSwitchOffState@cycles cycles `uc  1 s 1 cycles ]
-"220
+"236
 } 0
-"116
+"125
 [v _SGL_BlinkSwitchOnState SGL_BlinkSwitchOnState `(v  1 e 1 0 ]
 {
-"118
+"127
 [v SGL_BlinkSwitchOnState@side side `uc  1 s 1 side ]
-"119
+"128
 [v SGL_BlinkSwitchOnState@counter counter `ui  1 s 2 counter ]
-"120
+"129
 [v SGL_BlinkSwitchOnState@firstEntry firstEntry `uc  1 s 1 firstEntry ]
-"121
+"130
 [v SGL_BlinkSwitchOnState@toggleLights toggleLights `uc  1 s 1 toggleLights ]
-"170
+"185
 } 0
-"48
+"49
 [v _SGL_setSideHazardLights SGL_setSideHazardLights `(v  1 e 1 0 ]
 {
 [v SGL_setSideHazardLights@value value `uc  1 a 1 wreg ]
 [v SGL_setSideHazardLights@value value `uc  1 a 1 wreg ]
-[v SGL_setSideHazardLights@side side `uc  1 p 1 28 ]
-"50
-[v SGL_setSideHazardLights@value value `uc  1 a 1 29 ]
-"60
+[v SGL_setSideHazardLights@side side `uc  1 p 1 20 ]
+"51
+[v SGL_setSideHazardLights@value value `uc  1 a 1 21 ]
+"61
 } 0
-"25
+"26
 [v _SGL_toggleSideHazardLights SGL_toggleSideHazardLights `(v  1 e 1 0 ]
 {
-[v SGL_toggleSideHazardLights@toggle toggle `*.39uc  1 p 2 28 ]
-[v SGL_toggleSideHazardLights@side side `uc  1 p 1 30 ]
-"38
+[v SGL_toggleSideHazardLights@toggle toggle `*.39uc  1 p 2 20 ]
+[v SGL_toggleSideHazardLights@side side `uc  1 p 1 22 ]
+"39
 } 0
-"16
+"17
 [v _SGL_toggleAllHazardLights SGL_toggleAllHazardLights `(v  1 e 1 0 ]
 {
-[v SGL_toggleAllHazardLights@toggle toggle `*.39uc  1 p 2 28 ]
-"23
+[v SGL_toggleAllHazardLights@toggle toggle `*.39uc  1 p 2 20 ]
+"24
 } 0
-"40
+"41
 [v _SGL_setAllHazardLights SGL_setAllHazardLights `(v  1 e 1 0 ]
 {
 [v SGL_setAllHazardLights@value value `uc  1 a 1 wreg ]
 [v SGL_setAllHazardLights@value value `uc  1 a 1 wreg ]
-"42
-[v SGL_setAllHazardLights@value value `uc  1 a 1 28 ]
-"46
+"43
+[v SGL_setAllHazardLights@value value `uc  1 a 1 20 ]
+"47
 } 0
-"222
+"238
 [v _SGL_BlinkEventPoll SGL_BlinkEventPoll `(v  1 e 1 0 ]
 {
-"227
+"243
 } 0
-"10 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
+"12 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
 [v _LIGHTS_BrakeRun LIGHTS_BrakeRun `(v  1 e 1 0 ]
 {
-"12
+"14
 [v LIGHTS_BrakeRun@counter counter `uc  1 s 1 counter ]
-"20
+"27
 } 0
 "22 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\tasks.c
 [v _TASK_vTask10ms TASK_vTask10ms `(v  1 e 1 0 ]
 {
 "25
 } 0
-"119 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
+"129 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
 [v _LIGHTS_HeadLampRun LIGHTS_HeadLampRun `(v  1 e 1 0 ]
 {
-"129
+"139
 } 0
-"79
+"86
 [v _SGL_HeadLightActiveState SGL_HeadLightActiveState `(v  1 e 1 0 ]
 {
-"102
+"112
 } 0
-"50
+"57
 [v _SGL_HeadLightPasiveState SGL_HeadLightPasiveState `(v  1 e 1 0 ]
 {
-"77
+"84
 } 0
-"30
+"37
 [v _SGL_isNight SGL_isNight `(uc  1 e 1 0 ]
 {
-"33
+"40
 [v SGL_isNight@currentLightLevel currentLightLevel `ui  1 a 2 27 ]
-"32
+"39
 [v SGL_isNight@prevState prevState `uc  1 s 1 prevState ]
-"48
+"55
+} 0
+"114
+[v _SGL_HeadLightEventPoll SGL_HeadLightEventPoll `(v  1 e 1 0 ]
+{
+"118
+} 0
+"8 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\diagnosis.c
+[v _DIAGNOSIS_ActivateError DIAGNOSIS_ActivateError `(v  1 e 1 0 ]
+{
+"10
+[v DIAGNOSIS_ActivateError@sensorValue sensorValue `ui  1 a 2 27 ]
+"27
 } 0
 "28 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwtoft.c
 [v ___lwtoft __lwtoft `(f  1 e 3 0 ]
@@ -639,10 +682,45 @@ IOC_SEM_S 4
 [v ___ftge@ff2 ff2 `f  1 p 3 21 ]
 "13
 } 0
-"104 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
-[v _SGL_HeadLightEventPoll SGL_HeadLightEventPoll `(v  1 e 1 0 ]
+"5 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\ioc.c
+[v _IOC_vSetOutputPort IOC_vSetOutputPort `(v  1 e 1 0 ]
 {
-"108
+"7
+[v IOC_vSetOutputPort@u16ChannelMask u16ChannelMask `ui  1 a 2 18 ]
+"5
+[v IOC_vSetOutputPort@u16ChannelSelect u16ChannelSelect `CE10327  1 p 2 15 ]
+[v IOC_vSetOutputPort@u8Value u8Value `Cuc  1 p 1 17 ]
+"17
+} 0
+"35 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\pcs.c
+[v _PCS_vSetOutputPortE PCS_vSetOutputPortE `(v  1 e 1 0 ]
+{
+[v PCS_vSetOutputPortE@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
+"38
+[v PCS_vSetOutputPortE@u8BitNumberValue u8BitNumberValue `uc  1 a 1 14 ]
+"37
+[v PCS_vSetOutputPortE@u8BitValue u8BitValue `uc  1 a 1 12 ]
+"35
+[v PCS_vSetOutputPortE@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
+[v PCS_vSetOutputPortE@u8Value u8Value `Cuc  1 p 1 7 ]
+"37
+[v PCS_vSetOutputPortE@u8BitNumber u8BitNumber `Cuc  1 a 1 13 ]
+"48
+} 0
+"20
+[v _PCS_vSetOutputPortD PCS_vSetOutputPortD `(v  1 e 1 0 ]
+{
+[v PCS_vSetOutputPortD@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
+"23
+[v PCS_vSetOutputPortD@u8BitNumberValue u8BitNumberValue `uc  1 a 1 14 ]
+"22
+[v PCS_vSetOutputPortD@u8BitValue u8BitValue `uc  1 a 1 12 ]
+"20
+[v PCS_vSetOutputPortD@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
+[v PCS_vSetOutputPortD@u8Value u8Value `Cuc  1 p 1 7 ]
+"22
+[v PCS_vSetOutputPortD@u8BitNumber u8BitNumber `Cuc  1 a 1 13 ]
+"33
 } 0
 "19 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\ioc.c
 [v _IOC_T16GetInputPort IOC_T16GetInputPort `(ui  1 e 2 0 ]
@@ -678,46 +756,6 @@ IOC_SEM_S 4
 "50
 [v ADC_u16ReadAdcValue@U8Channel U8Channel `Cuc  1 a 1 12 ]
 "52
-} 0
-"5 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\ioc.c
-[v _IOC_vSetOutputPort IOC_vSetOutputPort `(v  1 e 1 0 ]
-{
-"7
-[v IOC_vSetOutputPort@u16ChannelMask u16ChannelMask `ui  1 a 2 26 ]
-"5
-[v IOC_vSetOutputPort@u16ChannelSelect u16ChannelSelect `CE10327  1 p 2 23 ]
-[v IOC_vSetOutputPort@u8Value u8Value `Cuc  1 p 1 25 ]
-"17
-} 0
-"35 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\pcs.c
-[v _PCS_vSetOutputPortE PCS_vSetOutputPortE `(v  1 e 1 0 ]
-{
-[v PCS_vSetOutputPortE@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
-"38
-[v PCS_vSetOutputPortE@u8BitNumberValue u8BitNumberValue `uc  1 a 1 14 ]
-"37
-[v PCS_vSetOutputPortE@u8BitValue u8BitValue `uc  1 a 1 12 ]
-"35
-[v PCS_vSetOutputPortE@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
-[v PCS_vSetOutputPortE@u8Value u8Value `Cuc  1 p 1 7 ]
-"37
-[v PCS_vSetOutputPortE@u8BitNumber u8BitNumber `Cuc  1 a 1 13 ]
-"48
-} 0
-"20
-[v _PCS_vSetOutputPortD PCS_vSetOutputPortD `(v  1 e 1 0 ]
-{
-[v PCS_vSetOutputPortD@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
-"23
-[v PCS_vSetOutputPortD@u8BitNumberValue u8BitNumberValue `uc  1 a 1 14 ]
-"22
-[v PCS_vSetOutputPortD@u8BitValue u8BitValue `uc  1 a 1 12 ]
-"20
-[v PCS_vSetOutputPortD@u8BitNumber u8BitNumber `Cuc  1 a 1 wreg ]
-[v PCS_vSetOutputPortD@u8Value u8Value `Cuc  1 p 1 7 ]
-"22
-[v PCS_vSetOutputPortD@u8BitNumber u8BitNumber `Cuc  1 a 1 13 ]
-"33
 } 0
 "27 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\tasks.c
 [v _TASK_vTask100ms TASK_vTask100ms `(v  1 e 1 0 ]

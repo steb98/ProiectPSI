@@ -1,27 +1,14 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"8 lights.c
-[c E10327 256 257 258 259 260 261 262 263 512 513 .. ]
-[n E10327 s_OutputPort IOC_SFD IOC_FD IOC_FS IOC_SFS IOC_SSD IOC_LSF IOC_LS IOC_SSS IOC_IE IOC_IFS  ]
-"54 ioc.h
-[v _IOC_vSetOutputPort `(v ~T0 @X0 0 ef2`CE10327`Cuc ]
-"7 diagnosis.h
-[v _g_lightStateFrana `ui ~T0 @X0 0 e ]
-"18 lights.c
-[c E10339 768 769 0 1 2 3 4 .. ]
-[n E10339 s_InputPort IOC_ADC0 IOC_ADC1 IOC_FRANA IOC_FARURI IOC_AVARII IOC_SEM_D IOC_SEM_S  ]
+"10 diagnosis.c
+[c E10343 768 769 0 1 2 3 4 .. ]
+[n E10343 s_InputPort IOC_ADC0 IOC_ADC1 IOC_FRANA IOC_FARURI IOC_AVARII IOC_SEM_D IOC_SEM_S  ]
 "65 ioc.h
-[v _IOC_T16GetInputPort `(ui ~T0 @X0 0 ef1`CE10339 ]
-"11 diagnosis.h
-[v _DIAGNOSIS_ActivateError `(v ~T0 @X0 0 ef ]
-[v F10355 `(v ~T0 @X0 0 tf ]
-[v F10358 `(v ~T0 @X0 0 tf ]
-"5 lights.h
-[s S1060 `*F10355 1 `*F10358 1 `ui 1 `uc 1 `ui 1 ]
-[n S1060 s_HeadLightStateMachine _currentState _pollEvents firstEntry faruri lightLevel ]
-"34 lights.c
-[v _SGL_HeadLightActiveState `(v ~T0 @X0 0 ef ]
-"8 diagnosis.h
-[v _g_lightStateLumini `ui ~T0 @X0 0 e ]
+[v _IOC_T16GetInputPort `(ui ~T0 @X0 0 ef1`CE10343 ]
+"16 diagnosis.c
+[c E10331 256 257 258 259 260 261 262 263 512 513 .. ]
+[n E10331 s_OutputPort IOC_SFD IOC_FD IOC_FS IOC_SFS IOC_SSD IOC_LSF IOC_LS IOC_SSS IOC_IE IOC_IFS  ]
+"54 ioc.h
+[v _IOC_vSetOutputPort `(v ~T0 @X0 0 ef2`CE10331`Cuc ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -11585,6 +11572,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;global.h: 13: typedef unsigned int T_BOOL;
 [; ;global.h: 15: typedef int T_16;
 [; ;global.h: 16: typedef char T_8;
+[; ;diagnosis.h: 7: extern T_U16 g_lightStateFrana;
+[; ;diagnosis.h: 8: extern T_U16 g_lightStateLumini;
+[; ;diagnosis.h: 9: extern T_U16 g_sglStareSemnal;
+[; ;diagnosis.h: 11: void DIAGNOSIS_ActivateError();
 [; ;ioc.h: 5: typedef enum s_Port
 [; ;ioc.h: 6: {
 [; ;ioc.h: 7: IOC_PORTC = 0x0000,
@@ -11617,371 +11608,86 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ioc.h: 39: }IOC_eInputChannelPort;
 [; ;ioc.h: 54: void IOC_vSetOutputPort(const IOC_eOutputChannelPort u16ChannelSelect, const T_U8 u8Value);
 [; ;ioc.h: 65: T_U16 IOC_T16GetInputPort(const IOC_eInputChannelPort u16ChannelSelect);
-[; ;lights.h: 5: typedef struct s_HeadLightStateMachine
-[; ;lights.h: 6: {
-[; ;lights.h: 7: void (*_currentState)(void);
-[; ;lights.h: 8: void (*_pollEvents)(void);
-[; ;lights.h: 9: T_BOOL firstEntry;
-[; ;lights.h: 10: T_U8 faruri;
-[; ;lights.h: 11: T_U16 lightLevel;
-[; ;lights.h: 12: } s_HeadLightSM;
-[; ;lights.h: 14: void LIGHTS_BrakeInit();
-[; ;lights.h: 15: void LIGHTS_BrakeRun();
-[; ;lights.h: 17: void LIGHTS_HeadLampInit();
-[; ;lights.h: 18: void LIGHTS_HeadLampRun();
-[; ;diagnosis.h: 7: extern T_U16 g_lightStateFrana;
-[; ;diagnosis.h: 8: extern T_U16 g_lightStateLumini;
-[; ;diagnosis.h: 9: extern T_U16 g_sglStareSemnal;
-[; ;diagnosis.h: 11: void DIAGNOSIS_ActivateError();
-"6 lights.c
-[v _LIGHTS_BrakeInit `(v ~T0 @X0 1 ef ]
-"7
-{
-[; ;lights.c: 6: void LIGHTS_BrakeInit()
-[; ;lights.c: 7: {
-[e :U _LIGHTS_BrakeInit ]
-[f ]
-[; ;lights.c: 8: IOC_vSetOutputPort(IOC_LSF, 0);
+"4 diagnosis.c
+[v _g_lightStateFrana `ui ~T0 @X0 1 e ]
+[i _g_lightStateFrana
+-> -> 0 `i `ui
+]
+[; ;diagnosis.c: 4: T_U16 g_lightStateFrana = 0;
+"5
+[v _g_lightStateLumini `ui ~T0 @X0 1 e ]
+[i _g_lightStateLumini
+-> -> 0 `i `ui
+]
+[; ;diagnosis.c: 5: T_U16 g_lightStateLumini = 0;
+"6
+[v _g_sglStareSemnal `ui ~T0 @X0 1 e ]
+[i _g_sglStareSemnal
+-> -> 0 `i `ui
+]
+[; ;diagnosis.c: 6: T_U16 g_sglStareSemnal = 0;
 "8
-[e ( _IOC_vSetOutputPort (2 , . `E10327 5 -> -> 0 `i `uc ]
-[; ;lights.c: 9: }
+[v _DIAGNOSIS_ActivateError `(v ~T0 @X0 1 ef ]
 "9
-[e :UE 1061 ]
-}
+{
+[; ;diagnosis.c: 8: void DIAGNOSIS_ActivateError()
+[; ;diagnosis.c: 9: {
+[e :U _DIAGNOSIS_ActivateError ]
+[f ]
+"10
+[v _sensorValue `ui ~T0 @X0 1 a ]
+[; ;diagnosis.c: 10: T_U16 sensorValue = IOC_T16GetInputPort(IOC_ADC1);
+[e = _sensorValue ( _IOC_T16GetInputPort (1 . `E10343 1 ]
+[; ;diagnosis.c: 12: if(g_lightStateFrana || g_lightStateLumini || g_sglStareSemnal)
 "12
-[v _LIGHTS_BrakeRun `(v ~T0 @X0 1 ef ]
+[e $ ! || || != _g_lightStateFrana -> -> 0 `i `ui != _g_lightStateLumini -> -> 0 `i `ui != _g_sglStareSemnal -> -> 0 `i `ui 1061  ]
+[; ;diagnosis.c: 13: {
 "13
 {
-[; ;lights.c: 12: void LIGHTS_BrakeRun()
-[; ;lights.c: 13: {
-[e :U _LIGHTS_BrakeRun ]
-[f ]
+[; ;diagnosis.c: 14: if(sensorValue > (4.5*204))
 "14
-[v F10372 `uc ~T0 @X0 1 s counter ]
-[i F10372
--> -> 0 `i `uc
-]
-[; ;lights.c: 14: static T_U8 counter = 0;
-[; ;lights.c: 16: if(4 == counter)
-"16
-[e $ ! == -> 4 `i -> F10372 `i 1063  ]
-[; ;lights.c: 17: {
-"17
+[e $ ! > -> _sensorValue `d * .4.5 -> -> 204 `i `d 1062  ]
+[; ;diagnosis.c: 15: {
+"15
 {
-[; ;lights.c: 18: g_lightStateFrana = IOC_T16GetInputPort(IOC_FRANA);
+[; ;diagnosis.c: 16: IOC_vSetOutputPort(IOC_IE, 1);
+"16
+[e ( _IOC_vSetOutputPort (2 , . `E10331 8 -> -> 1 `i `uc ]
+"17
+}
+[; ;diagnosis.c: 17: }
+[e $U 1063  ]
 "18
-[e = _g_lightStateFrana ( _IOC_T16GetInputPort (1 . `E10339 2 ]
-[; ;lights.c: 20: IOC_vSetOutputPort(IOC_LSF, g_lightStateFrana);
+[e :U 1062 ]
+[; ;diagnosis.c: 18: else
+[; ;diagnosis.c: 19: {
+"19
+{
+[; ;diagnosis.c: 20: IOC_vSetOutputPort(IOC_IE, 0);
 "20
-[e ( _IOC_vSetOutputPort (2 , . `E10327 5 -> _g_lightStateFrana `uc ]
-[; ;lights.c: 21: DIAGNOSIS_ActivateError();
+[e ( _IOC_vSetOutputPort (2 , . `E10331 8 -> -> 0 `i `uc ]
 "21
-[e ( _DIAGNOSIS_ActivateError ..  ]
-[; ;lights.c: 23: counter = 0;
-"23
-[e = F10372 -> -> 0 `i `uc ]
-"24
 }
 [e :U 1063 ]
-[; ;lights.c: 24: }
-[; ;lights.c: 26: ++counter;
+"22
+}
+[; ;diagnosis.c: 21: }
+[; ;diagnosis.c: 22: }
+[e $U 1064  ]
+"23
+[e :U 1061 ]
+[; ;diagnosis.c: 23: else
+[; ;diagnosis.c: 24: {
+"24
+{
+[; ;diagnosis.c: 25: IOC_vSetOutputPort(IOC_IE, 0);
+"25
+[e ( _IOC_vSetOutputPort (2 , . `E10331 8 -> -> 0 `i `uc ]
 "26
-[e =+ F10372 -> -> 1 `i `uc ]
-[; ;lights.c: 27: }
+}
+[e :U 1064 ]
+[; ;diagnosis.c: 26: }
+[; ;diagnosis.c: 27: }
 "27
-[e :UE 1062 ]
-}
-"30
-[v _headLightSM `S1060 ~T0 @X0 1 e ]
-[; ;lights.c: 30: s_HeadLightSM headLightSM;
-[; ;lights.c: 32: void SGL_HeadLightEventPoll();
-[; ;lights.c: 33: void SGL_HeadLightPasiveState();
-[; ;lights.c: 34: void SGL_HeadLightActiveState();
-[; ;lights.c: 35: T_U8 SGL_isNight();
-"37
-[v _SGL_isNight `(uc ~T0 @X0 1 ef ]
-"38
-{
-[; ;lights.c: 37: T_U8 SGL_isNight()
-[; ;lights.c: 38: {
-[e :U _SGL_isNight ]
-[f ]
-"39
-[v F10378 `uc ~T0 @X0 1 s prevState ]
-[i F10378
--> -> 0 `i `uc
-]
-"40
-[v _currentLightLevel `ui ~T0 @X0 1 a ]
-[; ;lights.c: 39: static T_U8 prevState = 0;
-[; ;lights.c: 40: T_U16 currentLightLevel = headLightSM.lightLevel;
-[e = _currentLightLevel . _headLightSM 4 ]
-[; ;lights.c: 42: if(prevState == 0 && currentLightLevel < (2.2*204))
-"42
-[e $ ! && == -> F10378 `i -> 0 `i < -> _currentLightLevel `d * .2.2 -> -> 204 `i `d 1065  ]
-[; ;lights.c: 43: {
-"43
-{
-[; ;lights.c: 44: prevState = 1;
-"44
-[e = F10378 -> -> 1 `i `uc ]
-[; ;lights.c: 45: return 1;
-"45
-[e ) -> -> 1 `i `uc ]
-[e $UE 1064  ]
-"46
-}
-[e :U 1065 ]
-[; ;lights.c: 46: }
-[; ;lights.c: 48: if(prevState == 1 && currentLightLevel > (2.4*204))
-"48
-[e $ ! && == -> F10378 `i -> 1 `i > -> _currentLightLevel `d * .2.4 -> -> 204 `i `d 1066  ]
-[; ;lights.c: 49: {
-"49
-{
-[; ;lights.c: 50: prevState = 0;
-"50
-[e = F10378 -> -> 0 `i `uc ]
-[; ;lights.c: 51: return 1;
-"51
-[e ) -> -> 1 `i `uc ]
-[e $UE 1064  ]
-"52
-}
-[e :U 1066 ]
-[; ;lights.c: 52: }
-[; ;lights.c: 54: return prevState;
-"54
-[e ) F10378 ]
-[e $UE 1064  ]
-[; ;lights.c: 55: }
-"55
-[e :UE 1064 ]
-}
-"57
-[v _SGL_HeadLightPasiveState `(v ~T0 @X0 1 ef ]
-"58
-{
-[; ;lights.c: 57: void SGL_HeadLightPasiveState()
-[; ;lights.c: 58: {
-[e :U _SGL_HeadLightPasiveState ]
-[f ]
-[; ;lights.c: 60: if(headLightSM.firstEntry == 1)
-"60
-[e $ ! == . _headLightSM 2 -> -> 1 `i `ui 1068  ]
-[; ;lights.c: 61: {
-"61
-{
-[; ;lights.c: 62: IOC_vSetOutputPort(IOC_IFS, 0);
-"62
-[e ( _IOC_vSetOutputPort (2 , . `E10327 9 -> -> 0 `i `uc ]
-[; ;lights.c: 63: IOC_vSetOutputPort(IOC_LS, 0);
-"63
-[e ( _IOC_vSetOutputPort (2 , . `E10327 6 -> -> 0 `i `uc ]
-[; ;lights.c: 64: headLightSM.firstEntry = 0;
-"64
-[e = . _headLightSM 2 -> -> 0 `i `ui ]
-"65
-}
-[e :U 1068 ]
-[; ;lights.c: 65: }
-[; ;lights.c: 68: if(SGL_isNight())
-"68
-[e $ ! != -> ( _SGL_isNight ..  `i -> -> -> 0 `i `uc `i 1069  ]
-[; ;lights.c: 69: {
-"69
-{
-[; ;lights.c: 70: IOC_vSetOutputPort(IOC_IFS, 1);
-"70
-[e ( _IOC_vSetOutputPort (2 , . `E10327 9 -> -> 1 `i `uc ]
-"71
-}
-[; ;lights.c: 71: }
-[e $U 1070  ]
-"72
-[e :U 1069 ]
-[; ;lights.c: 72: else
-[; ;lights.c: 73: {
-"73
-{
-[; ;lights.c: 74: IOC_vSetOutputPort(IOC_IFS, 0);
-"74
-[e ( _IOC_vSetOutputPort (2 , . `E10327 9 -> -> 0 `i `uc ]
-"75
-}
-[e :U 1070 ]
-[; ;lights.c: 75: }
-[; ;lights.c: 78: if(1 == headLightSM.faruri)
-"78
-[e $ ! == -> 1 `i -> . _headLightSM 3 `i 1071  ]
-[; ;lights.c: 79: {
-"79
-{
-[; ;lights.c: 80: headLightSM.firstEntry = 1;
-"80
-[e = . _headLightSM 2 -> -> 1 `i `ui ]
-[; ;lights.c: 81: headLightSM._currentState = SGL_HeadLightActiveState;
-"81
-[e = . _headLightSM 0 &U _SGL_HeadLightActiveState ]
-[; ;lights.c: 82: IOC_vSetOutputPort(IOC_IFS, 0);
-"82
-[e ( _IOC_vSetOutputPort (2 , . `E10327 9 -> -> 0 `i `uc ]
-"83
-}
-[e :U 1071 ]
-[; ;lights.c: 83: }
-[; ;lights.c: 84: }
-"84
-[e :UE 1067 ]
-}
-"86
-[v _SGL_HeadLightActiveState `(v ~T0 @X0 1 ef ]
-"87
-{
-[; ;lights.c: 86: void SGL_HeadLightActiveState()
-[; ;lights.c: 87: {
-[e :U _SGL_HeadLightActiveState ]
-[f ]
-[; ;lights.c: 89: if(headLightSM.firstEntry == 1)
-"89
-[e $ ! == . _headLightSM 2 -> -> 1 `i `ui 1073  ]
-[; ;lights.c: 90: {
-"90
-{
-[; ;lights.c: 91: IOC_vSetOutputPort(IOC_LS, 1);
-"91
-[e ( _IOC_vSetOutputPort (2 , . `E10327 6 -> -> 1 `i `uc ]
-[; ;lights.c: 92: IOC_vSetOutputPort(IOC_FS, 1);
-"92
-[e ( _IOC_vSetOutputPort (2 , . `E10327 2 -> -> 1 `i `uc ]
-[; ;lights.c: 93: IOC_vSetOutputPort(IOC_FD, 1);
-"93
-[e ( _IOC_vSetOutputPort (2 , . `E10327 1 -> -> 1 `i `uc ]
-[; ;lights.c: 94: g_lightStateLumini = 1;
-"94
-[e = _g_lightStateLumini -> -> 1 `i `ui ]
-[; ;lights.c: 95: headLightSM.firstEntry = 0;
-"95
-[e = . _headLightSM 2 -> -> 0 `i `ui ]
-"96
-}
-[e :U 1073 ]
-[; ;lights.c: 96: }
-[; ;lights.c: 99: DIAGNOSIS_ActivateError();
-"99
-[e ( _DIAGNOSIS_ActivateError ..  ]
-[; ;lights.c: 102: if(0 == headLightSM.faruri)
-"102
-[e $ ! == -> 0 `i -> . _headLightSM 3 `i 1074  ]
-[; ;lights.c: 103: {
-"103
-{
-[; ;lights.c: 104: headLightSM._currentState = SGL_HeadLightPasiveState;
-"104
-[e = . _headLightSM 0 &U _SGL_HeadLightPasiveState ]
-[; ;lights.c: 105: headLightSM.firstEntry = 1;
-"105
-[e = . _headLightSM 2 -> -> 1 `i `ui ]
-[; ;lights.c: 106: g_lightStateLumini = 0;
-"106
-[e = _g_lightStateLumini -> -> 0 `i `ui ]
-[; ;lights.c: 107: IOC_vSetOutputPort(IOC_LS, 0);
-"107
-[e ( _IOC_vSetOutputPort (2 , . `E10327 6 -> -> 0 `i `uc ]
-[; ;lights.c: 108: IOC_vSetOutputPort(IOC_FS, 0);
-"108
-[e ( _IOC_vSetOutputPort (2 , . `E10327 2 -> -> 0 `i `uc ]
-[; ;lights.c: 109: IOC_vSetOutputPort(IOC_FD, 0);
-"109
-[e ( _IOC_vSetOutputPort (2 , . `E10327 1 -> -> 0 `i `uc ]
-"110
-}
-[e :U 1074 ]
-[; ;lights.c: 110: }
-[; ;lights.c: 112: }
-"112
-[e :UE 1072 ]
-}
-"114
-[v _SGL_HeadLightEventPoll `(v ~T0 @X0 1 ef ]
-"115
-{
-[; ;lights.c: 114: void SGL_HeadLightEventPoll()
-[; ;lights.c: 115: {
-[e :U _SGL_HeadLightEventPoll ]
-[f ]
-[; ;lights.c: 116: headLightSM.faruri = IOC_T16GetInputPort(IOC_FARURI);
-"116
-[e = . _headLightSM 3 -> ( _IOC_T16GetInputPort (1 . `E10339 3 `uc ]
-[; ;lights.c: 117: headLightSM.lightLevel = IOC_T16GetInputPort(IOC_ADC0);
-"117
-[e = . _headLightSM 4 ( _IOC_T16GetInputPort (1 . `E10339 0 ]
-[; ;lights.c: 118: }
-"118
-[e :UE 1075 ]
-}
-"120
-[v _LIGHTS_HeadLampInit `(v ~T0 @X0 1 ef ]
-"121
-{
-[; ;lights.c: 120: void LIGHTS_HeadLampInit()
-[; ;lights.c: 121: {
-[e :U _LIGHTS_HeadLampInit ]
-[f ]
-[; ;lights.c: 122: headLightSM._currentState = SGL_HeadLightPasiveState;
-"122
-[e = . _headLightSM 0 &U _SGL_HeadLightPasiveState ]
-[; ;lights.c: 123: headLightSM._pollEvents = SGL_HeadLightEventPoll;
-"123
-[e = . _headLightSM 1 &U _SGL_HeadLightEventPoll ]
-[; ;lights.c: 124: headLightSM.firstEntry = 1;
-"124
-[e = . _headLightSM 2 -> -> 1 `i `ui ]
-[; ;lights.c: 125: headLightSM.faruri = 0;
-"125
-[e = . _headLightSM 3 -> -> 0 `i `uc ]
-[; ;lights.c: 126: headLightSM.lightLevel = 0;
-"126
-[e = . _headLightSM 4 -> -> 0 `i `ui ]
-[; ;lights.c: 127: }
-"127
-[e :UE 1076 ]
-}
-"129
-[v _LIGHTS_HeadLampRun `(v ~T0 @X0 1 ef ]
-"130
-{
-[; ;lights.c: 129: void LIGHTS_HeadLampRun()
-[; ;lights.c: 130: {
-[e :U _LIGHTS_HeadLampRun ]
-[f ]
-[; ;lights.c: 131: if(0 != headLightSM._currentState)
-"131
-[e $ ! != -> -> 0 `i `*F10355 . _headLightSM 0 1078  ]
-[; ;lights.c: 132: {
-"132
-{
-[; ;lights.c: 133: (*headLightSM._currentState)();
-"133
-[e ( *U . _headLightSM 0 ..  ]
-"134
-}
-[e :U 1078 ]
-[; ;lights.c: 134: }
-[; ;lights.c: 135: if(0 != headLightSM._pollEvents)
-"135
-[e $ ! != -> -> 0 `i `*F10358 . _headLightSM 1 1079  ]
-[; ;lights.c: 136: {
-"136
-{
-[; ;lights.c: 137: (*headLightSM._pollEvents)();
-"137
-[e ( *U . _headLightSM 1 ..  ]
-"138
-}
-[e :U 1079 ]
-[; ;lights.c: 138: }
-[; ;lights.c: 139: }
-"139
-[e :UE 1077 ]
+[e :UE 1060 ]
 }

@@ -18420,7 +18420,14 @@ T_U8 carryCounter;
 void SGL_BlinkersInit();
 void SGL_BlinkersRun();
 
-# 5 "sgl.c"
+# 7 "diagnosis.h"
+extern T_U16 g_lightStateFrana;
+extern T_U16 g_lightStateLumini;
+extern T_U16 g_sglStareSemnal;
+
+void DIAGNOSIS_ActivateError();
+
+# 6 "sgl.c"
 s_BlinkerSM blinkerSM;
 
 
@@ -18500,11 +18507,15 @@ if(1 == blinkerSM.avarie)
 if(1 == firstEntry)
 {
 SGL_setAllHazardLights(1);
+g_sglStareSemnal = 1;
+DIAGNOSIS_ActivateError();
 firstEntry = 0;
 }
 if(500 == counter)
 {
+g_sglStareSemnal = toggleLights;
 SGL_toggleAllHazardLights(&toggleLights);
+DIAGNOSIS_ActivateError();
 counter = 0;
 }
 else
@@ -18514,7 +18525,9 @@ counter++;
 }
 else
 {
+g_sglStareSemnal = 0;
 SGL_setAllHazardLights(0);
+DIAGNOSIS_ActivateError();
 counter = 0;
 firstEntry = 1;
 toggleLights = 0;
@@ -18527,7 +18540,9 @@ blinkerSM._currentState = SGL_BlinkSwitchOnState;
 blinkerSM.firstEntry = 1;
 counter = 0;
 toggleLights = 0;
+g_sglStareSemnal = 0;
 SGL_setAllHazardLights(0);
+DIAGNOSIS_ActivateError();
 }
 
 }
@@ -18552,12 +18567,17 @@ counter = blinkerSM.carryCounter;
 
 if(1 == firstEntry)
 {
+g_sglStareSemnal = 1;
 SGL_setSideHazardLights(1, side);
+DIAGNOSIS_ActivateError();
+
 firstEntry = 0;
 }
 if(500 == counter)
 {
+g_sglStareSemnal = toggleLights;
 SGL_toggleSideHazardLights(&toggleLights, side);
+DIAGNOSIS_ActivateError();
 counter = 0;
 }
 else
@@ -18573,7 +18593,9 @@ blinkerSM.firstEntry = 1;
 counter = 0;
 toggleLights = 0;
 firstEntry = 1;
+g_sglStareSemnal = 0;
 SGL_setAllHazardLights(0);
+DIAGNOSIS_ActivateError();
 }else if( (0 == blinkerSM.avarie) && (0 == blinkerSM.leftSwitch) && (0 == blinkerSM.rightSwitch) )
 {
 blinkerSM._currentState = SGL_BlinkSwitchOffState;
@@ -18583,7 +18605,6 @@ blinkerSM.carryCounter = counter;
 counter = 0;
 toggleLights = 0;
 firstEntry = 1;
-
 }
 
 }
@@ -18599,7 +18620,6 @@ static T_U8 cycles = 0;
 if(blinkerSM.firstEntry == 1)
 {
 blinkerSM.firstEntry = 0;
-
 toggleLights = blinkerSM.lastToggle;
 side = blinkerSM.lastSide;
 counter = blinkerSM.carryCounter;
@@ -18608,7 +18628,9 @@ counter = blinkerSM.carryCounter;
 
 if(500 == counter && (5 != (cycles+blinkerSM.lastToggle)))
 {
+g_sglStareSemnal = toggleLights;
 SGL_toggleSideHazardLights(&toggleLights, side);
+DIAGNOSIS_ActivateError();
 cycles++;
 counter = 0;
 }
