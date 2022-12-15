@@ -1,21 +1,53 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[v F10355 `(v ~T0 @X0 0 tf ]
-[v F10358 `(v ~T0 @X0 0 tf ]
-"5 demo.h
-[s S1060 `*F10355 1 `*F10358 1 `ui 1 `ui 1 ]
-[n S1060 s_stateMachine _currentState _pollEvents firstEntry toggle ]
-"24 demo.c
-[c E10327 256 257 258 259 260 261 262 263 512 513 .. ]
-[n E10327 s_OutputPort IOC_SFD IOC_FD IOC_FS IOC_SFS IOC_SSD IOC_LSF IOC_LS IOC_SSS IOC_IE IOC_IFS  ]
-"54 ioc.h
-[v _IOC_vSetOutputPort `(v ~T0 @X0 0 ef2`CE10327`Cuc ]
-"5 demo.c
-[v _LIGHTS_DemoState2 `(v ~T0 @X0 0 ef ]
-"60
-[c E10339 768 769 0 1 2 3 4 .. ]
-[n E10339 s_InputPort IOC_ADC0 IOC_ADC1 IOC_FRANA IOC_FARURI IOC_AVARII IOC_SEM_D IOC_SEM_S  ]
-"65 ioc.h
-[v _IOC_T16GetInputPort `(ui ~T0 @X0 0 ef1`CE10339 ]
+"25057 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f6585.h
+[v _SPBRGH `Vuc ~T0 @X0 0 e@3967 ]
+"29626
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"29357
+[s S930 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S930 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"29367
+[s S931 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S931 . TX9D1 TRMT1 BRGH1 SENDB1 SYNC1 TXEN1 TX91 CSRC1 ]
+"29377
+[s S932 :6 `uc 1 :1 `uc 1 ]
+[n S932 . . TX8_9 ]
+"29381
+[s S933 :1 `uc 1 ]
+[n S933 . TXD8 ]
+"29356
+[u S929 `S930 1 `S931 1 `S932 1 `S933 1 ]
+[n S929 . . . . . ]
+"29385
+[v _TXSTAbits `VS929 ~T0 @X0 0 e@4012 ]
+"29047
+[s S914 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S914 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"29057
+[s S915 :3 `uc 1 :1 `uc 1 ]
+[n S915 . . ADEN ]
+"29061
+[s S916 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S916 . RX9D1 OERR1 FERR1 ADDEN1 CREN1 SREN1 RX91 SPEN1 ]
+"29071
+[s S917 :5 `uc 1 :1 `uc 1 ]
+[n S917 . . SRENA ]
+"29075
+[s S918 :6 `uc 1 :1 `uc 1 ]
+[n S918 . . RC8_9 ]
+"29079
+[s S919 :6 `uc 1 :1 `uc 1 ]
+[n S919 . . RC9 ]
+"29083
+[s S920 :1 `uc 1 ]
+[n S920 . RCD8 ]
+"29046
+[u S913 `S914 1 `S915 1 `S916 1 `S917 1 `S918 1 `S919 1 `S920 1 ]
+[n S913 . . . . . . . . ]
+"29087
+[v _RCSTAbits `VS913 ~T0 @X0 0 e@4011 ]
+"29602
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -11579,233 +11611,107 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;global.h: 13: typedef unsigned int T_BOOL;
 [; ;global.h: 15: typedef int T_16;
 [; ;global.h: 16: typedef char T_8;
-[; ;ioc.h: 5: typedef enum s_Port
-[; ;ioc.h: 6: {
-[; ;ioc.h: 7: IOC_PORTC = 0x0000,
-[; ;ioc.h: 8: IOC_PORTD = 0x0100,
-[; ;ioc.h: 9: IOC_PORTE = 0x0200,
-[; ;ioc.h: 10: IOC_PORTA = 0x0300
-[; ;ioc.h: 11: }IOC_ePort;
-[; ;ioc.h: 13: typedef enum s_OutputPort
-[; ;ioc.h: 14: {
-[; ;ioc.h: 15: IOC_SFD = IOC_PORTD | 0x0000,
-[; ;ioc.h: 16: IOC_FD = IOC_PORTD | 0x0001,
-[; ;ioc.h: 17: IOC_FS = IOC_PORTD | 0x0002,
-[; ;ioc.h: 18: IOC_SFS = IOC_PORTD | 0x0003,
-[; ;ioc.h: 19: IOC_SSD = IOC_PORTD | 0x0004,
-[; ;ioc.h: 20: IOC_LSF = IOC_PORTD | 0x0005,
-[; ;ioc.h: 21: IOC_LS = IOC_PORTD | 0x0006,
-[; ;ioc.h: 22: IOC_SSS = IOC_PORTD | 0x0007,
-[; ;ioc.h: 24: IOC_IE = IOC_PORTE | 0x0000,
-[; ;ioc.h: 25: IOC_IFS = IOC_PORTE | 0x0001
-[; ;ioc.h: 26: }IOC_eOutputChannelPort;
-[; ;ioc.h: 28: typedef enum s_InputPort
-[; ;ioc.h: 29: {
-[; ;ioc.h: 30: IOC_ADC0 = IOC_PORTA | 0x0000,
-[; ;ioc.h: 31: IOC_ADC1 = IOC_PORTA | 0x0001,
-[; ;ioc.h: 33: IOC_FRANA = IOC_PORTC | 0x0000,
-[; ;ioc.h: 34: IOC_FARURI = IOC_PORTC | 0x0001,
-[; ;ioc.h: 35: IOC_AVARII = IOC_PORTC | 0x0002,
-[; ;ioc.h: 36: IOC_SEM_D = IOC_PORTC | 0x0003,
-[; ;ioc.h: 37: IOC_SEM_S = IOC_PORTC | 0x0004
-[; ;ioc.h: 39: }IOC_eInputChannelPort;
-[; ;ioc.h: 54: void IOC_vSetOutputPort(const IOC_eOutputChannelPort u16ChannelSelect, const T_U8 u8Value);
-[; ;ioc.h: 65: T_U16 IOC_T16GetInputPort(const IOC_eInputChannelPort u16ChannelSelect);
-[; ;demo.h: 5: typedef struct s_stateMachine
-[; ;demo.h: 6: {
-[; ;demo.h: 7: void (*_currentState)(void);
-[; ;demo.h: 8: void (*_pollEvents)(void);
-[; ;demo.h: 9: T_BOOL firstEntry;
-[; ;demo.h: 10: T_U16 toggle;
-[; ;demo.h: 11: } s_SM;
-[; ;demo.h: 13: void LIGHTS_DemoInit();
-[; ;demo.h: 14: void LIGHTS_DemoRun();
-"3 demo.c
-[v _demoSM `S1060 ~T0 @X0 1 e ]
-[; ;demo.c: 3: s_SM demoSM;
-[; ;demo.c: 4: void LIGHTS_DemoState1();
-[; ;demo.c: 5: void LIGHTS_DemoState2();
-[; ;demo.c: 6: void LIGHTS_DemoEventPoll();
-"8
-[v _LIGHTS_DemoRun `(v ~T0 @X0 1 ef ]
-"9
+[; ;RS232.h: 9: extern void RS232_vInit(void);
+[; ;RS232.h: 10: extern void RS232_vSendDataByte(T_U8 u8DataByte);
+[; ;RS232.h: 11: extern void RS232_vSendMessage(const char u8Message[]);
+"19 RS232.c
+[v _RS232_vInit `(v ~T0 @X0 1 ef ]
+"20
 {
-[; ;demo.c: 8: void LIGHTS_DemoRun()
-[; ;demo.c: 9: {
-[e :U _LIGHTS_DemoRun ]
+[; ;RS232.c: 19: void RS232_vInit(void)
+[; ;RS232.c: 20: {
+[e :U _RS232_vInit ]
 [f ]
-[; ;demo.c: 10: if(0 != demoSM._currentState)
-"10
-[e $ ! != -> -> 0 `i `*F10355 . _demoSM 0 1062  ]
-[; ;demo.c: 11: {
-"11
-{
-[; ;demo.c: 12: (*demoSM._currentState)();
-"12
-[e ( *U . _demoSM 0 ..  ]
-"13
+"22
+[v _u16BaudRate `ui ~T0 @X0 1 a ]
+[; ;RS232.c: 22: T_U16 u16BaudRate = ((10000000UL / 9600) / 64) - 1;
+[e = _u16BaudRate -> - / / -> 10000000 `ul -> -> -> 9600 `i `l `ul -> -> -> 64 `i `l `ul -> -> -> 1 `i `l `ul `ui ]
+[; ;RS232.c: 23: SPBRGH = (u16BaudRate >> 8);
+"23
+[e = _SPBRGH -> >> _u16BaudRate -> 8 `i `uc ]
+[; ;RS232.c: 24: SPBRG = (T_U8) u16BaudRate;
+"24
+[e = _SPBRG -> _u16BaudRate `uc ]
+[; ;RS232.c: 26: TXSTAbits.TXEN = 1;
+"26
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+[; ;RS232.c: 28: RCSTAbits.CREN = 1;
+"28
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;RS232.c: 30: RCSTAbits.SPEN = 1;
+"30
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;RS232.c: 31: }
+"31
+[e :UE 1060 ]
 }
-[e :U 1062 ]
-[; ;demo.c: 13: }
-[; ;demo.c: 14: if(0 != demoSM._pollEvents)
-"14
-[e $ ! != -> -> 0 `i `*F10358 . _demoSM 1 1063  ]
-[; ;demo.c: 15: {
-"15
+"43
+[v _RS232_vSendDataByte `(v ~T0 @X0 1 ef1`uc ]
+"44
 {
-[; ;demo.c: 16: (*demoSM._pollEvents)();
-"16
-[e ( *U . _demoSM 1 ..  ]
-"17
-}
+[; ;RS232.c: 43: void RS232_vSendDataByte(T_U8 u8DataByte)
+[; ;RS232.c: 44: {
+[e :U _RS232_vSendDataByte ]
+"43
+[v _u8DataByte `uc ~T0 @X0 1 r1 ]
+"44
+[f ]
+[; ;RS232.c: 46: while (!TXSTAbits.TRMT);
+"46
+[e $U 1062  ]
 [e :U 1063 ]
-[; ;demo.c: 17: }
-[; ;demo.c: 18: }
-"18
+[e :U 1062 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 1063  ]
+[e :U 1064 ]
+[; ;RS232.c: 48: TXREG = u8DataByte;
+"48
+[e = _TXREG _u8DataByte ]
+[; ;RS232.c: 49: }
+"49
 [e :UE 1061 ]
 }
-"20
-[v _LIGHTS_DemoState1 `(v ~T0 @X0 1 ef ]
-"21
+"61
+[v _RS232_vSendMessage `(v ~T0 @X0 1 ef1`*Cuc ]
+"62
 {
-[; ;demo.c: 20: void LIGHTS_DemoState1()
-[; ;demo.c: 21: {
-[e :U _LIGHTS_DemoState1 ]
+[; ;RS232.c: 61: void RS232_vSendMessage(const char u8Message[])
+[; ;RS232.c: 62: {
+[e :U _RS232_vSendMessage ]
+"61
+[v _u8Message `*Cuc ~T0 @X0 1 r1 ]
+"62
 [f ]
-[; ;demo.c: 22: if(demoSM.firstEntry == 1)
-"22
-[e $ ! == . _demoSM 2 -> -> 1 `i `ui 1065  ]
-[; ;demo.c: 23: {
-"23
+"63
+[v _u8Count `uc ~T0 @X0 1 a ]
+[; ;RS232.c: 63: T_U8 u8Count = 0;
+[e = _u8Count -> -> 0 `i `uc ]
+[; ;RS232.c: 66: while (u8Message[u8Count] != '\0')
+"66
+[e $U 1066  ]
+[e :U 1067 ]
+[; ;RS232.c: 67: {
+"67
 {
-[; ;demo.c: 24: IOC_vSetOutputPort(IOC_FD, 1);
-"24
-[e ( _IOC_vSetOutputPort (2 , . `E10327 1 -> -> 1 `i `uc ]
-[; ;demo.c: 25: demoSM.firstEntry = 0;
-"25
-[e = . _demoSM 2 -> -> 0 `i `ui ]
-"26
-}
-[e :U 1065 ]
-[; ;demo.c: 26: }
-[; ;demo.c: 28: IOC_vSetOutputPort(IOC_FS, 1);
-"28
-[e ( _IOC_vSetOutputPort (2 , . `E10327 2 -> -> 1 `i `uc ]
-[; ;demo.c: 30: if(1 == demoSM.toggle)
-"30
-[e $ ! == -> -> 1 `i `ui . _demoSM 3 1066  ]
-[; ;demo.c: 31: {
-"31
-{
-[; ;demo.c: 32: demoSM._currentState = &LIGHTS_DemoState2;
-"32
-[e = . _demoSM 0 &U _LIGHTS_DemoState2 ]
-[; ;demo.c: 33: demoSM.firstEntry = 1;
-"33
-[e = . _demoSM 2 -> -> 1 `i `ui ]
-[; ;demo.c: 34: IOC_vSetOutputPort(IOC_FS, 0);
-"34
-[e ( _IOC_vSetOutputPort (2 , . `E10327 2 -> -> 0 `i `uc ]
-[; ;demo.c: 35: IOC_vSetOutputPort(IOC_FD, 0);
-"35
-[e ( _IOC_vSetOutputPort (2 , . `E10327 1 -> -> 0 `i `uc ]
-"36
+[; ;RS232.c: 68: RS232_vSendDataByte(u8Message[u8Count]);
+"68
+[e ( _RS232_vSendDataByte (1 *U + _u8Message * -> _u8Count `ux -> -> # *U _u8Message `ui `ux ]
+[; ;RS232.c: 69: u8Count++;
+"69
+[e ++ _u8Count -> -> 1 `i `uc ]
+"70
 }
 [e :U 1066 ]
-[; ;demo.c: 36: }
-[; ;demo.c: 37: }
-"37
-[e :UE 1064 ]
-}
-"39
-[v _LIGHTS_DemoState2 `(v ~T0 @X0 1 ef ]
-"40
-{
-[; ;demo.c: 39: void LIGHTS_DemoState2()
-[; ;demo.c: 40: {
-[e :U _LIGHTS_DemoState2 ]
-[f ]
-[; ;demo.c: 41: if(demoSM.firstEntry == 1)
-"41
-[e $ ! == . _demoSM 2 -> -> 1 `i `ui 1068  ]
-[; ;demo.c: 42: {
-"42
-{
-[; ;demo.c: 43: IOC_vSetOutputPort(IOC_SSD, 1);
-"43
-[e ( _IOC_vSetOutputPort (2 , . `E10327 4 -> -> 1 `i `uc ]
-[; ;demo.c: 44: demoSM.firstEntry = 0;
-"44
-[e = . _demoSM 2 -> -> 0 `i `ui ]
-"45
-}
-[e :U 1068 ]
-[; ;demo.c: 45: }
-[; ;demo.c: 47: IOC_vSetOutputPort(IOC_SSS, 1);
-"47
-[e ( _IOC_vSetOutputPort (2 , . `E10327 7 -> -> 1 `i `uc ]
-[; ;demo.c: 49: if(0 == demoSM.toggle)
-"49
-[e $ ! == -> -> 0 `i `ui . _demoSM 3 1069  ]
-[; ;demo.c: 50: {
-"50
-{
-[; ;demo.c: 51: demoSM._currentState = &LIGHTS_DemoState1;
-"51
-[e = . _demoSM 0 &U _LIGHTS_DemoState1 ]
-[; ;demo.c: 52: demoSM.firstEntry = 1;
-"52
-[e = . _demoSM 2 -> -> 1 `i `ui ]
-[; ;demo.c: 53: IOC_vSetOutputPort(IOC_SSD, 0);
-"53
-[e ( _IOC_vSetOutputPort (2 , . `E10327 4 -> -> 0 `i `uc ]
-[; ;demo.c: 54: IOC_vSetOutputPort(IOC_SSS, 0);
-"54
-[e ( _IOC_vSetOutputPort (2 , . `E10327 7 -> -> 0 `i `uc ]
-"55
-}
-[e :U 1069 ]
-[; ;demo.c: 55: }
-[; ;demo.c: 56: }
-"56
-[e :UE 1067 ]
-}
-"58
-[v _LIGHTS_DemoEventPoll `(v ~T0 @X0 1 ef ]
-"59
-{
-[; ;demo.c: 58: void LIGHTS_DemoEventPoll()
-[; ;demo.c: 59: {
-[e :U _LIGHTS_DemoEventPoll ]
-[f ]
-[; ;demo.c: 60: demoSM.toggle = IOC_T16GetInputPort(IOC_FRANA);
-"60
-[e = . _demoSM 3 ( _IOC_T16GetInputPort (1 . `E10339 2 ]
-[; ;demo.c: 61: }
-"61
-[e :UE 1070 ]
-}
-"63
-[v _LIGHTS_DemoInit `(v ~T0 @X0 1 ef ]
-"64
-{
-[; ;demo.c: 63: void LIGHTS_DemoInit()
-[; ;demo.c: 64: {
-[e :U _LIGHTS_DemoInit ]
-[f ]
-[; ;demo.c: 65: demoSM._currentState = &LIGHTS_DemoState1;
-"65
-[e = . _demoSM 0 &U _LIGHTS_DemoState1 ]
-[; ;demo.c: 66: demoSM._pollEvents = &LIGHTS_DemoEventPoll;
 "66
-[e = . _demoSM 1 &U _LIGHTS_DemoEventPoll ]
-[; ;demo.c: 67: demoSM.firstEntry = 1;
-"67
-[e = . _demoSM 2 -> -> 1 `i `ui ]
-[; ;demo.c: 68: demoSM.toggle = 0;
-"68
-[e = . _demoSM 3 -> -> 0 `i `ui ]
-[; ;demo.c: 69: }
-"69
-[e :UE 1071 ]
+[e $ != -> *U + _u8Message * -> _u8Count `ux -> -> # *U _u8Message `ui `ux `ui -> 0 `ui 1067  ]
+[e :U 1068 ]
+[; ;RS232.c: 70: }
+[; ;RS232.c: 73: RS232_vSendDataByte('\r');
+"73
+[e ( _RS232_vSendDataByte (1 -> -> 13 `ui `uc ]
+[; ;RS232.c: 74: RS232_vSendDataByte('\n');
+"74
+[e ( _RS232_vSendDataByte (1 -> -> 10 `ui `uc ]
+[; ;RS232.c: 75: }
+"75
+[e :UE 1065 ]
 }

@@ -5,7 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f2" displayName="APP" projectFiles="true">
-        <itemPath>demo.h</itemPath>
         <itemPath>sgl.h</itemPath>
         <itemPath>lights.h</itemPath>
         <itemPath>diagnosis.h</itemPath>
@@ -15,6 +14,7 @@
         <itemPath>int.h</itemPath>
         <itemPath>pcs.h</itemPath>
         <itemPath>tim.h</itemPath>
+        <itemPath>RS232.h</itemPath>
       </logicalFolder>
       <itemPath>global.h</itemPath>
       <itemPath>sched.h</itemPath>
@@ -29,7 +29,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f2" displayName="APP" projectFiles="true">
-        <itemPath>demo.c</itemPath>
         <itemPath>sgl.c</itemPath>
         <itemPath>lights.c</itemPath>
         <itemPath>diagnosis.c</itemPath>
@@ -39,6 +38,7 @@
         <itemPath>int.c</itemPath>
         <itemPath>pcs.c</itemPath>
         <itemPath>tim.c</itemPath>
+        <itemPath>RS232.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>sched.c</itemPath>

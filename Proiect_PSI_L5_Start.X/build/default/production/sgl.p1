@@ -17,7 +17,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SGL_BlinkSwitchOnState `(v ~T0 @X0 0 ef ]
 "12
 [v _SGL_BlinkSwitchOffState `(v ~T0 @X0 0 ef ]
-"240
+"238
 [c E10339 768 769 0 1 2 3 4 .. ]
 [n E10339 s_InputPort IOC_ADC0 IOC_ADC1 IOC_FRANA IOC_FARURI IOC_AVARII IOC_SEM_D IOC_SEM_S  ]
 "65 ioc.h
@@ -11966,441 +11966,441 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 1076 ]
 [; ;sgl.c: 121: }
-[; ;sgl.c: 123: }
-"123
+[; ;sgl.c: 122: }
+"122
 [e :UE 1069 ]
 }
-"125
+"124
 [v _SGL_BlinkSwitchOnState `(v ~T0 @X0 1 ef ]
-"126
+"125
 {
-[; ;sgl.c: 125: void SGL_BlinkSwitchOnState()
-[; ;sgl.c: 126: {
+[; ;sgl.c: 124: void SGL_BlinkSwitchOnState()
+[; ;sgl.c: 125: {
 [e :U _SGL_BlinkSwitchOnState ]
 [f ]
-"127
+"126
 [v F10393 `uc ~T0 @X0 1 s side ]
 [i F10393
 -> -> 0 `i `uc
 ]
-"128
+"127
 [v F10394 `ui ~T0 @X0 1 s counter ]
 [i F10394
 -> -> 0 `i `ui
 ]
-"129
+"128
 [v F10395 `uc ~T0 @X0 1 s firstEntry ]
 [i F10395
 -> -> 1 `i `uc
 ]
-"130
+"129
 [v F10396 `uc ~T0 @X0 1 s toggleLights ]
 [i F10396
 -> -> 0 `i `uc
 ]
-[; ;sgl.c: 127: static T_U8 side = 0;
-[; ;sgl.c: 128: static T_U16 counter = 0;
-[; ;sgl.c: 129: static T_U8 firstEntry = 1;
-[; ;sgl.c: 130: static T_U8 toggleLights = 0;
-[; ;sgl.c: 133: if(blinkerSM.firstEntry == 1)
-"133
+[; ;sgl.c: 126: static T_U8 side = 0;
+[; ;sgl.c: 127: static T_U16 counter = 0;
+[; ;sgl.c: 128: static T_U8 firstEntry = 1;
+[; ;sgl.c: 129: static T_U8 toggleLights = 0;
+[; ;sgl.c: 132: if(blinkerSM.firstEntry == 1)
+"132
 [e $ ! == . _blinkerSM 2 -> -> 1 `i `ui 1078  ]
-[; ;sgl.c: 134: {
-"134
+[; ;sgl.c: 133: {
+"133
 {
-[; ;sgl.c: 136: side = blinkerSM.rightSwitch;
-"136
+[; ;sgl.c: 135: side = blinkerSM.rightSwitch;
+"135
 [e = F10393 . _blinkerSM 5 ]
-[; ;sgl.c: 137: blinkerSM.lastSide = side;
-"137
+[; ;sgl.c: 136: blinkerSM.lastSide = side;
+"136
 [e = . _blinkerSM 6 F10393 ]
-[; ;sgl.c: 138: blinkerSM.firstEntry = 0;
-"138
+[; ;sgl.c: 137: blinkerSM.firstEntry = 0;
+"137
 [e = . _blinkerSM 2 -> -> 0 `i `ui ]
-[; ;sgl.c: 139: counter = blinkerSM.carryCounter;
-"139
+[; ;sgl.c: 138: counter = blinkerSM.carryCounter;
+"138
 [e = F10394 -> . _blinkerSM 8 `ui ]
-"140
+"139
 }
 [e :U 1078 ]
-[; ;sgl.c: 140: }
-[; ;sgl.c: 143: if(1 == firstEntry)
-"143
+[; ;sgl.c: 139: }
+[; ;sgl.c: 142: if(1 == firstEntry)
+"142
 [e $ ! == -> 1 `i -> F10395 `i 1079  ]
-[; ;sgl.c: 144: {
-"144
+[; ;sgl.c: 143: {
+"143
 {
-[; ;sgl.c: 145: g_sglStareSemnal = 1;
-"145
+[; ;sgl.c: 144: g_sglStareSemnal = 1;
+"144
 [e = _g_sglStareSemnal -> -> 1 `i `ui ]
-[; ;sgl.c: 146: SGL_setSideHazardLights(1, side);
-"146
+[; ;sgl.c: 145: SGL_setSideHazardLights(1, side);
+"145
 [e ( _SGL_setSideHazardLights (2 , -> -> 1 `i `uc F10393 ]
-[; ;sgl.c: 147: DIAGNOSIS_ActivateError();
-"147
+[; ;sgl.c: 146: DIAGNOSIS_ActivateError();
+"146
 [e ( _DIAGNOSIS_ActivateError ..  ]
-[; ;sgl.c: 149: firstEntry = 0;
-"149
+[; ;sgl.c: 148: firstEntry = 0;
+"148
 [e = F10395 -> -> 0 `i `uc ]
-"150
+"149
 }
 [e :U 1079 ]
-[; ;sgl.c: 150: }
-[; ;sgl.c: 151: if(500 == counter)
-"151
+[; ;sgl.c: 149: }
+[; ;sgl.c: 150: if(500 == counter)
+"150
 [e $ ! == -> -> 500 `i `ui F10394 1080  ]
-[; ;sgl.c: 152: {
+[; ;sgl.c: 151: {
+"151
+{
+[; ;sgl.c: 152: g_sglStareSemnal = toggleLights;
 "152
-{
-[; ;sgl.c: 153: g_sglStareSemnal = toggleLights;
-"153
 [e = _g_sglStareSemnal -> F10396 `ui ]
-[; ;sgl.c: 154: SGL_toggleSideHazardLights(&toggleLights, side);
-"154
+[; ;sgl.c: 153: SGL_toggleSideHazardLights(&toggleLights, side);
+"153
 [e ( _SGL_toggleSideHazardLights (2 , &U F10396 F10393 ]
-[; ;sgl.c: 155: DIAGNOSIS_ActivateError();
-"155
+[; ;sgl.c: 154: DIAGNOSIS_ActivateError();
+"154
 [e ( _DIAGNOSIS_ActivateError ..  ]
-[; ;sgl.c: 156: counter = 0;
-"156
+[; ;sgl.c: 155: counter = 0;
+"155
 [e = F10394 -> -> 0 `i `ui ]
-"157
+"156
 }
-[; ;sgl.c: 157: }
+[; ;sgl.c: 156: }
 [e $U 1081  ]
-"158
+"157
 [e :U 1080 ]
-[; ;sgl.c: 158: else
-[; ;sgl.c: 159: {
-"159
+[; ;sgl.c: 157: else
+[; ;sgl.c: 158: {
+"158
 {
-[; ;sgl.c: 160: counter++;
-"160
+[; ;sgl.c: 159: counter++;
+"159
 [e ++ F10394 -> -> 1 `i `ui ]
-"161
+"160
 }
 [e :U 1081 ]
-[; ;sgl.c: 161: }
-[; ;sgl.c: 164: if( 1 == blinkerSM.avarie )
-"164
+[; ;sgl.c: 160: }
+[; ;sgl.c: 163: if( 1 == blinkerSM.avarie )
+"163
 [e $ ! == -> 1 `i -> . _blinkerSM 3 `i 1082  ]
-[; ;sgl.c: 165: {
-"165
+[; ;sgl.c: 164: {
+"164
 {
-[; ;sgl.c: 166: blinkerSM._currentState = SGL_BlinkPasiveState;
-"166
+[; ;sgl.c: 165: blinkerSM._currentState = SGL_BlinkPasiveState;
+"165
 [e = . _blinkerSM 0 &U _SGL_BlinkPasiveState ]
-[; ;sgl.c: 167: blinkerSM.firstEntry = 1;
-"167
+[; ;sgl.c: 166: blinkerSM.firstEntry = 1;
+"166
 [e = . _blinkerSM 2 -> -> 1 `i `ui ]
-[; ;sgl.c: 168: counter = 0;
-"168
+[; ;sgl.c: 167: counter = 0;
+"167
 [e = F10394 -> -> 0 `i `ui ]
-[; ;sgl.c: 169: toggleLights = 0;
-"169
+[; ;sgl.c: 168: toggleLights = 0;
+"168
 [e = F10396 -> -> 0 `i `uc ]
-[; ;sgl.c: 170: firstEntry = 1;
-"170
+[; ;sgl.c: 169: firstEntry = 1;
+"169
 [e = F10395 -> -> 1 `i `uc ]
-[; ;sgl.c: 171: g_sglStareSemnal = 0;
-"171
+[; ;sgl.c: 170: g_sglStareSemnal = 0;
+"170
 [e = _g_sglStareSemnal -> -> 0 `i `ui ]
-[; ;sgl.c: 172: SGL_setAllHazardLights(0);
-"172
+[; ;sgl.c: 171: SGL_setAllHazardLights(0);
+"171
 [e ( _SGL_setAllHazardLights (1 -> -> 0 `i `uc ]
-[; ;sgl.c: 173: DIAGNOSIS_ActivateError();
-"173
+[; ;sgl.c: 172: DIAGNOSIS_ActivateError();
+"172
 [e ( _DIAGNOSIS_ActivateError ..  ]
-"174
+"173
 }
-[; ;sgl.c: 174: }else if( (0 == blinkerSM.avarie) && (0 == blinkerSM.leftSwitch) && (0 == blinkerSM.rightSwitch) )
+[; ;sgl.c: 173: }else if( (0 == blinkerSM.avarie) && (0 == blinkerSM.leftSwitch) && (0 == blinkerSM.rightSwitch) )
 [e $U 1083  ]
 [e :U 1082 ]
 [e $ ! && && == -> 0 `i -> . _blinkerSM 3 `i == -> 0 `i -> . _blinkerSM 4 `i == -> 0 `i -> . _blinkerSM 5 `i 1084  ]
-[; ;sgl.c: 175: {
-"175
+[; ;sgl.c: 174: {
+"174
 {
-[; ;sgl.c: 176: blinkerSM._currentState = SGL_BlinkSwitchOffState;
-"176
+[; ;sgl.c: 175: blinkerSM._currentState = SGL_BlinkSwitchOffState;
+"175
 [e = . _blinkerSM 0 &U _SGL_BlinkSwitchOffState ]
-[; ;sgl.c: 177: blinkerSM.firstEntry = 1;
-"177
+[; ;sgl.c: 176: blinkerSM.firstEntry = 1;
+"176
 [e = . _blinkerSM 2 -> -> 1 `i `ui ]
-[; ;sgl.c: 178: blinkerSM.lastToggle = toggleLights;
-"178
+[; ;sgl.c: 177: blinkerSM.lastToggle = toggleLights;
+"177
 [e = . _blinkerSM 7 F10396 ]
-[; ;sgl.c: 179: blinkerSM.carryCounter = counter;
-"179
+[; ;sgl.c: 178: blinkerSM.carryCounter = counter;
+"178
 [e = . _blinkerSM 8 -> F10394 `uc ]
-[; ;sgl.c: 180: counter = 0;
-"180
+[; ;sgl.c: 179: counter = 0;
+"179
 [e = F10394 -> -> 0 `i `ui ]
-[; ;sgl.c: 181: toggleLights = 0;
-"181
+[; ;sgl.c: 180: toggleLights = 0;
+"180
 [e = F10396 -> -> 0 `i `uc ]
-[; ;sgl.c: 182: firstEntry = 1;
-"182
+[; ;sgl.c: 181: firstEntry = 1;
+"181
 [e = F10395 -> -> 1 `i `uc ]
-"183
+"182
 }
 [e :U 1084 ]
-"185
+"183
 [e :U 1083 ]
+[; ;sgl.c: 182: }
 [; ;sgl.c: 183: }
-[; ;sgl.c: 185: }
 [e :UE 1077 ]
 }
-"187
+"185
 [v _SGL_BlinkSwitchOffState `(v ~T0 @X0 1 ef ]
-"188
+"186
 {
-[; ;sgl.c: 187: void SGL_BlinkSwitchOffState()
-[; ;sgl.c: 188: {
+[; ;sgl.c: 185: void SGL_BlinkSwitchOffState()
+[; ;sgl.c: 186: {
 [e :U _SGL_BlinkSwitchOffState ]
 [f ]
-"189
+"187
 [v F10399 `ui ~T0 @X0 1 s counter ]
 [i F10399
 -> -> 0 `i `ui
 ]
-"190
+"188
 [v F10400 `ui ~T0 @X0 1 s side ]
 [i F10400
 -> -> 0 `i `ui
 ]
-"191
+"189
 [v F10401 `uc ~T0 @X0 1 s toggleLights ]
 [i F10401
 -> -> 0 `i `uc
 ]
-"192
+"190
 [v F10402 `uc ~T0 @X0 1 s cycles ]
 [i F10402
 -> -> 0 `i `uc
 ]
-[; ;sgl.c: 189: static T_U16 counter = 0;
-[; ;sgl.c: 190: static T_U16 side = 0;
-[; ;sgl.c: 191: static T_U8 toggleLights = 0;
-[; ;sgl.c: 192: static T_U8 cycles = 0;
-[; ;sgl.c: 195: if(blinkerSM.firstEntry == 1)
-"195
+[; ;sgl.c: 187: static T_U16 counter = 0;
+[; ;sgl.c: 188: static T_U16 side = 0;
+[; ;sgl.c: 189: static T_U8 toggleLights = 0;
+[; ;sgl.c: 190: static T_U8 cycles = 0;
+[; ;sgl.c: 193: if(blinkerSM.firstEntry == 1)
+"193
 [e $ ! == . _blinkerSM 2 -> -> 1 `i `ui 1086  ]
-[; ;sgl.c: 196: {
-"196
+[; ;sgl.c: 194: {
+"194
 {
-[; ;sgl.c: 197: blinkerSM.firstEntry = 0;
-"197
+[; ;sgl.c: 195: blinkerSM.firstEntry = 0;
+"195
 [e = . _blinkerSM 2 -> -> 0 `i `ui ]
-[; ;sgl.c: 198: toggleLights = blinkerSM.lastToggle;
-"198
+[; ;sgl.c: 196: toggleLights = blinkerSM.lastToggle;
+"196
 [e = F10401 . _blinkerSM 7 ]
-[; ;sgl.c: 199: side = blinkerSM.lastSide;
-"199
+[; ;sgl.c: 197: side = blinkerSM.lastSide;
+"197
 [e = F10400 -> . _blinkerSM 6 `ui ]
-[; ;sgl.c: 200: counter = blinkerSM.carryCounter;
-"200
+[; ;sgl.c: 198: counter = blinkerSM.carryCounter;
+"198
 [e = F10399 -> . _blinkerSM 8 `ui ]
-"201
+"199
 }
 [e :U 1086 ]
-[; ;sgl.c: 201: }
-[; ;sgl.c: 204: if(500 == counter && (5 != (cycles+blinkerSM.lastToggle)))
-"204
+[; ;sgl.c: 199: }
+[; ;sgl.c: 202: if(500 == counter && (5 != (cycles+blinkerSM.lastToggle)))
+"202
 [e $ ! && == -> -> 500 `i `ui F10399 != -> 5 `i + -> F10402 `i -> . _blinkerSM 7 `i 1087  ]
-[; ;sgl.c: 205: {
-"205
+[; ;sgl.c: 203: {
+"203
 {
-[; ;sgl.c: 206: g_sglStareSemnal = toggleLights;
-"206
+[; ;sgl.c: 204: g_sglStareSemnal = toggleLights;
+"204
 [e = _g_sglStareSemnal -> F10401 `ui ]
-[; ;sgl.c: 207: SGL_toggleSideHazardLights(&toggleLights, side);
-"207
+[; ;sgl.c: 205: SGL_toggleSideHazardLights(&toggleLights, side);
+"205
 [e ( _SGL_toggleSideHazardLights (2 , &U F10401 -> F10400 `uc ]
-[; ;sgl.c: 208: DIAGNOSIS_ActivateError();
-"208
+[; ;sgl.c: 206: DIAGNOSIS_ActivateError();
+"206
 [e ( _DIAGNOSIS_ActivateError ..  ]
-[; ;sgl.c: 209: cycles++;
-"209
+[; ;sgl.c: 207: cycles++;
+"207
 [e ++ F10402 -> -> 1 `i `uc ]
-[; ;sgl.c: 210: counter = 0;
-"210
+[; ;sgl.c: 208: counter = 0;
+"208
 [e = F10399 -> -> 0 `i `ui ]
-"211
+"209
 }
-[; ;sgl.c: 211: }
+[; ;sgl.c: 209: }
 [e $U 1088  ]
-"212
+"210
 [e :U 1087 ]
-[; ;sgl.c: 212: else
+[; ;sgl.c: 210: else
+[; ;sgl.c: 211: {
+"211
+{
+[; ;sgl.c: 212: if((5 != (cycles+blinkerSM.lastToggle)))
+"212
+[e $ ! != -> 5 `i + -> F10402 `i -> . _blinkerSM 7 `i 1089  ]
 [; ;sgl.c: 213: {
 "213
 {
-[; ;sgl.c: 214: if((5 != (cycles+blinkerSM.lastToggle)))
+[; ;sgl.c: 214: counter++;
 "214
-[e $ ! != -> 5 `i + -> F10402 `i -> . _blinkerSM 7 `i 1089  ]
-[; ;sgl.c: 215: {
-"215
-{
-[; ;sgl.c: 216: counter++;
-"216
 [e ++ F10399 -> -> 1 `i `ui ]
-"217
+"215
 }
 [e :U 1089 ]
-"218
+"216
 }
 [e :U 1088 ]
-[; ;sgl.c: 217: }
-[; ;sgl.c: 218: }
-[; ;sgl.c: 221: if( 1 == blinkerSM.avarie )
-"221
+[; ;sgl.c: 215: }
+[; ;sgl.c: 216: }
+[; ;sgl.c: 219: if( 1 == blinkerSM.avarie )
+"219
 [e $ ! == -> 1 `i -> . _blinkerSM 3 `i 1090  ]
-[; ;sgl.c: 222: {
-"222
+[; ;sgl.c: 220: {
+"220
 {
-[; ;sgl.c: 223: blinkerSM._currentState = SGL_BlinkPasiveState;
-"223
+[; ;sgl.c: 221: blinkerSM._currentState = SGL_BlinkPasiveState;
+"221
 [e = . _blinkerSM 0 &U _SGL_BlinkPasiveState ]
-[; ;sgl.c: 224: blinkerSM.firstEntry = 1;
-"224
+[; ;sgl.c: 222: blinkerSM.firstEntry = 1;
+"222
 [e = . _blinkerSM 2 -> -> 1 `i `ui ]
-[; ;sgl.c: 225: blinkerSM.carryCounter = counter;
-"225
+[; ;sgl.c: 223: blinkerSM.carryCounter = counter;
+"223
 [e = . _blinkerSM 8 -> F10399 `uc ]
-[; ;sgl.c: 226: cycles = 0;
-"226
+[; ;sgl.c: 224: cycles = 0;
+"224
 [e = F10402 -> -> 0 `i `uc ]
-[; ;sgl.c: 227: counter = 0;
-"227
+[; ;sgl.c: 225: counter = 0;
+"225
 [e = F10399 -> -> 0 `i `ui ]
-"228
+"226
 }
-[; ;sgl.c: 228: } else if( (1 == blinkerSM.leftSwitch) || (1 == blinkerSM.rightSwitch) )
+[; ;sgl.c: 226: } else if( (1 == blinkerSM.leftSwitch) || (1 == blinkerSM.rightSwitch) )
 [e $U 1091  ]
 [e :U 1090 ]
 [e $ ! || == -> 1 `i -> . _blinkerSM 4 `i == -> 1 `i -> . _blinkerSM 5 `i 1092  ]
-[; ;sgl.c: 229: {
-"229
+[; ;sgl.c: 227: {
+"227
 {
-[; ;sgl.c: 230: blinkerSM._currentState = SGL_BlinkSwitchOnState;
-"230
+[; ;sgl.c: 228: blinkerSM._currentState = SGL_BlinkSwitchOnState;
+"228
 [e = . _blinkerSM 0 &U _SGL_BlinkSwitchOnState ]
-[; ;sgl.c: 231: blinkerSM.firstEntry = 1;
-"231
+[; ;sgl.c: 229: blinkerSM.firstEntry = 1;
+"229
 [e = . _blinkerSM 2 -> -> 1 `i `ui ]
-[; ;sgl.c: 232: blinkerSM.carryCounter = counter;
-"232
+[; ;sgl.c: 230: blinkerSM.carryCounter = counter;
+"230
 [e = . _blinkerSM 8 -> F10399 `uc ]
-[; ;sgl.c: 233: cycles = 0;
-"233
+[; ;sgl.c: 231: cycles = 0;
+"231
 [e = F10402 -> -> 0 `i `uc ]
-[; ;sgl.c: 234: counter = 0;
-"234
+[; ;sgl.c: 232: counter = 0;
+"232
 [e = F10399 -> -> 0 `i `ui ]
-"235
+"233
 }
 [e :U 1092 ]
-"236
+"234
 [e :U 1091 ]
-[; ;sgl.c: 235: }
-[; ;sgl.c: 236: }
+[; ;sgl.c: 233: }
+[; ;sgl.c: 234: }
 [e :UE 1085 ]
 }
-"238
+"236
 [v _SGL_BlinkEventPoll `(v ~T0 @X0 1 ef ]
-"239
+"237
 {
-[; ;sgl.c: 238: void SGL_BlinkEventPoll()
-[; ;sgl.c: 239: {
+[; ;sgl.c: 236: void SGL_BlinkEventPoll()
+[; ;sgl.c: 237: {
 [e :U _SGL_BlinkEventPoll ]
 [f ]
-[; ;sgl.c: 240: blinkerSM.avarie = IOC_T16GetInputPort(IOC_AVARII);
-"240
+[; ;sgl.c: 238: blinkerSM.avarie = IOC_T16GetInputPort(IOC_AVARII);
+"238
 [e = . _blinkerSM 3 -> ( _IOC_T16GetInputPort (1 . `E10339 4 `uc ]
-[; ;sgl.c: 241: blinkerSM.leftSwitch = IOC_T16GetInputPort(IOC_SEM_S);
-"241
+[; ;sgl.c: 239: blinkerSM.leftSwitch = IOC_T16GetInputPort(IOC_SEM_S);
+"239
 [e = . _blinkerSM 4 -> ( _IOC_T16GetInputPort (1 . `E10339 6 `uc ]
-[; ;sgl.c: 242: blinkerSM.rightSwitch = IOC_T16GetInputPort(IOC_SEM_D);
-"242
+[; ;sgl.c: 240: blinkerSM.rightSwitch = IOC_T16GetInputPort(IOC_SEM_D);
+"240
 [e = . _blinkerSM 5 -> ( _IOC_T16GetInputPort (1 . `E10339 5 `uc ]
-[; ;sgl.c: 243: }
-"243
+[; ;sgl.c: 241: }
+"241
 [e :UE 1093 ]
 }
-"245
+"243
 [v _SGL_BlinkersInit `(v ~T0 @X0 1 ef ]
-"246
+"244
 {
-[; ;sgl.c: 245: void SGL_BlinkersInit()
-[; ;sgl.c: 246: {
+[; ;sgl.c: 243: void SGL_BlinkersInit()
+[; ;sgl.c: 244: {
 [e :U _SGL_BlinkersInit ]
 [f ]
-[; ;sgl.c: 247: blinkerSM._currentState = SGL_BlinkPasiveState;
-"247
+[; ;sgl.c: 245: blinkerSM._currentState = SGL_BlinkPasiveState;
+"245
 [e = . _blinkerSM 0 &U _SGL_BlinkPasiveState ]
-[; ;sgl.c: 248: blinkerSM._pollEvents = SGL_BlinkEventPoll;
-"248
+[; ;sgl.c: 246: blinkerSM._pollEvents = SGL_BlinkEventPoll;
+"246
 [e = . _blinkerSM 1 &U _SGL_BlinkEventPoll ]
-[; ;sgl.c: 249: blinkerSM.avarie = 0;
-"249
+[; ;sgl.c: 247: blinkerSM.avarie = 0;
+"247
 [e = . _blinkerSM 3 -> -> 0 `i `uc ]
-[; ;sgl.c: 250: blinkerSM.firstEntry = 1;
-"250
+[; ;sgl.c: 248: blinkerSM.firstEntry = 1;
+"248
 [e = . _blinkerSM 2 -> -> 1 `i `ui ]
-[; ;sgl.c: 251: blinkerSM.leftSwitch = 0;
-"251
+[; ;sgl.c: 249: blinkerSM.leftSwitch = 0;
+"249
 [e = . _blinkerSM 4 -> -> 0 `i `uc ]
-[; ;sgl.c: 252: blinkerSM.rightSwitch = 0;
-"252
+[; ;sgl.c: 250: blinkerSM.rightSwitch = 0;
+"250
 [e = . _blinkerSM 5 -> -> 0 `i `uc ]
-[; ;sgl.c: 253: blinkerSM.lastSide = 0;
-"253
+[; ;sgl.c: 251: blinkerSM.lastSide = 0;
+"251
 [e = . _blinkerSM 6 -> -> 0 `i `uc ]
-[; ;sgl.c: 254: blinkerSM.lastToggle = 0;
-"254
+[; ;sgl.c: 252: blinkerSM.lastToggle = 0;
+"252
 [e = . _blinkerSM 7 -> -> 0 `i `uc ]
-[; ;sgl.c: 255: blinkerSM.carryCounter = 0;
-"255
+[; ;sgl.c: 253: blinkerSM.carryCounter = 0;
+"253
 [e = . _blinkerSM 8 -> -> 0 `i `uc ]
-[; ;sgl.c: 256: }
-"256
+[; ;sgl.c: 254: }
+"254
 [e :UE 1094 ]
 }
-"258
+"256
 [v _SGL_BlinkersRun `(v ~T0 @X0 1 ef ]
-"259
+"257
 {
-[; ;sgl.c: 258: void SGL_BlinkersRun()
-[; ;sgl.c: 259: {
+[; ;sgl.c: 256: void SGL_BlinkersRun()
+[; ;sgl.c: 257: {
 [e :U _SGL_BlinkersRun ]
 [f ]
-[; ;sgl.c: 260: if(0 != blinkerSM._currentState)
-"260
+[; ;sgl.c: 258: if(0 != blinkerSM._currentState)
+"258
 [e $ ! != -> -> 0 `i `*F10355 . _blinkerSM 0 1096  ]
-[; ;sgl.c: 261: {
-"261
+[; ;sgl.c: 259: {
+"259
 {
-[; ;sgl.c: 262: (*blinkerSM._currentState)();
-"262
+[; ;sgl.c: 260: (*blinkerSM._currentState)();
+"260
 [e ( *U . _blinkerSM 0 ..  ]
-"263
+"261
 }
 [e :U 1096 ]
-[; ;sgl.c: 263: }
-[; ;sgl.c: 264: if(0 != blinkerSM._pollEvents)
-"264
+[; ;sgl.c: 261: }
+[; ;sgl.c: 262: if(0 != blinkerSM._pollEvents)
+"262
 [e $ ! != -> -> 0 `i `*F10358 . _blinkerSM 1 1097  ]
-[; ;sgl.c: 265: {
-"265
+[; ;sgl.c: 263: {
+"263
 {
-[; ;sgl.c: 266: (*blinkerSM._pollEvents)();
-"266
+[; ;sgl.c: 264: (*blinkerSM._pollEvents)();
+"264
 [e ( *U . _blinkerSM 1 ..  ]
-"267
+"265
 }
 [e :U 1097 ]
-[; ;sgl.c: 267: }
-[; ;sgl.c: 268: }
-"268
+[; ;sgl.c: 265: }
+[; ;sgl.c: 266: }
+"266
 [e :UE 1095 ]
 }

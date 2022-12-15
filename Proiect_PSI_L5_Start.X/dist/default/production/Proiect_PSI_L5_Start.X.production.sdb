@@ -3,29 +3,6 @@
 [d edition pro ]
 [d chip 18F6585 ]
 [d frameptr 4065 ]
-"24 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\demo.c
-[e E10327 s_OutputPort `ui
-IOC_SFD 256
-IOC_FD 257
-IOC_FS 258
-IOC_SFS 259
-IOC_SSD 260
-IOC_LSF 261
-IOC_LS 262
-IOC_SSS 263
-IOC_IE 512
-IOC_IFS 513
-]
-"60
-[e E10339 s_InputPort `ui
-IOC_ADC0 768
-IOC_ADC1 769
-IOC_FRANA 0
-IOC_FARURI 1
-IOC_AVARII 2
-IOC_SEM_D 3
-IOC_SEM_S 4
-]
 "19 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
 [e E10327 s_OutputPort `ui
 IOC_SFD 256
@@ -39,7 +16,7 @@ IOC_SSS 263
 IOC_IE 512
 IOC_IFS 513
 ]
-"240
+"238
 [e E10339 s_InputPort `ui
 IOC_ADC0 768
 IOC_ADC1 769
@@ -72,6 +49,29 @@ IOC_AVARII 2
 IOC_SEM_D 3
 IOC_SEM_S 4
 ]
+"10 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\diagnosis.c
+[e E10343 s_InputPort `ui
+IOC_ADC0 768
+IOC_ADC1 769
+IOC_FRANA 0
+IOC_FARURI 1
+IOC_AVARII 2
+IOC_SEM_D 3
+IOC_SEM_S 4
+]
+"16
+[e E10331 s_OutputPort `ui
+IOC_SFD 256
+IOC_FD 257
+IOC_FS 258
+IOC_SFS 259
+IOC_SSD 260
+IOC_LSF 261
+IOC_LS 262
+IOC_SSS 263
+IOC_IE 512
+IOC_IFS 513
+]
 "6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\ioc.c
 [e E10327 s_OutputPort `ui
 IOC_SFD 256
@@ -101,29 +101,6 @@ IOC_FARURI 1
 IOC_AVARII 2
 IOC_SEM_D 3
 IOC_SEM_S 4
-]
-"10 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\diagnosis.c
-[e E10343 s_InputPort `ui
-IOC_ADC0 768
-IOC_ADC1 769
-IOC_FRANA 0
-IOC_FARURI 1
-IOC_AVARII 2
-IOC_SEM_D 3
-IOC_SEM_S 4
-]
-"16
-[e E10331 s_OutputPort `ui
-IOC_SFD 256
-IOC_FD 257
-IOC_FS 258
-IOC_SFS 259
-IOC_SSD 260
-IOC_LSF 261
-IOC_LS 262
-IOC_SSS 263
-IOC_IE 512
-IOC_IFS 513
 ]
 "9 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\adc.c
 [v _ADC_vInit ADC_vInit `(v  1 e 1 0 ]
@@ -157,12 +134,6 @@ IOC_IFS 513
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul64.c
 [v ___omul __omul `(ul  1 e 4 0 ]
-"20 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\demo.c
-[v _LIGHTS_DemoState1 LIGHTS_DemoState1 `(v  1 e 1 0 ]
-"39
-[v _LIGHTS_DemoState2 LIGHTS_DemoState2 `(v  1 e 1 0 ]
-"58
-[v _LIGHTS_DemoEventPoll LIGHTS_DemoEventPoll `(v  1 e 1 0 ]
 "8 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\diagnosis.c
 [v _DIAGNOSIS_ActivateError DIAGNOSIS_ActivateError `(v  1 e 1 0 ]
 "6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\int.c
@@ -189,7 +160,7 @@ IOC_IFS 513
 [v _LIGHTS_HeadLampInit LIGHTS_HeadLampInit `(v  1 e 1 0 ]
 "129
 [v _LIGHTS_HeadLampRun LIGHTS_HeadLampRun `(v  1 e 1 0 ]
-"11 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\main.c
+"9 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "3 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\pcs.c
 [v _PCS_vInit PCS_vInit `(v  1 e 1 0 ]
@@ -199,6 +170,12 @@ IOC_IFS 513
 [v _PCS_vSetOutputPortE PCS_vSetOutputPortE `(v  1 e 1 0 ]
 "50
 [v _PCS_T16GetInputPortC PCS_T16GetInputPortC `(ui  1 e 2 0 ]
+"19 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\RS232.c
+[v _RS232_vInit RS232_vInit `(v  1 e 1 0 ]
+"43
+[v _RS232_vSendDataByte RS232_vSendDataByte `(v  1 e 1 0 ]
+"61
+[v _RS232_vSendMessage RS232_vSendMessage `(v  1 e 1 0 ]
 "13 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sched.c
 [v _SCHED_vInitSystem SCHED_vInitSystem `(v  1 e 1 0 ]
 "21
@@ -215,15 +192,15 @@ IOC_IFS 513
 [v _SGL_setSideHazardLights SGL_setSideHazardLights `(v  1 e 1 0 ]
 "66
 [v _SGL_BlinkPasiveState SGL_BlinkPasiveState `(v  1 e 1 0 ]
-"125
+"124
 [v _SGL_BlinkSwitchOnState SGL_BlinkSwitchOnState `(v  1 e 1 0 ]
-"187
+"185
 [v _SGL_BlinkSwitchOffState SGL_BlinkSwitchOffState `(v  1 e 1 0 ]
-"238
+"236
 [v _SGL_BlinkEventPoll SGL_BlinkEventPoll `(v  1 e 1 0 ]
-"245
+"243
 [v _SGL_BlinkersInit SGL_BlinkersInit `(v  1 e 1 0 ]
-"258
+"256
 [v _SGL_BlinkersRun SGL_BlinkersRun `(v  1 e 1 0 ]
 "6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\tasks.c
 [v _TASK_vTaskAppInit TASK_vTaskAppInit `(v  1 e 1 0 ]
@@ -239,13 +216,15 @@ IOC_IFS 513
 [v _TIM_vInit TIM_vInit `(v  1 e 1 0 ]
 "7 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\adc.c
 [v _au16AdcReadValue au16AdcReadValue `[2]ui  1 e 4 0 ]
-"25342 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f6585.h
+"25057 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f6585.h
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @3967 ]
+"25342
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "25518
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
 "25639
 [v _PORTE PORTE `VEuc  1 e 1 @3972 ]
-[s S702 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S684 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -254,7 +233,7 @@ IOC_IFS 513
 `uc 1 TRISA6 1 0 :1:6 
 ]
 "26833
-[s S710 . 1 `uc 1 RA0 1 0 :1:0 
+[s S692 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -262,9 +241,9 @@ IOC_IFS 513
 `uc 1 RA5 1 0 :1:5 
 `uc 1 RA6 1 0 :1:6 
 ]
-[u S718 . 1 `S702 1 . 1 0 `S710 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES718  1 e 1 @3986 ]
-[s S738 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S700 . 1 `S684 1 . 1 0 `S692 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES700  1 e 1 @3986 ]
+[s S720 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -274,7 +253,7 @@ IOC_IFS 513
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "27255
-[s S747 . 1 `uc 1 RC0 1 0 :1:0 
+[s S729 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -283,11 +262,11 @@ IOC_IFS 513
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S756 . 1 `S738 1 . 1 0 `S747 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES756  1 e 1 @3988 ]
+[u S738 . 1 `S720 1 . 1 0 `S729 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES738  1 e 1 @3988 ]
 "27445
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S779 . 1 `uc 1 TRISE0 1 0 :1:0 
+[s S761 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 TRISE3 1 0 :1:3 
@@ -297,7 +276,7 @@ IOC_IFS 513
 `uc 1 TRISE7 1 0 :1:7 
 ]
 "27699
-[s S788 . 1 `uc 1 RE0 1 0 :1:0 
+[s S770 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 `uc 1 RE3 1 0 :1:3 
@@ -306,9 +285,9 @@ IOC_IFS 513
 `uc 1 RE6 1 0 :1:6 
 `uc 1 RE7 1 0 :1:7 
 ]
-[u S797 . 1 `S779 1 . 1 0 `S788 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES797  1 e 1 @3990 ]
-[s S389 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S779 . 1 `S761 1 . 1 0 `S770 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES779  1 e 1 @3990 ]
+[s S371 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -318,13 +297,13 @@ IOC_IFS 513
 `uc 1 PSPIE 1 0 :1:7 
 ]
 "28283
-[s S398 . 1 `uc 1 . 1 0 :4:0 
+[s S380 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IE 1 0 :1:4 
 `uc 1 RC1IE 1 0 :1:5 
 ]
-[u S402 . 1 `S389 1 . 1 0 `S398 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES402  1 e 1 @3997 ]
-[s S359 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S384 . 1 `S371 1 . 1 0 `S380 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES384  1 e 1 @3997 ]
+[s S341 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -334,13 +313,13 @@ IOC_IFS 513
 `uc 1 PSPIF 1 0 :1:7 
 ]
 "28360
-[s S368 . 1 `uc 1 . 1 0 :4:0 
+[s S350 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[u S372 . 1 `S359 1 . 1 0 `S368 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES372  1 e 1 @3998 ]
-[s S554 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[u S354 . 1 `S341 1 . 1 0 `S350 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES354  1 e 1 @3998 ]
+[s S536 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSPIP 1 0 :1:3 
@@ -350,89 +329,154 @@ IOC_IFS 513
 `uc 1 PSPIP 1 0 :1:7 
 ]
 "28437
-[s S563 . 1 `uc 1 . 1 0 :4:0 
+[s S545 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IP 1 0 :1:4 
 `uc 1 RC1IP 1 0 :1:5 
 ]
-[u S567 . 1 `S554 1 . 1 0 `S563 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES567  1 e 1 @3999 ]
-[s S331 . 1 `uc 1 ADCS 1 0 :3:0 
+[u S549 . 1 `S536 1 . 1 0 `S545 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES549  1 e 1 @3999 ]
+[s S1111 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"29087
+[s S1120 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S1123 . 1 `uc 1 RX9D1 1 0 :1:0 
+`uc 1 OERR1 1 0 :1:1 
+`uc 1 FERR1 1 0 :1:2 
+`uc 1 ADDEN1 1 0 :1:3 
+`uc 1 CREN1 1 0 :1:4 
+`uc 1 SREN1 1 0 :1:5 
+`uc 1 RX91 1 0 :1:6 
+`uc 1 SPEN1 1 0 :1:7 
+]
+[s S1132 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[s S1135 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S1138 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S1141 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[u S1143 . 1 `S1111 1 . 1 0 `S1120 1 . 1 0 `S1123 1 . 1 0 `S1132 1 . 1 0 `S1135 1 . 1 0 `S1138 1 . 1 0 `S1141 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES1143  1 e 1 @4011 ]
+[s S1059 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"29385
+[s S1068 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S1077 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S1080 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S1082 . 1 `S1059 1 . 1 0 `S1068 1 . 1 0 `S1077 1 . 1 0 `S1080 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES1082  1 e 1 @4012 ]
+"29602
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"29626
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+[s S313 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "30285
-[s S336 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S318 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[u S343 . 1 `S331 1 . 1 0 `S336 1 . 1 0 ]
-[v _ADCON2bits ADCON2bits `VES343  1 e 1 @4032 ]
-[s S296 . 1 `uc 1 PCFG 1 0 :4:0 
+[u S325 . 1 `S313 1 . 1 0 `S318 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES325  1 e 1 @4032 ]
+[s S278 . 1 `uc 1 PCFG 1 0 :4:0 
 `uc 1 VCFG 1 0 :2:4 
 ]
 "30360
-[s S299 . 1 `uc 1 PCFG0 1 0 :1:0 
+[s S281 . 1 `uc 1 PCFG0 1 0 :1:0 
 `uc 1 PCFG1 1 0 :1:1 
 `uc 1 PCFG2 1 0 :1:2 
 `uc 1 PCFG3 1 0 :1:3 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 ]
-[s S306 . 1 `uc 1 . 1 0 :3:0 
+[s S288 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 `uc 1 VCFG01 1 0 :1:4 
 `uc 1 VCFG11 1 0 :1:5 
 ]
-[u S311 . 1 `S296 1 . 1 0 `S299 1 . 1 0 `S306 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES311  1 e 1 @4033 ]
-[s S228 . 1 `uc 1 . 1 0 :1:0 
+[u S293 . 1 `S278 1 . 1 0 `S281 1 . 1 0 `S288 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES293  1 e 1 @4033 ]
+[s S210 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "30464
-[s S231 . 1 `uc 1 ADON 1 0 :1:0 
+[s S213 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
-[s S235 . 1 `uc 1 . 1 0 :1:0 
+[s S217 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
 `uc 1 CHS2 1 0 :1:4 
 `uc 1 CHS3 1 0 :1:5 
 ]
-[s S242 . 1 `uc 1 . 1 0 :1:0 
+[s S224 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S245 . 1 `uc 1 . 1 0 :1:0 
+[s S227 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S248 . 1 `uc 1 . 1 0 :1:0 
+[s S230 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S251 . 1 `uc 1 . 1 0 :1:0 
+[s S233 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S254 . 1 `uc 1 . 1 0 :1:0 
+[s S236 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S257 . 1 `S228 1 . 1 0 `S231 1 . 1 0 `S235 1 . 1 0 `S242 1 . 1 0 `S245 1 . 1 0 `S248 1 . 1 0 `S251 1 . 1 0 `S254 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES257  1 e 1 @4034 ]
+[u S239 . 1 `S210 1 . 1 0 `S213 1 . 1 0 `S217 1 . 1 0 `S224 1 . 1 0 `S227 1 . 1 0 `S230 1 . 1 0 `S233 1 . 1 0 `S236 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES239  1 e 1 @4034 ]
 "30546
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "30553
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
 "30954
 [v _T2CON T2CON `VEuc  1 e 1 @4042 ]
-[s S651 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S633 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "30975
-[s S655 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S637 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -440,13 +484,13 @@ IOC_IFS 513
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S663 . 1 `S651 1 . 1 0 `S655 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES663  1 e 1 @4042 ]
+[u S645 . 1 `S633 1 . 1 0 `S637 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES645  1 e 1 @4042 ]
 "31025
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "31135
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
-[s S419 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S401 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -456,7 +500,7 @@ IOC_IFS 513
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "32159
-[s S428 . 1 `uc 1 . 1 0 :1:0 
+[s S410 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -465,24 +509,21 @@ IOC_IFS 513
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S437 . 1 `uc 1 . 1 0 :6:0 
+[s S419 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S441 . 1 `S419 1 . 1 0 `S428 1 . 1 0 `S437 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES441  1 e 1 @4082 ]
-[s S26 s_stateMachine 8 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `ui 1 toggle 2 6 ]
-"3 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\demo.c
-[v _demoSM demoSM `S26  1 e 8 0 ]
+[u S423 . 1 `S401 1 . 1 0 `S410 1 . 1 0 `S419 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES423  1 e 1 @4082 ]
 "4 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\diagnosis.c
 [v _g_lightStateFrana g_lightStateFrana `ui  1 e 2 0 ]
 "5
 [v _g_lightStateLumini g_lightStateLumini `ui  1 e 2 0 ]
 "6
 [v _g_sglStareSemnal g_sglStareSemnal `ui  1 e 2 0 ]
-[s S195 s_HeadLightStateMachine 9 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 faruri 1 6 `ui 1 lightLevel 2 7 ]
+[s S151 s_HeadLightStateMachine 9 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 faruri 1 6 `ui 1 lightLevel 2 7 ]
 "30 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
-[v _headLightSM headLightSM `S195  1 e 9 0 ]
+[v _headLightSM headLightSM `S151  1 e 9 0 ]
 "8 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sched.c
 [v _sched_gTick10ms sched_gTick10ms `uc  1 e 1 0 ]
 "9
@@ -491,10 +532,10 @@ IOC_IFS 513
 [v _sched_gTick1s sched_gTick1s `ui  1 e 2 0 ]
 "11
 [v _sched_bTicked sched_bTicked `ui  1 e 2 0 ]
-[s S83 s_blinkStateMachine 12 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 avarie 1 6 `uc 1 leftSwitch 1 7 `uc 1 rightSwitch 1 8 `uc 1 lastSide 1 9 `uc 1 lastToggle 1 10 `uc 1 carryCounter 1 11 ]
+[s S26 s_blinkStateMachine 12 `*.37(v 1 _currentState 2 0 `*.37(v 1 _pollEvents 2 2 `ui 1 firstEntry 2 4 `uc 1 avarie 1 6 `uc 1 leftSwitch 1 7 `uc 1 rightSwitch 1 8 `uc 1 lastSide 1 9 `uc 1 lastToggle 1 10 `uc 1 carryCounter 1 11 ]
 "6 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
-[v _blinkerSM blinkerSM `S83  1 e 12 0 ]
-"11 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\main.c
+[v _blinkerSM blinkerSM `S26  1 e 12 0 ]
+"9 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "15
@@ -509,10 +550,10 @@ IOC_IFS 513
 {
 "13
 } 0
-"245 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
+"243 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
 [v _SGL_BlinkersInit SGL_BlinkersInit `(v  1 e 1 0 ]
 {
-"256
+"254
 } 0
 "120 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
 [v _LIGHTS_HeadLampInit LIGHTS_HeadLampInit `(v  1 e 1 0 ]
@@ -534,10 +575,10 @@ IOC_IFS 513
 {
 "20
 } 0
-"258 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
+"256 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\sgl.c
 [v _SGL_BlinkersRun SGL_BlinkersRun `(v  1 e 1 0 ]
 {
-"268
+"266
 } 0
 "66
 [v _SGL_BlinkPasiveState SGL_BlinkPasiveState `(v  1 e 1 0 ]
@@ -548,33 +589,33 @@ IOC_IFS 513
 [v SGL_BlinkPasiveState@firstEntry firstEntry `uc  1 s 1 firstEntry ]
 "70
 [v SGL_BlinkPasiveState@toggleLights toggleLights `uc  1 s 1 toggleLights ]
-"123
+"122
 } 0
-"187
+"185
 [v _SGL_BlinkSwitchOffState SGL_BlinkSwitchOffState `(v  1 e 1 0 ]
 {
-"189
+"187
 [v SGL_BlinkSwitchOffState@counter counter `ui  1 s 2 counter ]
-"190
+"188
 [v SGL_BlinkSwitchOffState@side side `ui  1 s 2 side ]
-"191
+"189
 [v SGL_BlinkSwitchOffState@toggleLights toggleLights `uc  1 s 1 toggleLights ]
-"192
+"190
 [v SGL_BlinkSwitchOffState@cycles cycles `uc  1 s 1 cycles ]
-"236
+"234
 } 0
-"125
+"124
 [v _SGL_BlinkSwitchOnState SGL_BlinkSwitchOnState `(v  1 e 1 0 ]
 {
-"127
+"126
 [v SGL_BlinkSwitchOnState@side side `uc  1 s 1 side ]
-"128
+"127
 [v SGL_BlinkSwitchOnState@counter counter `ui  1 s 2 counter ]
-"129
+"128
 [v SGL_BlinkSwitchOnState@firstEntry firstEntry `uc  1 s 1 firstEntry ]
-"130
+"129
 [v SGL_BlinkSwitchOnState@toggleLights toggleLights `uc  1 s 1 toggleLights ]
-"185
+"183
 } 0
 "49
 [v _SGL_setSideHazardLights SGL_setSideHazardLights `(v  1 e 1 0 ]
@@ -608,10 +649,10 @@ IOC_IFS 513
 [v SGL_setAllHazardLights@value value `uc  1 a 1 20 ]
 "47
 } 0
-"238
+"236
 [v _SGL_BlinkEventPoll SGL_BlinkEventPoll `(v  1 e 1 0 ]
 {
-"243
+"241
 } 0
 "12 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\lights.c
 [v _LIGHTS_BrakeRun LIGHTS_BrakeRun `(v  1 e 1 0 ]
@@ -784,6 +825,28 @@ IOC_IFS 513
 } 0
 "9 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\adc.c
 [v _ADC_vInit ADC_vInit `(v  1 e 1 0 ]
+{
+"31
+} 0
+"61 D:\Facultate\MASTER_SCI\AN_II\PSI\Proiect\ProiectPSI\Proiect_PSI_L5_Start.X\RS232.c
+[v _RS232_vSendMessage RS232_vSendMessage `(v  1 e 1 0 ]
+{
+"63
+[v RS232_vSendMessage@u8Count u8Count `uc  1 a 1 12 ]
+"61
+[v RS232_vSendMessage@u8Message u8Message `*.25Cuc  1 p 2 8 ]
+"75
+} 0
+"43
+[v _RS232_vSendDataByte RS232_vSendDataByte `(v  1 e 1 0 ]
+{
+[v RS232_vSendDataByte@u8DataByte u8DataByte `uc  1 a 1 wreg ]
+[v RS232_vSendDataByte@u8DataByte u8DataByte `uc  1 a 1 wreg ]
+[v RS232_vSendDataByte@u8DataByte u8DataByte `uc  1 a 1 7 ]
+"49
+} 0
+"19
+[v _RS232_vInit RS232_vInit `(v  1 e 1 0 ]
 {
 "31
 } 0

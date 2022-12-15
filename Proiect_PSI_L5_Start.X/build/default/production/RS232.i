@@ -1,5 +1,5 @@
 
-# 1 "demo.c"
+# 1 "RS232.c"
 
 # 18 "C:\Program Files\Microchip\xc8\v2.40\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -18360,126 +18360,48 @@ typedef unsigned int T_BOOL;
 typedef int T_16;
 typedef char T_8;
 
-# 5 "ioc.h"
-typedef enum s_Port
+# 9 "RS232.h"
+extern void RS232_vInit(void);
+extern void RS232_vSendDataByte(T_U8 u8DataByte);
+extern void RS232_vSendMessage(const char u8Message[]);
+
+# 19 "RS232.c"
+void RS232_vInit(void)
 {
-IOC_PORTC = 0x0000,
-IOC_PORTD = 0x0100,
-IOC_PORTE = 0x0200,
-IOC_PORTA = 0x0300
-}IOC_ePort;
 
-typedef enum s_OutputPort
-{
-IOC_SFD = IOC_PORTD | 0x0000,
-IOC_FD = IOC_PORTD | 0x0001,
-IOC_FS = IOC_PORTD | 0x0002,
-IOC_SFS = IOC_PORTD | 0x0003,
-IOC_SSD = IOC_PORTD | 0x0004,
-IOC_LSF = IOC_PORTD | 0x0005,
-IOC_LS = IOC_PORTD | 0x0006,
-IOC_SSS = IOC_PORTD | 0x0007,
+T_U16 u16BaudRate = ((10000000UL / 9600) / 64) - 1;
+SPBRGH = (u16BaudRate >> 8);
+SPBRG = (T_U8) u16BaudRate;
 
-IOC_IE = IOC_PORTE | 0x0000,
-IOC_IFS = IOC_PORTE | 0x0001
-}IOC_eOutputChannelPort;
+TXSTAbits.TXEN = 1;
 
-typedef enum s_InputPort
-{
-IOC_ADC0 = IOC_PORTA | 0x0000,
-IOC_ADC1 = IOC_PORTA | 0x0001,
+RCSTAbits.CREN = 1;
 
-IOC_FRANA = IOC_PORTC | 0x0000,
-IOC_FARURI = IOC_PORTC | 0x0001,
-IOC_AVARII = IOC_PORTC | 0x0002,
-IOC_SEM_D = IOC_PORTC | 0x0003,
-IOC_SEM_S = IOC_PORTC | 0x0004
-
-}IOC_eInputChannelPort;
-
-# 54
-void IOC_vSetOutputPort(const IOC_eOutputChannelPort u16ChannelSelect, const T_U8 u8Value);
-
-# 65
-T_U16 IOC_T16GetInputPort(const IOC_eInputChannelPort u16ChannelSelect);
-
-# 5 "demo.h"
-typedef struct s_stateMachine
-{
-void (*_currentState)(void);
-void (*_pollEvents)(void);
-T_BOOL firstEntry;
-T_U16 toggle;
-} s_SM;
-
-void LIGHTS_DemoInit();
-void LIGHTS_DemoRun();
-
-# 3 "demo.c"
-s_SM demoSM;
-void LIGHTS_DemoState1();
-void LIGHTS_DemoState2();
-void LIGHTS_DemoEventPoll();
-
-void LIGHTS_DemoRun()
-{
-if(0 != demoSM._currentState)
-{
-(*demoSM._currentState)();
-}
-if(0 != demoSM._pollEvents)
-{
-(*demoSM._pollEvents)();
-}
+RCSTAbits.SPEN = 1;
 }
 
-void LIGHTS_DemoState1()
+# 43
+void RS232_vSendDataByte(T_U8 u8DataByte)
 {
-if(demoSM.firstEntry == 1)
-{
-IOC_vSetOutputPort(IOC_FD, 1);
-demoSM.firstEntry = 0;
+
+while (!TXSTAbits.TRMT);
+
+TXREG = u8DataByte;
 }
 
-IOC_vSetOutputPort(IOC_FS, 1);
+# 61
+void RS232_vSendMessage(const char u8Message[])
+{
+T_U8 u8Count = 0;
 
-if(1 == demoSM.toggle)
-{
-demoSM._currentState = &LIGHTS_DemoState2;
-demoSM.firstEntry = 1;
-IOC_vSetOutputPort(IOC_FS, 0);
-IOC_vSetOutputPort(IOC_FD, 0);
-}
-}
 
-void LIGHTS_DemoState2()
+while (u8Message[u8Count] != '\0')
 {
-if(demoSM.firstEntry == 1)
-{
-IOC_vSetOutputPort(IOC_SSD, 1);
-demoSM.firstEntry = 0;
+RS232_vSendDataByte(u8Message[u8Count]);
+u8Count++;
 }
 
-IOC_vSetOutputPort(IOC_SSS, 1);
 
-if(0 == demoSM.toggle)
-{
-demoSM._currentState = &LIGHTS_DemoState1;
-demoSM.firstEntry = 1;
-IOC_vSetOutputPort(IOC_SSD, 0);
-IOC_vSetOutputPort(IOC_SSS, 0);
-}
-}
-
-void LIGHTS_DemoEventPoll()
-{
-demoSM.toggle = IOC_T16GetInputPort(IOC_FRANA);
-}
-
-void LIGHTS_DemoInit()
-{
-demoSM._currentState = &LIGHTS_DemoState1;
-demoSM._pollEvents = &LIGHTS_DemoEventPoll;
-demoSM.firstEntry = 1;
-demoSM.toggle = 0;
+RS232_vSendDataByte('\r');
+RS232_vSendDataByte('\n');
 }

@@ -1,5 +1,9 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
+"9 RS232.h
+[v _RS232_vInit `(v ~T0 @X0 0 ef ]
+"11
+[v _RS232_vSendMessage `(v ~T0 @X0 0 ef1`*Cuc ]
 "3 sched.h
 [v _SCHED_vInitSystem `(v ~T0 @X0 0 ef ]
 "4
@@ -11602,15 +11606,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sched.h: 3: void SCHED_vInitSystem();
 [; ;sched.h: 4: void SCHED_vStartScheduler();
 [; ;sched.h: 5: void SCHED_vTickFunctionCall();
+[; ;RS232.h: 9: extern void RS232_vInit(void);
+[; ;RS232.h: 10: extern void RS232_vSendDataByte(T_U8 u8DataByte);
+[; ;RS232.h: 11: extern void RS232_vSendMessage(const char u8Message[]);
 [v $root$_main `(v ~T0 @X0 0 e ]
-"11 main.c
+"9 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"12
+"10
 {
-[; ;main.c: 11: void main(void)
-[; ;main.c: 12: {
+[; ;main.c: 9: void main(void)
+[; ;main.c: 10: {
 [e :U _main ]
 [f ]
+[; ;main.c: 11: RS232_vInit();
+"11
+[e ( _RS232_vInit ..  ]
+[; ;main.c: 12: RS232_vSendMessage("Init system lumini!\n\r");
+"12
+[e ( _RS232_vSendMessage (1 :s 1C ]
 [; ;main.c: 13: SCHED_vInitSystem();
 "13
 [e ( _SCHED_vInitSystem ..  ]
@@ -11621,3 +11634,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 "15
 [e :UE 1060 ]
 }
+[a 1C 73 110 105 116 32 115 121 115 116 101 109 32 108 117 109 105 110 105 33 10 13 0 ]
+

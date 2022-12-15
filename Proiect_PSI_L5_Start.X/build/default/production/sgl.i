@@ -18544,7 +18544,6 @@ g_sglStareSemnal = 0;
 SGL_setAllHazardLights(0);
 DIAGNOSIS_ActivateError();
 }
-
 }
 
 void SGL_BlinkSwitchOnState()
@@ -18606,7 +18605,6 @@ counter = 0;
 toggleLights = 0;
 firstEntry = 1;
 }
-
 }
 
 void SGL_BlinkSwitchOffState()

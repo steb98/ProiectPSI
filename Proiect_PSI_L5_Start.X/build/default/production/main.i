@@ -18408,10 +18408,16 @@ void SCHED_vInitSystem();
 void SCHED_vStartScheduler();
 void SCHED_vTickFunctionCall();
 
-# 11 "main.c"
+# 9 "RS232.h"
+extern void RS232_vInit(void);
+extern void RS232_vSendDataByte(T_U8 u8DataByte);
+extern void RS232_vSendMessage(const char u8Message[]);
+
+# 9 "main.c"
 void main(void)
 {
+RS232_vInit();
+RS232_vSendMessage("Init system lumini!\n\r");
 SCHED_vInitSystem();
 SCHED_vStartScheduler();
 }
-

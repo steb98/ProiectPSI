@@ -22,5 +22,7 @@ typedef char            T_8;
 #define _XTAL_FREQ 10000000UL /* 10Mhz */
 #endif
 
-#endif  /* GLOBAL_H */
+#define GetInstructionClock() _XTAL_FREQ
+#define UART_BD_RATE 9600
 
+#endif  /* GLOBAL_H */
